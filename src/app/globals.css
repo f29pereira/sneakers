@@ -18,7 +18,7 @@ Global CSS styles
   /*Neutral*/
   --dark-blue: hsl(220, 13%, 13%);
   --dark-grayish-blue: hsl(219, 9%, 45%);
-  ---grayish-blue: hsl(220, 14%, 75%);
+  --grayish-blue: hsl(220, 14%, 75%);
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
   --lightbox-bg: hsl(0, 0%, 0%);
@@ -26,8 +26,54 @@ Global CSS styles
 
 html,
 body {
+  background-color: var(--white);
   overflow-x: hidden;
   font-family: var(--font-kumbh-sans);
   -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
   -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
+  padding: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-grayish-blue);
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2 {
+  color: var(--dark-blue);
+}
+
+/*icon button*/
+.iconBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/*Available for screen readers*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  html,
+  body {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 87.5rem /*1400px*/) {
+  html,
+  body {
+    padding: 0 5rem;
+  }
 }

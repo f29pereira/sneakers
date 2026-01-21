@@ -1,0 +1,98 @@
+/*
+CSS Module for Nav component
+*/
+
+/*nav container*/
+.navCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+/*hamburguer button for mobile navigation*/
+.hamburgerButton {
+  margin-right: 1rem;
+}
+
+/*right navigation: container*/
+.rightNavCont {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*left navigation: desktop links*/
+.leftNavDesktop {
+  display: none;
+}
+
+/*user avatar*/
+.avatar {
+  width: 1.5rem; /*24px*/
+  height: 1.5rem; /*24px*/
+}
+
+@media (min-width: 48rem /*768px*/) {
+  /*hamburguer icon*/
+  .hamburguerIcon {
+    width: 1.2rem; /*19px*/
+    height: 1.2rem; /*19px*/
+  }
+
+  /*logo*/
+  .navLogo {
+    width: 9.3rem; /*150px*/
+    height: 1.5rem; /*24px*/
+  }
+
+  /*right navigation: container*/
+  .rightNavCont {
+    gap: 2rem;
+  }
+
+  /*user shopping cart*/
+  .cart {
+    width: 1.75rem; /*28px */
+    height: 1.6rem; /*26px*/
+  }
+
+  /*user avatar*/
+  .avatar {
+    width: 2.2rem; /*35px*/
+    height: 2.2rem; /*35px*/
+  }
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*nav container*/
+  .navCont {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--light-grayish-blue);
+  }
+
+  /*hamburguer button for mobile navigation*/
+  .hamburgerButton {
+    display: none;
+  }
+
+  /*left navigation: container*/
+  .leftNavCont {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  /*left navigation: desktop links*/
+  .leftNavDesktop {
+    display: flex;
+    gap: 2rem;
+  }
+
+  /*user avatar*/
+  .avatar {
+    width: 2.8rem; /*44px*/
+    height: 2.8rem; /*44px*/
+  }
+}
