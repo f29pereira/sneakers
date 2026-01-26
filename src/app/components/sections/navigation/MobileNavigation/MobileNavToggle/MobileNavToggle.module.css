@@ -1,0 +1,23 @@
+/*
+CSS Module for MobileNavToggle component
+*/
+
+/*hamburger button*/
+.hamburgerButton {
+  margin-right: 1rem;
+}
+
+@media (min-width: 48rem /*768px*/) {
+  /*hamburger button icon*/
+  .hamburgerIcon {
+    width: 1.2rem; /*19px*/
+    height: 1.2rem; /*19px*/
+  }
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*hamburger button*/
+  .hamburgerButton {
+    display: none;
+  }
+}

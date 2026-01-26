@@ -8,9 +8,16 @@ Global CSS styles
 }
 
 :root {
-  /*Font*/
+  /*Font:*/
+  /*Family*/
   --font-kumbh-sans: "Kumbh Sans", sans-serif;
+  /*Weight*/
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  /*Size*/
+  --font-size-base: 1rem;
 
+  /*Colors:*/
   /*Orange*/
   --orange: hsl(26, 100%, 55%);
   --pale-orange: hsl(25, 100%, 94%);
@@ -21,7 +28,7 @@ Global CSS styles
   --grayish-blue: hsl(220, 14%, 75%);
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
-  --lightbox-bg: hsl(0, 0%, 0%);
+  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
 }
 
 html,

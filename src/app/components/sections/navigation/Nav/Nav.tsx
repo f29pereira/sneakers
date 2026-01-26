@@ -1,9 +1,7 @@
-"use client"; //Client Component
-
 import styles from "./Nav.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
 
 /**
  * Renders desktop/mobile main navigation with links for:
@@ -19,34 +17,11 @@ import { useState } from "react";
  * - User Profile
  */
 export default function Nav() {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
-  /**
-   * Toggles the mobile navigation menu
-   */
-  const toggleMobileNav = () => {
-    setIsMobileNavOpen((prev) => !prev);
-  };
-
   return (
     <nav className={styles.navCont}>
       {/*Left navigation*/}
       <div className={styles.leftNavCont}>
-        {/*Mobile: Hamburguer button*/}
-        <button
-          className={`iconBtn ${styles.hamburgerButton}`}
-          aria-label={isMobileNavOpen ? "Close Menu" : "Open Menu"}
-          aria-expanded={isMobileNavOpen}
-          onClick={toggleMobileNav}
-        >
-          <Image
-            className={styles.hamburguerIcon}
-            src="images/icons/icon-menu.svg"
-            alt="Logo"
-            width={16}
-            height={15}
-          />
-        </button>
+        <MobileNavToggle />
 
         {/*Logo*/}
         <Image
@@ -113,10 +88,6 @@ export default function Nav() {
           </Link>
         </li>
       </ul>
-
-      {/*Mobile: Navigation*/}
-      {/*TO DO - Add MobileNav component*/}
-      {/*{isMobileNavOpen ? <MobileNav /> : null}*/}
     </nav>
   );
 }
