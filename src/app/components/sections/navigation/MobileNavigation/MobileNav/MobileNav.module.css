@@ -1,0 +1,45 @@
+/*
+CSS Module for MobileNav component
+*/
+
+/*pop up container*/
+.popUpCont {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--lightbox-bg);
+  width: 100vw;
+  height: 100vh;
+}
+
+/*close pop up button*/
+.closeButton {
+  margin-bottom: 2rem;
+}
+
+/*mobile nav container*/
+.mobileNavCont {
+  background-color: var(--white);
+  width: 65%;
+  height: 100%;
+  padding: 1.5rem 0 0 1.5rem;
+}
+
+/*list item*/
+.item {
+  margin-bottom: 1.5rem;
+}
+
+/*mobile navigation links*/
+.navLink {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-700);
+  color: var(--dark-blue);
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*pop up container*/
+  .popUpCont {
+    display: none;
+  }
+}

@@ -3,13 +3,14 @@
 import styles from "./MobileNavToggle.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import MobileNav from "../MobileNav/MobileNav";
 
 /**
  * Renders when mobile navigation pop-up is:
  *
  * closed: button with hamburger icon
  *
- * open: MobileNav (TO DO) component with navigation links
+ * open: MobileNav component with navigation links
  */
 export default function MobileNavToggle() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -41,8 +42,9 @@ export default function MobileNavToggle() {
             />
           </button>
         </>
-      ) : /*TO DO - add MobileNav component: <MobileNav handleToggle={toggleMobileNav} />*/
-      null}
+      ) : (
+        <MobileNav handleToggle={toggleMobileNav} />
+      )}
     </>
   );
 }
