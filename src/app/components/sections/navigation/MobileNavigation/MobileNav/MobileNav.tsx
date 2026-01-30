@@ -11,6 +11,8 @@ import type { MobileNavProps } from "../../../../types";
  * - Woman
  * - About
  * - Contact
+ *
+ * Props are defined in {@link MobileNavProps}.
  */
 export default function MobileNav({ handleToggle }: MobileNavProps) {
   return (
