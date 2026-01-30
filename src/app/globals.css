@@ -38,7 +38,6 @@ body {
   font-family: var(--font-kumbh-sans);
   -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
   -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
-  padding: 0 1rem;
 }
 
 a {
@@ -62,6 +61,13 @@ h2 {
   cursor: pointer;
 }
 
+/*Centered flex row container*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*Available for screen readers*/
 .sr-only {
   position: absolute;
@@ -69,18 +75,4 @@ h2 {
   height: 1px;
   overflow: hidden;
   white-space: nowrap;
-}
-
-@media (min-width: 62.5rem /*1000px*/) {
-  html,
-  body {
-    padding: 0 2rem;
-  }
-}
-
-@media (min-width: 87.5rem /*1400px*/) {
-  html,
-  body {
-    padding: 0 5rem;
-  }
 }

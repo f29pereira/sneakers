@@ -7,7 +7,7 @@ CSS Module for Nav component
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
 }
 
 /*right navigation: container*/
@@ -73,7 +73,7 @@ CSS Module for Nav component
 @media (min-width: 62.5rem /*1000px*/) {
   /*nav container*/
   .navCont {
-    padding: 2rem 0;
+    padding: 2rem;
     border-bottom: 1px solid var(--light-grayish-blue);
   }
 
@@ -129,5 +129,12 @@ CSS Module for Nav component
   /*user avatar link: on hover, draw border*/
   .avatarItem:hover {
     border-color: var(--orange);
+  }
+}
+
+@media (min-width: 87.5rem /*1400px*/) {
+  /*nav container*/
+  .navCont {
+    padding: 2rem 5rem;
   }
 }
