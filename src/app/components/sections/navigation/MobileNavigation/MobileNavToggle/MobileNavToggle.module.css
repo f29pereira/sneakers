@@ -8,7 +8,7 @@ CSS Module for MobileNavToggle component
 }
 
 @media (min-width: 48rem /*768px*/) {
-  /*hamburger button icon*/
+  /*hamburger button svg*/
   .hamburgerIcon {
     width: 1.2rem; /*19px*/
     height: 1.2rem; /*19px*/

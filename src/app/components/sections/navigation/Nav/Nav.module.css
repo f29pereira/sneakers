@@ -14,7 +14,7 @@ CSS Module for Nav component
 .rightNavCont {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 /*left navigation: desktop links*/
@@ -22,10 +22,27 @@ CSS Module for Nav component
   display: none;
 }
 
-/*user avatar*/
-.avatar {
+/*user shopping cart svg*/
+.cartIcon {
+  width: 1.375rem; /*22px*/
+  height: 1.25rem; /*20px*/
+}
+
+/*user shopping cart svg: color*/
+.cartIcon path {
+  fill: var(--dark-grayish-blue);
+}
+
+/*user avatar link*/
+.avatarItem {
   width: 1.5rem; /*24px*/
   height: 1.5rem; /*24px*/
+}
+
+/*user avatar icon*/
+.avatar {
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 48rem /*768px*/) {
@@ -40,14 +57,14 @@ CSS Module for Nav component
     gap: 2rem;
   }
 
-  /*user shopping cart*/
-  .cart {
+  /*user shopping cart svg*/
+  .cartIcon {
     width: 1.75rem; /*28px */
     height: 1.6rem; /*26px*/
   }
 
-  /*user avatar*/
-  .avatar {
+  /*user avatar link*/
+  .avatarItem {
     width: 2.2rem; /*35px*/
     height: 2.2rem; /*35px*/
   }
@@ -74,9 +91,43 @@ CSS Module for Nav component
     gap: 2rem;
   }
 
-  /*user avatar*/
-  .avatar {
+  /*list item*/
+  .item {
+    position: relative;
+  }
+
+  /*desktop navigation links: on hover, change link text color*/
+  .item:hover .navLink {
+    color: var(--dark-blue);
+  }
+
+  /*desktop navigation links: on hover, draw an underline*/
+  .item:hover::after {
+    content: "";
+    position: absolute;
+    top: 3.7rem;
+    left: 0;
+    border: 0.5px solid var(--orange);
+    background-color: var(--orange);
+    width: 100%;
+    height: 0.2rem;
+  }
+
+  /*user shopping cart svg: on hover, change color*/
+  .cartItem:hover .cartIcon path {
+    fill: var(--dark-blue);
+  }
+
+  /*user avatar link*/
+  .avatarItem {
     width: 2.8rem; /*44px*/
     height: 2.8rem; /*44px*/
+    border-radius: 50%;
+    border: 3px solid transparent;
+  }
+
+  /*user avatar link: on hover, draw border*/
+  .avatarItem:hover {
+    border-color: var(--orange);
   }
 }
