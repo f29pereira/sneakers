@@ -2,7 +2,7 @@ import styles from "./MobileNav.module.css";
 
 import Image from "next/image";
 import Link from "next/link";
-import type { MobileNavProps } from "../../types";
+import type { MobileNavProps } from "../../../../types";
 
 /**
  * Renders mobile navigation with links for:
