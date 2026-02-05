@@ -66,7 +66,11 @@ export default function Nav() {
       <ul className={styles.rightNavCont} aria-label="User Links">
         {/*Shopping Cart*/}
         <li className={styles.cartItem}>
-          <Link className={`flex-center ${styles.navLink}`} href="#">
+          <Link
+            className={`flex-center ${styles.navLink}`}
+            href="#"
+            aria-label="Shopping Cart"
+          >
             <svg
               className={styles.cartIcon}
               aria-hidden="true"
@@ -85,7 +89,7 @@ export default function Nav() {
           <Link className={`flex-center ${styles.navLink}`} href="#">
             <img
               src="images/user/image-avatar.png"
-              alt="My profile"
+              alt="Profile"
               className={styles.avatar}
             />
           </Link>
