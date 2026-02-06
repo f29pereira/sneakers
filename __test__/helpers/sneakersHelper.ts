@@ -2,32 +2,36 @@ import { screen } from "@testing-library/react";
 import { getNavLinksDesc } from "../fixtures/sneakers.fixture";
 
 /**
- * Helper function: checks MobileNav component elements existence
+ * Helper function: checks MobileNav component elements visibility
  */
 export const checkMobileNav = () => {
+  // Close navigation pop-up button
   const closeBtn = screen.getByRole("button", { name: "Close Menu" });
 
-  const mobileLinks = getMobileNavigation();
+  // Main navigation links
+  const mobileLinks = getMainNavigation();
 
-  // Check elements existence
-  expect(closeBtn).toBeInTheDocument();
-  expect(mobileLinks.collections).toBeInTheDocument();
-  expect(mobileLinks.men).toBeInTheDocument();
-  expect(mobileLinks.woman).toBeInTheDocument();
-  expect(mobileLinks.contact).toBeInTheDocument();
+  // Check elements visibility
+  expect(closeBtn).toBeVisible();
+  expect(mobileLinks.collections).toBeVisible();
+  expect(mobileLinks.men).toBeVisible();
+  expect(mobileLinks.woman).toBeVisible();
+  expect(mobileLinks.contact).toBeVisible();
 };
 
 /**
- * Helper function: returns mobile navigation links
+ * Helper function: returns main navigation links
  */
-const getMobileNavigation = () => {
+const getMainNavigation = () => {
   const data = getNavLinksDesc();
 
   return {
-    collections: screen.getByText(data.collectionsLink),
-    men: screen.getByText(data.menLink),
-    woman: screen.getByText(data.womanLink),
-    about: screen.getByText(data.aboutLink),
-    contact: screen.getByText(data.contact),
+    collections: screen.getByRole("link", {
+      name: data.collectionsLink,
+    }),
+    men: screen.getByRole("link", { name: data.menLink }),
+    woman: screen.getByRole("link", { name: data.womanLink }),
+    about: screen.getByRole("link", { name: data.aboutLink }),
+    contact: screen.getByRole("link", { name: data.contactLink }),
   };
 };

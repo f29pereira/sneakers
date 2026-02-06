@@ -8,7 +8,7 @@ import { checkMobileNav } from "../../../../../../helpers/sneakersHelper";
 describe("MobileNav component", () => {
   render(<MobileNav handleToggle={() => {}} />);
 
-  it("renders mobile navigation links", () => {
+  it("renders close button and mobile navigation links", () => {
     checkMobileNav();
   });
 });

@@ -7,8 +7,16 @@ export const getNavLinksDesc = () => {
     menLink: "Men",
     womanLink: "Woman",
     aboutLink: "About",
-    contact: "Contact",
-    shoppingCart: "Shopping Cart",
-    profile: "Profile",
+    contactLink: "Contact",
+  };
+};
+
+/**
+ * Mocked data: user links descriptions
+ */
+export const getUserLinksDesc = () => {
+  return {
+    shoppingCartLink: "Shopping Cart",
+    profileLink: "Profile",
   };
 };
