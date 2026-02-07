@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Nav from "@/app/components/sections/navigation/Nav/Nav";
-import { checkNav } from "../../../../../../helpers/sneakersHelper";
+import { checkNav } from "../../../../../helpers/sneakersHelper";
 
 /**
  * Unit testing for component: Nav
