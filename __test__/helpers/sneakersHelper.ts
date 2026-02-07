@@ -1,22 +1,45 @@
 import { screen } from "@testing-library/react";
-import { getNavLinksDesc } from "../fixtures/sneakers.fixture";
+import {
+  getNavLinksDesc,
+  getUserLinksDesc,
+} from "../fixtures/sneakers.fixture";
 
 /**
- * Helper function: checks MobileNav component elements visibility
+ * Helper function: checks the visibility of the following elements, in the MobileNav component:
+ * - Close navigation pop-up button
+ * - Main navigation links
  */
 export const checkMobileNav = () => {
-  // Close navigation pop-up button
   const closeBtn = screen.getByRole("button", { name: "Close Menu" });
-
-  // Main navigation links
   const mobileLinks = getMainNavigation();
 
-  // Check elements visibility
   expect(closeBtn).toBeVisible();
   expect(mobileLinks.collections).toBeVisible();
   expect(mobileLinks.men).toBeVisible();
   expect(mobileLinks.woman).toBeVisible();
   expect(mobileLinks.contact).toBeVisible();
+};
+
+/**
+ * Helper function: checks the visibility of the following elements, in the Nav component:
+ * - Open navigation pop-up button
+ * - Brand Logo
+ * - Main and User navigation links
+ */
+export const checkNav = () => {
+  const hamburgerBtn = screen.getByRole("button", { name: "Open Menu" });
+  const brandLogo = screen.getByAltText("Sneakers Logo");
+  const mainLinks = getMainNavigation();
+  const userLinks = getUserNavigation();
+
+  expect(hamburgerBtn).toBeVisible();
+  expect(brandLogo).toBeVisible();
+  expect(mainLinks.collections).toBeVisible();
+  expect(mainLinks.men).toBeVisible();
+  expect(mainLinks.woman).toBeVisible();
+  expect(mainLinks.contact).toBeVisible();
+  expect(userLinks.shopping).toBeVisible();
+  expect(userLinks.profile).toBeVisible();
 };
 
 /**
@@ -33,5 +56,19 @@ const getMainNavigation = () => {
     woman: screen.getByRole("link", { name: data.womanLink }),
     about: screen.getByRole("link", { name: data.aboutLink }),
     contact: screen.getByRole("link", { name: data.contactLink }),
+  };
+};
+
+/**
+ * Helper function: returns user navigation links
+ */
+const getUserNavigation = () => {
+  const data = getUserLinksDesc();
+
+  return {
+    shopping: screen.getByRole("link", {
+      name: data.shoppingCartLink,
+    }),
+    profile: screen.getByRole("link", { name: data.profileLink }),
   };
 };
