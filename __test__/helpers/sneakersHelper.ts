@@ -27,12 +27,11 @@ export const checkMobileNav = () => {
  * - Main and User navigation links
  */
 export const checkNav = () => {
-  const hamburgerBtn = screen.getByRole("button", { name: "Open Menu" });
   const brandLogo = screen.getByAltText("Sneakers Logo");
   const mainLinks = getMainNavigation();
   const userLinks = getUserNavigation();
 
-  expect(hamburgerBtn).toBeVisible();
+  checkMobileNavToggle();
   expect(brandLogo).toBeVisible();
   expect(mainLinks.collections).toBeVisible();
   expect(mainLinks.men).toBeVisible();
@@ -40,6 +39,16 @@ export const checkNav = () => {
   expect(mainLinks.contact).toBeVisible();
   expect(userLinks.shopping).toBeVisible();
   expect(userLinks.profile).toBeVisible();
+};
+
+/**
+ * Helper function: checks the visibility of the following elements, in the MobileNavToggle component:
+ * - Open navigation pop-up button
+ */
+export const checkMobileNavToggle = () => {
+  const hamburgerBtn = screen.getByRole("button", { name: "Open Menu" });
+
+  expect(hamburgerBtn).toBeVisible();
 };
 
 /**

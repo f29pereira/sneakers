@@ -16,7 +16,7 @@ import type { MobileNavProps } from "../../../../types";
  */
 export default function MobileNav({ handleToggle }: MobileNavProps) {
   return (
-    <div className={styles.popUpCont}>
+    <div className={styles.popUpCont} data-testid="mobile-nav">
       <nav className={styles.mobileNavCont}>
         {/*Close Mobile Navigation Button*/}
         <button
