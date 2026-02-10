@@ -4,10 +4,14 @@ CSS Module for Nav component
 
 /*nav container*/
 .navCont {
+  padding: 1.5rem 1rem;
+}
+
+/*navigation links container*/
+.linksCont {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1rem;
 }
 
 /*right navigation: container*/
@@ -45,6 +49,12 @@ CSS Module for Nav component
   height: 100%;
 }
 
+/*desktop nav divider line*/
+.navDivider {
+  display: none;
+  border-top: 1px solid var(--light-grayish-blue);
+}
+
 @media (min-width: 48rem /*768px*/) {
   /*logo*/
   .navLogo {
@@ -74,7 +84,11 @@ CSS Module for Nav component
   /*nav container*/
   .navCont {
     padding: 2rem;
-    border-bottom: 1px solid var(--light-grayish-blue);
+  }
+
+  /*navigation links container*/
+  .linksCont {
+    padding-bottom: 2rem;
   }
 
   /*left navigation: container*/
@@ -130,11 +144,16 @@ CSS Module for Nav component
   .avatarItem:hover {
     border-color: var(--orange);
   }
+
+  /*desktop nav divider line*/
+  .navDivider {
+    display: block;
+  }
 }
 
 @media (min-width: 87.5rem /*1400px*/) {
   /*nav container*/
   .navCont {
-    padding: 2rem 5rem;
+    padding: 2rem 10rem;
   }
 }
