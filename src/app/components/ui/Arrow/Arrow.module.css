@@ -21,3 +21,17 @@ CSS Module for Arrow component
   stroke: var(--dark-blue);
   stroke-width: 4;
 }
+
+@media (min-width: 48rem /*768px*/) {
+  /*main container*/
+  .arrowCont {
+    width: 2.5rem; /*40px*/
+    height: 2.5rem; /*40px*/
+  }
+
+  /*arrow icon*/
+  .arrowIcon {
+    width: 0.5rem; /*8px*/
+    height: 1rem; /*16px*/
+  }
+}

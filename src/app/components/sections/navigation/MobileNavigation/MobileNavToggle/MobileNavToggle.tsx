@@ -28,7 +28,7 @@ export default function MobileNavToggle() {
         <>
           {/*Open Mobile Navigation Button*/}
           <button
-            className={`iconBtn ${styles.hamburgerButton}`}
+            className={`mobileIconBtn ${styles.hamburgerButton}`}
             aria-label={isMobileNavOpen ? "Close Menu" : "Open Menu"}
             aria-expanded={isMobileNavOpen}
             onClick={toggleMobileNav}

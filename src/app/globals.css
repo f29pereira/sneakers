@@ -54,11 +54,10 @@ h2 {
   color: var(--dark-blue);
 }
 
-/*icon button*/
-.iconBtn {
+/*button with icon for mobile screens*/
+.mobileIconBtn {
   border: none;
   background: none;
-  cursor: pointer;
 }
 
 /*Centered flex row container*/

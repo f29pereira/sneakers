@@ -20,7 +20,7 @@ export default function MobileNav({ handleToggle }: MobileNavProps) {
       <nav className={styles.mobileNavCont}>
         {/*Close Mobile Navigation Button*/}
         <button
-          className={`iconBtn ${styles.closeButton}`}
+          className={`mobileIconBtn ${styles.closeButton}`}
           aria-label="Close Menu"
           onClick={handleToggle}
         >
