@@ -33,3 +33,28 @@ export type ProductGallery = {
 export type GalleryProps = {
   gallery: ProductGallery[];
 };
+
+/**
+ * Props for product details
+ * @property company       - product company
+ * @property name          - product name
+ * @property description   - description of the product
+ * @property originalPrice - original product price
+ * @property currentPrice  - current product price
+ * @property discount      - discont percentage
+ */
+export type ProductDetail = {
+  company: string;
+  name: string;
+  description: string;
+  originalPrice: string | null;
+  currentPrice: string;
+  discount: string | null;
+};
+
+/**
+ * Props for the Detail component
+ */
+export type DetailProps = {
+  details: ProductDetail;
+};

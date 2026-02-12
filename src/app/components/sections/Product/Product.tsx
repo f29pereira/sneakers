@@ -1,17 +1,25 @@
+import styles from "./Product.module.css";
 import Gallery from "./Gallery/Gallery";
-import { getGallery } from "./Product.utils";
+import Detail from "./Detail/Detail";
+import { getGallery, getDetails } from "./Product.utils";
 
 /**
- * Renders the product images and details/add to cart button
+ * Renders the product:
+ * - Gallery of images
+ * - Details
+ * - Quantity and add to cart button (TO DO)
  */
 export default function Product() {
   const galleryList = getGallery();
+  const details = getDetails();
 
   return (
-    <section>
+    <section className={styles.sectionCont}>
       <Gallery gallery={galleryList} />
 
-      {/*TO DO - Add Product Details component*/}
+      <Detail details={details} />
+
+      {/*TO DO - Add quantity and add to cart button*/}
     </section>
   );
 }

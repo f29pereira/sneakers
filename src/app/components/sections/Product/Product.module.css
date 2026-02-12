@@ -1,0 +1,10 @@
+/*
+CSS Module for Product component
+*/
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*section container*/
+  .sectionCont {
+    padding: 4rem 8rem 0 8rem;
+  }
+}
