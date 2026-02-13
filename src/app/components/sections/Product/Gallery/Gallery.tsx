@@ -14,6 +14,8 @@ import Arrow from "@/app/components/ui/Arrow/Arrow";
  *
  * For Desktop screens: (TO DO)
  * - Current image with clickable thumbnails
+ *
+ * Props are defined in {@link GalleryProps}.
  */
 export default function Gallery({ gallery }: GalleryProps) {
   const [currentImg, setCurrentImg] = useState<number>(0); // Current image index
@@ -52,7 +54,7 @@ export default function Gallery({ gallery }: GalleryProps) {
       {/*Mobile navigation*/}
       <div className={styles.leftArrowCont}>
         <button
-          className="mobileIconBtn"
+          className="buttonIcon"
           aria-label="Previous Product Image"
           onClick={showPreviousImg}
         >
@@ -62,7 +64,7 @@ export default function Gallery({ gallery }: GalleryProps) {
 
       <div className={styles.rightArrowCont}>
         <button
-          className="mobileIconBtn"
+          className="buttonIcon"
           aria-label="Next Product Image"
           onClick={showNextImg}
         >
