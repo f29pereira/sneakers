@@ -2,11 +2,6 @@
 CSS Module for Detail component
 */
 
-/*product details main container*/
-.detailsCont {
-  padding: 1.5rem 1rem;
-}
-
 /*product company*/
 .company {
   color: var(--dark-grayish-blue);

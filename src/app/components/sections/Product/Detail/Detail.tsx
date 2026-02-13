@@ -14,7 +14,7 @@ import type { DetailProps } from "@/app/components/types";
  */
 export default function Detail({ details }: DetailProps) {
   return (
-    <div className={styles.detailsCont}>
+    <div>
       {/*Company*/}
       <span className={styles.company}>{details.company}</span>
 

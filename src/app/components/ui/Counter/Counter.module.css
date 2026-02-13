@@ -1,0 +1,67 @@
+/*
+CSS Module for Counter component
+*/
+
+/*counter main container*/
+.counterCont {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--light-grayish-blue);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+/*minus button icon*/
+.minusIcon {
+  width: 0.75rem; /*12px*/
+  height: 0.25rem; /*4px*/
+}
+
+/*counter current value*/
+.counterValue {
+  font-weight: var(--font-weight-700);
+}
+
+/*plus button icon*/
+.plusIcon {
+  width: 0.75rem; /*12px*/
+  height: 0.75rem; /*12px*/
+}
+
+/*counter icon svg: color*/
+.minusIcon,
+.plusIcon path {
+  fill: var(--orange);
+}
+
+@media (min-width: 48rem /*768px*/) {
+  /*minus button icon*/
+  .minusIcon {
+    width: 1.25rem; /*20px*/
+    height: 0.75rem; /*12px*/
+  }
+
+  /*plus button icon*/
+  .plusIcon {
+    width: 1.25rem; /*20px*/
+    height: 1.25rem; /*20px*/
+  }
+
+  /*counter current value*/
+  .counterValue {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*counter buttons*/
+  .counterBtn {
+    cursor: pointer;
+  }
+
+  /*counter icon svg: on hover, change color*/
+  .counterBtn:hover .minusIcon path,
+  .counterBtn:hover .plusIcon path {
+    fill: var(--pale-orange);
+  }
+}

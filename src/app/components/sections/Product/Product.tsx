@@ -2,6 +2,7 @@ import styles from "./Product.module.css";
 import Gallery from "./Gallery/Gallery";
 import Detail from "./Detail/Detail";
 import { getGallery, getDetails } from "./Product.utils";
+import Counter from "../../ui/Counter/Counter";
 
 /**
  * Renders the product:
@@ -20,7 +21,9 @@ export default function Product() {
       <div className={styles.productInfoCont}>
         <Detail details={details} />
 
-        {/*TO DO - Add quantity and add to cart button*/}
+        <Counter />
+
+        {/*TO DO - Add to cart button*/}
       </div>
     </section>
   );
