@@ -27,11 +27,15 @@ export default function Detail({ details }: DetailProps) {
       <div className={styles.pricesCont}>
         <div className={styles.priceDiscontCont}>
           {/*Current Price*/}
-          <span className={styles.currentPrice}>${details.currentPrice}</span>
+          <div>
+            <span className="sr-only">Current price:</span>
+            <span className={styles.currentPrice}>${details.currentPrice}</span>
+          </div>
 
           {/*Discount Percentage*/}
           {details.discount ? (
             <div className={styles.discountCont}>
+              <span className="sr-only">Current discount:</span>
               <span className={styles.discount}>{details.discount}%</span>
             </div>
           ) : null}
@@ -39,7 +43,12 @@ export default function Detail({ details }: DetailProps) {
 
         {/*Original Price*/}
         {details.originalPrice ? (
-          <span className={styles.originalPrice}>${details.originalPrice}</span>
+          <div>
+            <span className="sr-only">Original price:</span>
+            <span className={styles.originalPrice}>
+              ${details.originalPrice}
+            </span>
+          </div>
         ) : null}
       </div>
     </div>
