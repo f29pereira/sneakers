@@ -2,6 +2,11 @@
 CSS Module for Product component
 */
 
+/*product details, counter and add to cart container*/
+.productInfoCont {
+  padding: 1.5rem 1rem;
+}
+
 @media (min-width: 62.5rem /*1000px*/) {
   /*section container*/
   .sectionCont {

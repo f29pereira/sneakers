@@ -17,9 +17,11 @@ export default function Product() {
     <section className={styles.sectionCont}>
       <Gallery gallery={galleryList} />
 
-      <Detail details={details} />
+      <div className={styles.productInfoCont}>
+        <Detail details={details} />
 
-      {/*TO DO - Add quantity and add to cart button*/}
+        {/*TO DO - Add quantity and add to cart button*/}
+      </div>
     </section>
   );
 }
