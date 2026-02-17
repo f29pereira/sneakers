@@ -21,6 +21,7 @@ Global CSS styles
   /*Orange*/
   --orange: hsl(26, 100%, 55%);
   --pale-orange: hsl(25, 100%, 94%);
+  --orange-box-shadow: hsl(26, 100%, 55%, 0.13);
 
   /*Neutral*/
   --dark-blue: hsl(220, 13%, 13%);

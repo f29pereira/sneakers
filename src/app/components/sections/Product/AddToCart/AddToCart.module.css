@@ -1,0 +1,31 @@
+/*
+CSS Module for AddToCart component
+*/
+
+/*button*/
+.button {
+  gap: 1rem;
+  cursor: pointer;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 10px 5px -1px var(--orange-box-shadow);
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+/*button: on hover, change color*/
+.button:hover {
+  background-color: var(--pale-orange);
+}
+
+/*button text*/
+.text {
+  font-weight: var(--font-weight-700);
+}
+
+/*shopping cart svg*/
+.cartIcon {
+  width: 1.125rem; /*18px*/
+  height: 1rem; /*16px*/
+}
