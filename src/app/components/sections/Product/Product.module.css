@@ -7,9 +7,33 @@ CSS Module for Product component
   padding: 1.5rem 1rem;
 }
 
+/*add to cart button container*/
+.addToCartCont {
+  margin: 1rem 0 2rem 0;
+}
+
 @media (min-width: 62.5rem /*1000px*/) {
   /*section container*/
   .sectionCont {
     padding: 4rem 8rem 0 8rem;
+  }
+
+  /*product counter and add to cart button container*/
+  .counterAddToCartCont {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /*product counter container*/
+  .counterCont {
+    flex: 1;
+  }
+
+  /*add to cart button container*/
+  .addToCartCont {
+    flex: 2;
+    margin: 0;
   }
 }

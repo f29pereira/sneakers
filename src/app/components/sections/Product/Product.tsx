@@ -3,12 +3,14 @@ import Gallery from "./Gallery/Gallery";
 import Detail from "./Detail/Detail";
 import { getGallery, getDetails } from "./Product.utils";
 import Counter from "../../ui/Counter/Counter";
+import AddToCart from "./AddToCart/AddToCart";
 
 /**
- * Renders the product:
+ * Renders the product with:
  * - Gallery of images
  * - Details
- * - Quantity and add to cart button (TO DO)
+ * - Counter
+ * - Add to cart button
  */
 export default function Product() {
   const galleryList = getGallery();
@@ -21,9 +23,15 @@ export default function Product() {
       <div className={styles.productInfoCont}>
         <Detail details={details} />
 
-        <Counter />
+        <div className={styles.counterAddToCartCont}>
+          <div className={styles.counterCont}>
+            <Counter />
+          </div>
 
-        {/*TO DO - Add to cart button*/}
+          <div className={styles.addToCartCont}>
+            <AddToCart />
+          </div>
+        </div>
       </div>
     </section>
   );
