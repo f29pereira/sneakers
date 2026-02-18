@@ -7,7 +7,9 @@ CSS Module for Counter component
   display: flex;
   justify-content: space-between;
   background-color: var(--light-grayish-blue);
-  border-radius: 5px;
+  border-radius: var(--border-radius-10);
+  height: 100%;
+  width: 100%;
   padding: 1rem;
 }
 
@@ -62,6 +64,6 @@ CSS Module for Counter component
   /*counter icon svg: on hover, change color*/
   .counterBtn:hover .minusIcon path,
   .counterBtn:hover .plusIcon path {
-    fill: var(--pale-orange);
+    fill: var(--hover-orange);
   }
 }
