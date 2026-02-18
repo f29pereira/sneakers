@@ -16,22 +16,36 @@ export type ArrowProps = {
 
 /**
  * Props for the product gallery
- * @property imagePath    - product image path
- * @property thumbnail    - product thumbnail image path
- * @property description  - product image description
+ * @property imagePath            - product image path
+ * @property imageDescription     - product image description
+ * @property thumbnailPath        - product thumbnail image path
+ * @property thumbnailDescription - product thumbnail description
  */
 export type ProductGallery = {
   imagePath: string;
+  imageDescription: string;
   thumbnailPath: string;
-  description: string;
+  thumbnailDescription: string;
 };
 
 /**
  * Props for the Gallery component
- * @property gallery - array of ProductGallery
+ * @property gallery     - array of ProductGallery
  */
 export type GalleryProps = {
   gallery: ProductGallery[];
+};
+
+/**
+ * Props for the ThumbnailList component
+ * @property gallery         - array of ProductGallery
+ * @property selectedImg     - selected image index
+ * @property handleSelectImg - function to change the current selected image
+ */
+export type ThumbnailListProps = {
+  gallery: ProductGallery[];
+  selectedImg: number;
+  handleSelectImg: (index: number) => void;
 };
 
 /**

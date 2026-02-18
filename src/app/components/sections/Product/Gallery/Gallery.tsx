@@ -5,6 +5,7 @@ import type { GalleryProps } from "@/app/components/types";
 import Image from "next/image";
 import { useState } from "react";
 import Arrow from "@/app/components/ui/Arrow/Arrow";
+import ThumbnailList from "./ThumbnailList/ThumbnailList";
 
 /**
  * Renders the product images gallery
@@ -12,7 +13,7 @@ import Arrow from "@/app/components/ui/Arrow/Arrow";
  * For Mobile screens:
  * - Current image with prev/next button navigation
  *
- * For Desktop screens: (TO DO)
+ * For Desktop screens:
  * - Current image with clickable thumbnails
  *
  * Props are defined in {@link GalleryProps}.
@@ -38,6 +39,15 @@ export default function Gallery({ gallery }: GalleryProps) {
       : setCurrentImg((prev) => prev + 1);
   };
 
+  /**
+   * Updates state with the current product image
+   */
+  const showImg = (index: number) => {
+    if (index >= 0 && index < gallery.length) {
+      setCurrentImg(index);
+    }
+  };
+
   return (
     <div className={styles.galleryCont}>
       {/*Current Image*/}
@@ -47,7 +57,7 @@ export default function Gallery({ gallery }: GalleryProps) {
           src={gallery[currentImg].imagePath}
           width={1000}
           height={1000}
-          alt={gallery[currentImg].description}
+          alt={gallery[currentImg].imageDescription}
         />
       ) : null}
 
@@ -72,8 +82,11 @@ export default function Gallery({ gallery }: GalleryProps) {
         </button>
       </div>
 
-      {/*Desktop thumbnails*/}
-      {/*TO DO - Add product thumbnails for desktop*/}
+      <ThumbnailList
+        gallery={gallery}
+        selectedImg={currentImg}
+        handleSelectImg={showImg}
+      />
     </div>
   );
 }
