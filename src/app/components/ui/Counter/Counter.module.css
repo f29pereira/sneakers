@@ -56,11 +56,6 @@ CSS Module for Counter component
 }
 
 @media (min-width: 62.5rem /*1000px*/) {
-  /*counter buttons*/
-  .counterBtn {
-    cursor: pointer;
-  }
-
   /*counter icon svg: on hover, change color*/
   .counterBtn:hover .minusIcon path,
   .counterBtn:hover .plusIcon path {

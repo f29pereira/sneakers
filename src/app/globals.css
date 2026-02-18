@@ -79,3 +79,9 @@ h2 {
   overflow: hidden;
   white-space: nowrap;
 }
+
+@media (min-width: 62.5rem /*1000px*/) {
+  button {
+    cursor: pointer;
+  }
+}
