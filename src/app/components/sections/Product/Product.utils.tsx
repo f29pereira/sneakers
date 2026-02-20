@@ -7,23 +7,27 @@ export const getGallery = (): ProductGallery[] => {
   const galleryList: ProductGallery[] = [
     {
       imagePath: "/images/products/image-product-1.jpg",
+      imageDescription: "Fall Limited Edition Sneakers - front view and sole",
       thumbnailPath: "/images/products/image-product-1-thumbnail.jpg",
-      description: "Fall Limited Edition Sneakers - front view and sole",
+      thumbnailDescription: "Show front view and sole",
     },
     {
       imagePath: "/images/products/image-product-2.jpg",
+      imageDescription: "Fall Limited Edition Sneakers - back view",
       thumbnailPath: "/images/products/image-product-2-thumbnail.jpg",
-      description: "Fall Limited Edition Sneakers - back view",
+      thumbnailDescription: "Show back view",
     },
     {
       imagePath: "/images/products/image-product-3.jpg",
+      imageDescription: "Fall Limited Edition Sneakers - side view",
       thumbnailPath: "/images/products/image-product-3-thumbnail.jpg",
-      description: "Fall Limited Edition Sneakers - side view",
+      thumbnailDescription: "Show side view",
     },
     {
       imagePath: "/images/products/image-product-4.jpg",
+      imageDescription: "Fall Limited Edition Sneakers - side view close up",
       thumbnailPath: "/images/products/image-product-4-thumbnail.jpg",
-      description: "Fall Limited Edition Sneakers - side view close up",
+      thumbnailDescription: "Show side view close up",
     },
   ];
 

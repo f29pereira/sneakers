@@ -18,7 +18,9 @@ export default function Product() {
 
   return (
     <section className={styles.sectionCont}>
-      <Gallery gallery={galleryList} />
+      <div className={styles.productImagesCont}>
+        <Gallery gallery={galleryList} />
+      </div>
 
       <div className={styles.productInfoCont}>
         <Detail details={details} />

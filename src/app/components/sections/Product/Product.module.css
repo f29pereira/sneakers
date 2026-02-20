@@ -12,18 +12,43 @@ CSS Module for Product component
   margin: 1rem 0 2rem 0;
 }
 
-@media (min-width: 62.5rem /*1000px*/) {
-  /*section container*/
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*product details, counter and add to cart container: increase left/right padding*/
+  .productInfoCont {
+    padding: 1.5rem 3rem;
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*section container: set flex container for the product image/thumbnails and details/counter/add to cart button*/
   .sectionCont {
-    padding: 4rem 8rem 0 8rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 53.125rem; /*850px*/
+    margin: 1rem auto 4rem auto;
+  }
+
+  /*product image and thumbnails*/
+  .productImagesCont {
+    flex: 1;
+  }
+
+  /*product details, counter and add to cart container: reset padding and set margin top*/
+  .productInfoCont {
+    padding: 0;
+    margin-top: 4rem;
+    flex: 1;
   }
 
   /*product counter and add to cart button container*/
   .counterAddToCartCont {
     display: flex;
-    align-items: top;
     justify-content: center;
     gap: 1rem;
+    height: 3.75rem; /*60px*/
   }
 
   /*product counter container*/
@@ -31,9 +56,19 @@ CSS Module for Product component
     flex: 1;
   }
 
-  /*add to cart button container*/
+  /*add to cart button container: reset margin*/
   .addToCartCont {
-    flex: 2;
+    flex: 1.5;
     margin: 0;
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*section container: increase gap, max width and top margin*/
+  .sectionCont {
+    gap: 6rem;
+    max-width: 59.375rem; /*950px*/
+    margin: 2rem auto 4rem auto;
   }
 }
