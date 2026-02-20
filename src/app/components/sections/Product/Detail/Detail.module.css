@@ -10,7 +10,7 @@ CSS Module for Detail component
   letter-spacing: 0.1rem;
 }
 
-/*product name*/
+/*header with product name*/
 .name {
   font-size: 1.7rem;
   margin: 0.5rem 0 1rem 0;
@@ -77,7 +77,7 @@ CSS Module for Detail component
     font-size: var(--font-size-base);
   }
 
-  /*product name: increase font size*/
+  /*header with product name: increase font size*/
   .name {
     font-size: 2.5rem;
   }
@@ -112,5 +112,19 @@ CSS Module for Detail component
     top: 2.8rem;
     left: 0;
     font-size: 1.2rem;
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*header with product name: increase font size and bottom margin*/
+  .name {
+    font-size: 2.8rem;
+    margin: 0.5rem 0 2rem 0;
+  }
+
+  /*product current price and discount container: increase top margin*/
+  .pricesCont {
+    margin: 2rem 0 4rem 0;
   }
 }

@@ -2,7 +2,7 @@
 CSS Module for AddToCart component
 */
 
-/*button*/
+/*add to cart button*/
 .button {
   gap: 1rem;
   background-color: var(--orange);
@@ -26,9 +26,21 @@ CSS Module for AddToCart component
   height: 1rem; /*16px*/
 }
 
-@media (min-width: 62.5rem /*1000px*/) {
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*add to cart button: remove padding*/
+  .button {
+    padding: 0;
+  }
+
   /*button: on hover, change color*/
   .button:hover {
     background-color: var(--hover-orange);
+  }
+
+  /*shopping cart svg: increase width/height*/
+  .cartIcon {
+    width: 1.25rem; /*20px*/
+    height: 1.125rem; /*18px*/
   }
 }
