@@ -6,6 +6,7 @@ CSS Module for Counter component
 .counterCont {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--light-grayish-blue);
   border-radius: var(--border-radius-10);
   height: 100%;
@@ -36,26 +37,28 @@ CSS Module for Counter component
   fill: var(--orange);
 }
 
+/*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
-  /*minus button icon*/
+  /*minus button icon: increase width and height*/
   .minusIcon {
     width: 1rem;
     height: 0.5rem;
   }
 
-  /*plus button icon*/
+  /*plus button icon: increase width and height*/
   .plusIcon {
     width: 1rem;
     height: 1rem;
   }
 
-  /*counter current value*/
+  /*counter current value: increase font size*/
   .counterValue {
     font-size: 1.2rem;
   }
 }
 
-@media (min-width: 62.5rem /*1000px*/) {
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
   /*counter icon svg: on hover, change color*/
   .counterBtn:hover .minusIcon path,
   .counterBtn:hover .plusIcon path {
