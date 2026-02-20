@@ -82,11 +82,13 @@ export default function Gallery({ gallery }: GalleryProps) {
         </button>
       </div>
 
-      <ThumbnailList
-        gallery={gallery}
-        selectedImg={currentImg}
-        handleSelectImg={showImg}
-      />
+      <div className={styles.productThumbnailCont}>
+        <ThumbnailList
+          gallery={gallery}
+          selectedImg={currentImg}
+          handleSelectImg={showImg}
+        />
+      </div>
     </div>
   );
 }

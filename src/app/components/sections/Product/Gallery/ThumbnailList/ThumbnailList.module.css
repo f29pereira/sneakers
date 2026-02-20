@@ -2,9 +2,13 @@
 CSS Module for ThumbnailList component
 */
 
-/*product thumbnail images container*/
+/*product thumbnails list container*/
 .thumbnailsCont {
-  display: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 2rem; /*row gap, column gap*/
+  margin-top: 1.5rem;
 }
 
 /*thumbnail button*/
@@ -20,8 +24,8 @@ CSS Module for ThumbnailList component
 /*thumbnail image*/
 .thumbnailImg {
   border-radius: var(--border-radius-10);
-  width: 110px;
-  height: 110px;
+  width: 4rem; /*64px*/
+  height: 4rem; /*64px*/
 }
 
 /*thumbnail image is selected*/
@@ -30,12 +34,11 @@ CSS Module for ThumbnailList component
   opacity: 0.33;
 }
 
-@media (min-width: 62.5rem /*1000px*/) {
-  /*product thumbnails list container*/
-  .thumbnailsCont {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*thumbnail image: set border and increase width/height*/
+  .thumbnailImg {
+    width: 5rem; /*80px*/
+    height: 5rem; /*80px*/
   }
 }

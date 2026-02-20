@@ -4,15 +4,14 @@ CSS Module for Gallery component
 
 /*images/thumbnails main container*/
 .galleryCont {
-  height: 18rem; /*288px*/
   position: relative;
 }
 
-/*product image*/
+/*selected product image*/
 .productImg {
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 18rem; /*288px*/
 }
 
 /*left and right arrow container*/
@@ -33,9 +32,35 @@ CSS Module for Gallery component
   right: 0.8rem;
 }
 
+/*product thumbnails containter: not displayed for mobile/tablet screens*/
+.productThumbnailCont {
+  display: none;
+}
+
+/*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
-  /*images/thumbnails main container*/
-  .galleryCont {
+  /*selected product image: increase image height*/
+  .productImg {
     height: 30rem; /*480px*/
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*product thumbnails containter*/
+  .productThumbnailCont {
+    display: block;
+  }
+
+  /*selected product image: increase height and set border radius*/
+  .productImg {
+    height: 28.125rem; /*450px*/
+    border-radius: var(--border-radius-10);
+  }
+
+  /*left and right arrow containers: not displayed for desktop screens*/
+  .leftArrowCont,
+  .rightArrowCont {
+    display: none;
   }
 }
