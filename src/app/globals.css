@@ -32,13 +32,13 @@ Global CSS styles
   --lightbox-bg: hsla(0, 0%, 0%, 0.75);
 
   /*Border*/
+  --border-radius-5: 5px;
   --border-radius-10: 10px;
 }
 
 html,
 body {
   background-color: var(--white);
-  overflow-x: hidden;
   font-family: var(--font-kumbh-sans);
   -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
   -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
