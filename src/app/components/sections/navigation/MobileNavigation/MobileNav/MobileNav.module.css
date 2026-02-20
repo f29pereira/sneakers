@@ -2,7 +2,7 @@
 CSS Module for MobileNav component
 */
 
-/*pop up container*/
+/*mobile navigation pop up main container*/
 .popUpCont {
   position: absolute;
   z-index: 1;
@@ -13,7 +13,7 @@ CSS Module for MobileNav component
   height: 100vh;
 }
 
-/*close pop up button*/
+/*close mobile navigation pop up button*/
 .closeButton {
   margin-bottom: 2rem;
 }
@@ -38,8 +38,9 @@ CSS Module for MobileNav component
   color: var(--dark-blue);
 }
 
-@media (min-width: 62.5rem /*1000px*/) {
-  /*pop up container*/
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*mobile navigation pop up main container: not displayed*/
   .popUpCont {
     display: none;
   }
