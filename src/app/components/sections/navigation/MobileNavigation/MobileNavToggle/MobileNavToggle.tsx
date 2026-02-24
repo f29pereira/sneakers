@@ -2,7 +2,7 @@
 
 import styles from "./MobileNavToggle.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import useToggle from "@/app/components/customHooks/useToggle";
 import MobileNav from "../MobileNav/MobileNav";
 
 /**
@@ -13,25 +13,18 @@ import MobileNav from "../MobileNav/MobileNav";
  * open: MobileNav component with navigation links
  */
 export default function MobileNavToggle() {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
-  /**
-   * Toggles the mobile navigation pop-up
-   */
-  const toggleMobileNav = () => {
-    setIsMobileNavOpen((prev) => !prev);
-  };
+  const { isToggled, toggle } = useToggle(false);
 
   return (
     <>
-      {!isMobileNavOpen ? (
+      {!isToggled ? (
         <>
           {/*Open Mobile Navigation Button*/}
           <button
             className={`buttonIcon ${styles.hamburgerButton}`}
-            aria-label={isMobileNavOpen ? "Close Menu" : "Open Menu"}
-            aria-expanded={isMobileNavOpen}
-            onClick={toggleMobileNav}
+            aria-label={isToggled ? "Close Menu" : "Open Menu"}
+            aria-expanded={isToggled}
+            onClick={toggle}
           >
             <Image
               className={styles.hamburgerIcon}
@@ -43,7 +36,7 @@ export default function MobileNavToggle() {
           </button>
         </>
       ) : (
-        <MobileNav handleToggle={toggleMobileNav} />
+        <MobileNav handleToggle={toggle} />
       )}
     </>
   );
