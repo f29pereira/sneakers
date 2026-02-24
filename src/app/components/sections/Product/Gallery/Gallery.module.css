@@ -7,14 +7,7 @@ CSS Module for Gallery component
   position: relative;
 }
 
-/*selected product image*/
-.productImg {
-  object-fit: cover;
-  width: 100%;
-  height: 18rem; /*288px*/
-}
-
-/*left and right arrow container*/
+/*mobile image navigation prev/next buttons positioning*/
 .leftArrowCont,
 .rightArrowCont {
   position: absolute;
@@ -22,43 +15,36 @@ CSS Module for Gallery component
   transform: translateY(-50%);
 }
 
-/*left arrow container*/
+/*mobile image navigation prev button container*/
 .leftArrowCont {
   left: 0.8rem;
 }
 
-/*right arrow container*/
+/*mobile image navigation next button container*/
 .rightArrowCont {
   right: 0.8rem;
 }
 
-/*product thumbnails containter: not displayed for mobile/tablet screens*/
-.productThumbnailCont {
+/*desktop button with current image and thumbnail list: not displayed for mobile/tablet screens*/
+.desktopImgCont,
+.desktopThumbnailCont {
   display: none;
-}
-
-/*Tablet Styles*/
-@media (min-width: 48rem /*768px*/) {
-  /*selected product image: increase image height*/
-  .productImg {
-    height: 30rem; /*480px*/
-  }
 }
 
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
-  /*product thumbnails containter*/
-  .productThumbnailCont {
+  /*mobile current image: not displayed for desktop screens*/
+  .mobileImgCont {
+    display: none;
+  }
+
+  /*button with current image and thumbnail list: displayed for desktop screens*/
+  .desktopImgCont,
+  .desktopThumbnailCont {
     display: block;
   }
 
-  /*selected product image: increase height and set border radius*/
-  .productImg {
-    height: 28.125rem; /*450px*/
-    border-radius: var(--border-radius-10);
-  }
-
-  /*left and right arrow containers: not displayed for desktop screens*/
+  /*mobile image navigation prev/next buttons: not displayed for desktop screens*/
   .leftArrowCont,
   .rightArrowCont {
     display: none;

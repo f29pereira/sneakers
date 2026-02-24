@@ -37,8 +37,22 @@ export type GalleryProps = {
 };
 
 /**
+ * Props for the ProductImage component
+ * @property path            - image path
+ * @property description     - image description
+ * @property intrinsicWidth  - intrinsic image width in pixels
+ * @property intrinsicHeight - intrinsic image height in pixels
+ */
+export type ProductImageProps = {
+  path: string;
+  description: string;
+  intrinsicWidth: number;
+  intrinsicHeight: number;
+};
+
+/**
  * Props for the ThumbnailList component
- * @property gallery         - array of ProductGallery
+ * @property gallery         - list of images
  * @property selectedImg     - selected image index
  * @property handleSelectImg - function to change the current selected image
  */
