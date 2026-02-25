@@ -1,11 +1,12 @@
 import styles from "./MobileNav.module.css";
-
-import Image from "next/image";
 import Link from "next/link";
 import type { MobileNavProps } from "../../../../types";
+import CloseButton from "@/app/components/ui/CloseButton/CloseButton";
 
 /**
- * Renders mobile navigation with links for:
+ * Renders mobile navigation pop-up with:
+ * - Close button
+ * Navigation links:
  * - Collections
  * - Men
  * - Woman
@@ -19,19 +20,9 @@ export default function MobileNav({ handleToggle }: MobileNavProps) {
     <div className={styles.popUpCont} data-testid="mobile-nav">
       <nav className={styles.mobileNavCont}>
         {/*Close Mobile Navigation Button*/}
-        <button
-          className={`buttonIcon ${styles.closeButton}`}
-          aria-label="Close Menu"
-          onClick={handleToggle}
-        >
-          <Image
-            className={styles.hamburgerIcon}
-            src="images/icons/icon-close.svg"
-            alt=""
-            width={16}
-            height={15}
-          />
-        </button>
+        <div className={styles.closeBtnCont}>
+          <CloseButton ariaLabel="Close Menu" handleClose={handleToggle} />
+        </div>
 
         {/*Mobile Navigation*/}
         <ul>

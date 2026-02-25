@@ -1,3 +1,7 @@
+/* ---------------------------------------------------- */
+/* Components Props types                               */
+/* ---------------------------------------------------- */
+
 /**
  * Props for the MobileNav component
  * @property handleToggle  - state (isMobileNavOpen) setter function
@@ -7,30 +11,8 @@ export type MobileNavProps = {
 };
 
 /**
- * Props for the Arrow component
- * @property direction - arrow direction
- */
-export type ArrowProps = {
-  direction: "left" | "right";
-};
-
-/**
- * Props for the product gallery
- * @property imagePath            - product image path
- * @property imageDescription     - product image description
- * @property thumbnailPath        - product thumbnail image path
- * @property thumbnailDescription - product thumbnail description
- */
-export type ProductGallery = {
-  imagePath: string;
-  imageDescription: string;
-  thumbnailPath: string;
-  thumbnailDescription: string;
-};
-
-/**
  * Props for the Gallery component
- * @property gallery     - array of ProductGallery
+ * @property gallery - list of images
  */
 export type GalleryProps = {
   gallery: ProductGallery[];
@@ -63,6 +45,54 @@ export type ThumbnailListProps = {
 };
 
 /**
+ * Props for the Detail component
+ * @property details - product details
+ */
+export type DetailProps = {
+  details: ProductDetail;
+};
+
+/* ---------------------------------------------------- */
+/* Reusable UI components Props types                   */
+/* ---------------------------------------------------- */
+
+/**
+ * Props for the Arrow component
+ * @property direction - arrow direction
+ */
+export type ArrowProps = {
+  direction: "left" | "right";
+};
+
+/**
+ * Props for the CloseButton component
+ * @property ariaLabel   - aria-label description
+ * @property handleClose - close function
+ */
+export type CloseButtonProps = {
+  ariaLabel: string;
+  handleClose: React.MouseEventHandler;
+};
+
+/* ---------------------------------------------------- */
+/* Other component related types                        */
+/* ---------------------------------------------------- */
+
+/**
+ * Props for the product gallery
+ * @property imagePath            - product image path
+ * @property imageDescription     - product image description
+ * @property thumbnailPath        - product thumbnail image path
+ * @property thumbnailDescription - product thumbnail description
+ */
+export type ProductGallery = {
+  imagePath: string;
+  imageDescription: string;
+  thumbnailPath: string;
+  thumbnailDescription: string;
+};
+
+/**
  * Props for product details
  * @property company       - product company
  * @property name          - product name
@@ -78,11 +108,4 @@ export type ProductDetail = {
   originalPrice: string | null;
   currentPrice: string;
   discount: string | null;
-};
-
-/**
- * Props for the Detail component
- */
-export type DetailProps = {
-  details: ProductDetail;
 };
