@@ -1,6 +1,7 @@
 import styles from "./ProductImage.module.css";
 import type { ProductImageProps } from "@/app/components/types";
 import Image from "next/image";
+import clsx from "clsx";
 
 /**
  * Renders the current selected product image
@@ -10,12 +11,13 @@ import Image from "next/image";
 export default function ProductImage({
   path,
   description,
+  className,
   intrinsicWidth,
   intrinsicHeight,
 }: ProductImageProps) {
   return (
     <Image
-      className={styles.productImg}
+      className={clsx(styles.productImg, className)}
       src={path}
       width={intrinsicWidth}
       height={intrinsicHeight}

@@ -3,9 +3,12 @@
 import styles from "./Gallery.module.css";
 import type { GalleryProps } from "@/app/components/types";
 import { useState } from "react";
+import { createPortal } from "react-dom";
+import useToggle from "@/app/components/customHooks/useToggle";
 import ProductImage from "./ProductImage/ProductImage";
 import ArrowButton from "@/app/components/ui/Buttons/ArrowButton/ArrowButton";
 import ThumbnailList from "./ThumbnailList/ThumbnailList";
+import GalleryModal from "./GalleryModal/GalleryModal";
 
 /**
  * Renders the product images gallery
@@ -15,12 +18,14 @@ import ThumbnailList from "./ThumbnailList/ThumbnailList";
  *
  * For Desktop screens:
  * - Button with image and list of thumbnails
- * - If button is clicked opens modal with current image and list of thumbnails (TO DO)
+ * - If button is clicked opens modal with current image and list of thumbnails
  *
  * Props are defined in {@link GalleryProps}.
  */
 export default function Gallery({ gallery }: GalleryProps) {
   const [currentImg, setCurrentImg] = useState<number>(0); // Current image index
+
+  const { isToggled, toggle } = useToggle(false); // Gallery modal
 
   /**
    * Updates state with the previous product image index
@@ -66,7 +71,7 @@ export default function Gallery({ gallery }: GalleryProps) {
 
           {/*Desktop: button with current image*/}
           <div className={styles.desktopImgCont}>
-            <button className="buttonIcon">
+            <button className="buttonIcon" onClick={toggle}>
               <ProductImage
                 path={gallery[currentImg].imagePath}
                 description={gallery[currentImg].imageDescription}
@@ -104,7 +109,20 @@ export default function Gallery({ gallery }: GalleryProps) {
         />
       </div>
 
-      {/*TO DO - add modal image with thumbnail list*/}
+      {/*Modal*/}
+      {isToggled
+        ? createPortal(
+            <GalleryModal
+              gallery={gallery}
+              selectedImg={currentImg}
+              handleClose={toggle}
+              handleSelectPrevImg={showPreviousImg}
+              handleSelectNextImg={showNextImg}
+              handleSelectImg={showImg}
+            />,
+            document.body,
+          )
+        : null}
     </div>
   );
 }

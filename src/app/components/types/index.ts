@@ -22,14 +22,34 @@ export type GalleryProps = {
  * Props for the ProductImage component
  * @property path            - image path
  * @property description     - image description
+ * @property className       - styling classes
  * @property intrinsicWidth  - intrinsic image width in pixels
  * @property intrinsicHeight - intrinsic image height in pixels
  */
 export type ProductImageProps = {
   path: string;
   description: string;
+  className?: string;
   intrinsicWidth: number;
   intrinsicHeight: number;
+};
+
+/**
+ * Props for the GalleryModal component
+ * @property gallery             - list of images
+ * @property selectedImg         - selected image index
+ * @property selectedImg         - function to close the modal
+ * @property handleSelectPrevImg - function to change to the previous image
+ * @property handleSelectNextImg - function to change to the next image
+ * @property handleSelectImg     - function to change the current selected image
+ */
+export type GalleryModal = {
+  gallery: ProductGallery[];
+  selectedImg: number;
+  handleClose: () => void;
+  handleSelectPrevImg: () => void;
+  handleSelectNextImg: () => void;
+  handleSelectImg: (index: number) => void;
 };
 
 /**
