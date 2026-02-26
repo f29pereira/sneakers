@@ -66,11 +66,13 @@ export type ArrowProps = {
 
 /**
  * Props for the CloseButton component
- * @property ariaLabel   - aria-label description
- * @property handleClose - close function
+ * @property ariaLabel    - aria-label description
+ * @property className    - styling classes
+ * @property handleClose  - close function
  */
 export type CloseButtonProps = {
   ariaLabel: string;
+  className?: string;
   handleClose: React.MouseEventHandler;
 };
 
