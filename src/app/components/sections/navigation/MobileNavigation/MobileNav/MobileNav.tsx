@@ -1,7 +1,7 @@
 import styles from "./MobileNav.module.css";
 import Link from "next/link";
 import type { MobileNavProps } from "../../../../types";
-import CloseButton from "@/app/components/ui/CloseButton/CloseButton";
+import CloseButton from "@/app/components/ui/Buttons/CloseButton/CloseButton";
 
 /**
  * Renders mobile navigation pop-up with:
