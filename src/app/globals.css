@@ -64,9 +64,24 @@ h2 {
   background: none;
 }
 
+/*Vertically centers absolute positioned elements in relation to relative positioned parent*/
+.verticallyCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /*Centered flex row container*/
 .flex-center {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Centered flex column container*/
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -80,7 +95,8 @@ h2 {
   white-space: nowrap;
 }
 
-@media (min-width: 62.5rem /*1000px*/) {
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
   button {
     cursor: pointer;
   }

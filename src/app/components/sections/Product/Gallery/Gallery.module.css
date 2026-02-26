@@ -7,20 +7,12 @@ CSS Module for Gallery component
   position: relative;
 }
 
-/*mobile image navigation prev/next buttons positioning*/
-.leftArrowCont,
-.rightArrowCont {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/*mobile image navigation prev button container*/
+/*previous image button: positioned 12.8px inside the product image left edge*/
 .leftArrowCont {
   left: 0.8rem;
 }
 
-/*mobile image navigation next button container*/
+/*next image button: positioned 12.8px inside the product image right edge*/
 .rightArrowCont {
   right: 0.8rem;
 }

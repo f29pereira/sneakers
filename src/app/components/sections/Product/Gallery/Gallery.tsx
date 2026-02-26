@@ -4,7 +4,7 @@ import styles from "./Gallery.module.css";
 import type { GalleryProps } from "@/app/components/types";
 import { useState } from "react";
 import ProductImage from "./ProductImage/ProductImage";
-import Arrow from "@/app/components/ui/Arrow/Arrow";
+import ArrowButton from "@/app/components/ui/Buttons/ArrowButton/ArrowButton";
 import ThumbnailList from "./ThumbnailList/ThumbnailList";
 
 /**
@@ -79,24 +79,20 @@ export default function Gallery({ gallery }: GalleryProps) {
       ) : null}
 
       {/*Mobile image navigation: prev/next buttons*/}
-      <div className={styles.leftArrowCont}>
-        <button
-          className="buttonIcon"
-          aria-label="Previous Product Image"
-          onClick={showPreviousImg}
-        >
-          <Arrow direction="left" />
-        </button>
+      <div className={`verticallyCenter ${styles.leftArrowCont}`}>
+        <ArrowButton
+          direction="left"
+          ariaLabel="Previous Product Image"
+          handleClick={showPreviousImg}
+        />
       </div>
 
-      <div className={styles.rightArrowCont}>
-        <button
-          className="buttonIcon"
-          aria-label="Next Product Image"
-          onClick={showNextImg}
-        >
-          <Arrow direction="right" />
-        </button>
+      <div className={`verticallyCenter ${styles.rightArrowCont}`}>
+        <ArrowButton
+          direction="right"
+          ariaLabel="Next Product Image"
+          handleClick={showNextImg}
+        />
       </div>
 
       {/*Desktop: Thumbnail list*/}

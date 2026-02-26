@@ -57,11 +57,17 @@ export type DetailProps = {
 /* ---------------------------------------------------- */
 
 /**
- * Props for the Arrow component
- * @property direction - arrow direction
+ * Props for the ButtonArrow component
+ * @property direction   - arrow icon direction
+ * @property ariaLabel   - aria-label description
+ * @property className   - styling classes
+ * @property handleClick - onClick function
  */
-export type ArrowProps = {
+export type ButtonArrow = {
   direction: "left" | "right";
+  ariaLabel: string;
+  className?: string;
+  handleClick: React.MouseEventHandler;
 };
 
 /**
