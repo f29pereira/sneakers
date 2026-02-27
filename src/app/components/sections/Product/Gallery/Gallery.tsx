@@ -2,7 +2,7 @@
 
 import styles from "./Gallery.module.css";
 import type { GalleryProps } from "@/app/components/types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import useToggle from "@/app/components/customHooks/useToggle";
 import ProductImage from "./ProductImage/ProductImage";
@@ -25,7 +25,29 @@ import GalleryModal from "./GalleryModal/GalleryModal";
 export default function Gallery({ gallery }: GalleryProps) {
   const [currentImg, setCurrentImg] = useState<number>(0); // Current image index
 
-  const { isToggled, toggle } = useToggle(false); // Gallery modal
+  const { isToggled, toggle } = useToggle(false); // Gallery modal toggle
+
+  useEffect(() => {
+    if (!isToggled) {
+      return;
+    }
+
+    /**
+     * Closes gallery modal if espace key is pressed
+     */
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        toggle();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+
+    // Clean-up function
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isToggled]);
 
   /**
    * Updates state with the previous product image index
