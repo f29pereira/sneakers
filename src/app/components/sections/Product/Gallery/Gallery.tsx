@@ -5,6 +5,7 @@ import type { GalleryProps } from "@/app/components/types";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import useToggle from "@/app/components/customHooks/useToggle";
+import useMediaQuery from "@/app/components/customHooks/useMediaQuery";
 import ProductImage from "./ProductImage/ProductImage";
 import ArrowButton from "@/app/components/ui/Buttons/ArrowButton/ArrowButton";
 import ThumbnailList from "./ThumbnailList/ThumbnailList";
@@ -27,14 +28,16 @@ export default function Gallery({ gallery }: GalleryProps) {
 
   const { isToggled, toggle } = useToggle(false); // Gallery modal toggle
 
+  const { isScreenSize } = useMediaQuery("1023"); // 1023px
+
+  /**
+   * Closes gallery modal if espace key is pressed
+   */
   useEffect(() => {
     if (!isToggled) {
       return;
     }
 
-    /**
-     * Closes gallery modal if espace key is pressed
-     */
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         toggle();
@@ -48,6 +51,15 @@ export default function Gallery({ gallery }: GalleryProps) {
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isToggled]);
+
+  /**
+   * Closes gallery modal if screen is resized to minimum of 1023px
+   */
+  useEffect(() => {
+    if (isScreenSize && isToggled) {
+      toggle();
+    }
+  }, [isScreenSize]);
 
   /**
    * Updates state with the previous product image index
