@@ -2,6 +2,7 @@ import styles from "./Nav.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
+import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
 
 /**
  * Renders desktop/mobile main navigation with links for:
@@ -99,7 +100,9 @@ export default function Nav() {
       </div>
 
       {/*Desktop divider line*/}
-      <div className={styles.navDivider}></div>
+      <div className={styles.navDivider}>
+        <LineDivider />
+      </div>
     </nav>
   );
 }
