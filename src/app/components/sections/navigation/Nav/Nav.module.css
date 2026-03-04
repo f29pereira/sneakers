@@ -50,10 +50,9 @@ CSS Module for Nav component
   height: 100%;
 }
 
-/*desktop navigation divider line: not displayed for small screens*/
+/*LineDivider component:  not displayed for small screens*/
 .navDivider {
   display: none;
-  border-top: 1px solid var(--light-grayish-blue);
 }
 
 /*Tablet Styles*/
@@ -147,7 +146,7 @@ CSS Module for Nav component
     border-color: var(--orange);
   }
 
-  /*desktop nav divider line*/
+  /*LineDivider component: displayed for desktop screens*/
   .navDivider {
     display: block;
   }
