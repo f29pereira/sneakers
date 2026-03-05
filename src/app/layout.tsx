@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/sections/navigation/Nav/Nav";
+import StoreProvider from "./StoreProvider";
 
 const kumbhSans = Kumbh_Sans({
   variable: "--font-kumbh-sans",
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${kumbhSans.variable}`}>
-        <Nav />
-        {children}
+        <StoreProvider>
+          <Nav />
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );

@@ -107,6 +107,28 @@ export type CloseButtonProps = {
 /* ---------------------------------------------------- */
 
 /**
+ * Type for the product added to cart
+ * @property imagePath        - product image path
+ * @property imageDescription - product image description
+ * @property id               - product id
+ * @property name             - product name
+ * @property currentPrice     - current product price
+ *
+ */
+export type CartItem = Pick<ProductGallery, "imagePath" | "imageDescription"> &
+  Pick<ProductDetail, "id" | "name" | "currentPrice">;
+
+/**
+ * Type for the product data
+ * @property gallery - list of product images and thumbnails
+ * @property details - product details
+ */
+export type Product = {
+  gallery: ProductGallery[];
+  details: ProductDetail;
+};
+
+/**
  * Type for the product gallery
  * @property imagePath            - product image path
  * @property imageDescription     - product image description
@@ -122,6 +144,7 @@ export type ProductGallery = {
 
 /**
  * Type for product details
+ * @property id            - product id
  * @property company       - product company
  * @property name          - product name
  * @property description   - description of the product
@@ -130,6 +153,7 @@ export type ProductGallery = {
  * @property discount      - discont percentage
  */
 export type ProductDetail = {
+  id: number;
   company: string;
   name: string;
   description: string;

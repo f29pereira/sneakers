@@ -1,10 +1,20 @@
-import type { ProductGallery, ProductDetail } from "../../types";
+import type { Product, ProductGallery, ProductDetail } from "../../types";
+
+/**
+ * Returns the product data
+ */
+export const getProduct = (): Product => {
+  return {
+    gallery: getGallery(),
+    details: getDetails(),
+  };
+};
 
 /**
  * Returns the product images/thumbnails
  */
 export const getGallery = (): ProductGallery[] => {
-  const galleryList: ProductGallery[] = [
+  return [
     {
       imagePath: "/images/products/image-product-1.jpg",
       imageDescription: "Fall Limited Edition Sneakers - front view and sole",
@@ -30,15 +40,14 @@ export const getGallery = (): ProductGallery[] => {
       thumbnailDescription: "Show side view close up",
     },
   ];
-
-  return galleryList;
 };
 
 /**
  * Retuns the product details
  */
 export const getDetails = (): ProductDetail => {
-  const info = {
+  return {
+    id: 1,
     company: "Sneaker company",
     name: "Fall Limited Edition Sneakers",
     description:
@@ -47,6 +56,4 @@ export const getDetails = (): ProductDetail => {
     currentPrice: "125.00",
     discount: "50",
   };
-
-  return info;
 };
