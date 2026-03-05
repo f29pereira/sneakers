@@ -77,13 +77,13 @@ export type DetailProps = {
 /* ---------------------------------------------------- */
 
 /**
- * Props for the ButtonArrow component
+ * Props for the ArrowButton component
  * @property direction   - arrow icon direction
  * @property ariaLabel   - aria-label description
  * @property className   - styling classes
  * @property handleClick - onClick function
  */
-export type ButtonArrow = {
+export type ArrowButtonProps = {
   direction: "left" | "right";
   ariaLabel: string;
   className?: string;
@@ -107,7 +107,7 @@ export type CloseButtonProps = {
 /* ---------------------------------------------------- */
 
 /**
- * Props for the product gallery
+ * Type for the product gallery
  * @property imagePath            - product image path
  * @property imageDescription     - product image description
  * @property thumbnailPath        - product thumbnail image path
@@ -121,7 +121,7 @@ export type ProductGallery = {
 };
 
 /**
- * Props for product details
+ * Type for product details
  * @property company       - product company
  * @property name          - product name
  * @property description   - description of the product

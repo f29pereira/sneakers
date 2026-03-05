@@ -1,18 +1,18 @@
 import styles from "./ArrowButton.module.css";
-import type { ButtonArrow } from "@/app/components/types";
+import type { ArrowButtonProps } from "@/app/components/types";
 import clsx from "clsx";
 
 /**
  * Renders a circular button with directional icon
  *
- * Props are defined in {@link ButtonArrow}.
+ * Props are defined in {@link ArrowButtonProps}.
  */
 export default function ArrowButton({
   direction,
   ariaLabel,
   className,
   handleClick,
-}: ButtonArrow) {
+}: ArrowButtonProps) {
   const svgPath = direction === "left" ? "M11 1 3 9l8 8" : "m2 1 8 8-8 8";
 
   return (
