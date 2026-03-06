@@ -116,7 +116,9 @@ export type CloseButtonProps = {
  *
  */
 export type CartItem = Pick<ProductGallery, "imagePath" | "imageDescription"> &
-  Pick<ProductDetail, "id" | "name" | "currentPrice">;
+  Pick<ProductDetail, "id" | "name" | "currentPrice"> & {
+    quantity: number;
+  };
 
 /**
  * Type for the product data
@@ -157,7 +159,7 @@ export type ProductDetail = {
   company: string;
   name: string;
   description: string;
-  originalPrice: string | null;
-  currentPrice: string;
+  originalPrice: number | null;
+  currentPrice: number;
   discount: string | null;
 };

@@ -1,8 +1,11 @@
+"use client"; // Client Component
 import styles from "./Nav.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
 import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
+import useToggle from "@/app/components/customHooks/useToggle";
+import { useAppSelector } from "@/app/hooks";
 
 /**
  * Renders desktop/mobile main navigation with links for:
@@ -18,6 +21,10 @@ import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
  * - User Profile
  */
 export default function Nav() {
+  const { isToggled, toggle } = useToggle(false); // User Cart toggle
+
+  const cart = useAppSelector((state) => state.cart); // User´s cart items
+
   return (
     <nav className={styles.navCont}>
       <div className={styles.linksCont}>
@@ -68,10 +75,10 @@ export default function Nav() {
         <ul className={styles.rightNavCont} aria-label="User Links">
           {/*Shopping Cart*/}
           <li className={styles.cartItem}>
-            <Link
-              className={`flex-center ${styles.navLink}`}
-              href="#"
+            <button
+              className={`flex-center buttonIcon ${styles.navLink}`}
               aria-label="Shopping Cart"
+              onClick={toggle}
             >
               <svg
                 className={styles.cartIcon}
@@ -83,7 +90,14 @@ export default function Nav() {
                   fillRule="nonzero"
                 />
               </svg>
-            </Link>
+            </button>
+
+            {/*Items badge*/}
+            {cart.totalQuantity > 0 ? (
+              <div className={styles.itemsNumber}>
+                <span>{cart.totalQuantity}</span>
+              </div>
+            ) : null}
           </li>
 
           {/*User Profile*/}
