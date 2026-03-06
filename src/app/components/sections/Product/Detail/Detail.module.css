@@ -4,7 +4,6 @@ CSS Module for Detail component
 
 /*product company*/
 .company {
-  color: var(--dark-grayish-blue);
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
@@ -18,7 +17,6 @@ CSS Module for Detail component
 
 /*product description*/
 .description {
-  color: var(--dark-grayish-blue);
   font-weight: var(--font-weight-400);
   line-height: 1.7em;
 }
@@ -58,7 +56,6 @@ CSS Module for Detail component
 
 /*product original price*/
 .originalPrice {
-  color: var(--dark-grayish-blue);
   text-decoration: line-through;
 }
 

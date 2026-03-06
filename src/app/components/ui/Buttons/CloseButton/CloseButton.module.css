@@ -4,7 +4,6 @@ CSS Module for CloseButton component
 
 /*close button color*/
 .closeBtn {
-  color: var(--dark-grayish-blue);
   width: 0.875rem; /*14px*/
   height: 0.9375rem; /*15px*/
 }

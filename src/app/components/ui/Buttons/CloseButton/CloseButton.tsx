@@ -14,7 +14,7 @@ export default function CloseButton({
 }: CloseButtonProps) {
   return (
     <button
-      className={clsx("buttonIcon", styles.closeBtn, className)}
+      className={clsx("buttonIcon", "lightText", styles.closeBtn, className)}
       aria-label={ariaLabel}
       onClick={handleClose}
     >

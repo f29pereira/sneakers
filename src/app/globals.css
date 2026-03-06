@@ -58,6 +58,11 @@ h2 {
   color: var(--dark-blue);
 }
 
+/*light gray text*/
+.lightText {
+  color: var(--dark-grayish-blue);
+}
+
 /*button with icon*/
 .buttonIcon {
   border: none;
