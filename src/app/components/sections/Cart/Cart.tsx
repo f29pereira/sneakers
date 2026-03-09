@@ -1,0 +1,72 @@
+"use client"; // Client Component
+
+import styles from "./Cart.module.css";
+import { useAppSelector } from "@/app/hooks";
+import LineDivider from "../../ui/LineDivider/LineDivider";
+import Item from "./Item/Item";
+
+/**
+ * Renders the user's shopping cart.
+ *
+ * If empty:
+ * - Empty cart message
+ *
+ * If not empty:
+ * - List of items with: image, name, original price, quantity, final price and remove button
+ * - Subtotal value
+ * - Checkout button
+ */
+export default function Cart() {
+  const cart = useAppSelector((state) => state.cart);
+
+  return (
+    <div className={styles.cartCont}>
+      {/*Title*/}
+      <div className={styles.titleCont}>
+        <h2 className={styles.title}>Cart</h2>
+      </div>
+
+      <LineDivider />
+
+      {/*Content*/}
+      <div className={styles.contentCont}>
+        {cart.items.length === 0 ? (
+          <div className={`flex-center ${styles.emptyMsgCont}`}>
+            <p className={`lightText ${styles.emptyMsg}`}>
+              Your cart is empty.
+            </p>
+          </div>
+        ) : (
+          <div>
+            {/*List of Items*/}
+            <div className={styles.itemsCont}>
+              {cart.items.map((item, index) => (
+                <div key={index}>
+                  <Item
+                    imagePath={item.imagePath}
+                    imageDescription={item.imageDescription}
+                    id={item.id}
+                    name={item.name}
+                    currentPrice={item.currentPrice}
+                    quantity={item.quantity}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/*Subtotal*/}
+            <div className={styles.subTotalCont}>
+              <span className="lightText">Subtotal:</span>
+              <strong>${cart.subTotal}</strong>
+            </div>
+
+            {/*Checkout button*/}
+            <button className={`orangeBtn ${styles.checkoutBtn}`}>
+              Checkout
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

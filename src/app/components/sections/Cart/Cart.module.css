@@ -1,0 +1,88 @@
+/*
+CSS Module for Cart component
+*/
+
+/*main container*/
+.cartCont {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-10);
+  background-color: var(--white);
+  width: 100%;
+}
+
+/*list of items container: displays vertical scroll bar*/
+.itemsCont {
+  max-height: 5.125rem; /*82px*/
+  overflow-y: scroll;
+}
+
+/*title container*/
+.titleCont {
+  padding: 1rem;
+}
+
+/*list of items container*/
+.contentCont {
+  padding: 1.5rem;
+}
+
+/*title*/
+.title {
+  font-size: var(--font-size-base);
+}
+
+/*content container: occupies the remaining available space*/
+.contentCont {
+  flex: 1;
+}
+
+/*empty cart message container*/
+.emptyMsgCont {
+  height: 10.5rem; /*168px*/
+}
+
+/*empty cart message*/
+.emptyMsg {
+  font-weight: var(--font-weight-700);
+}
+
+/*sub total text and value container*/
+.subTotalCont {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/*checkout button*/
+.checkoutBtn {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*main container: set height value*/
+  .cartCont {
+    height: 28.125rem; /*450px*/
+  }
+
+  /*empty cart message container: set height to match .cartCont*/
+  .emptyMsgCont {
+    height: 100%;
+  }
+
+  /*list of items container: increase height value*/
+  .itemsCont {
+    max-height: 13.75rem; /*220px*/
+  }
+
+  /*title container: increase padding*/
+  .titleCont {
+    padding: 1.5rem;
+  }
+
+  /*list of items container: increase padding*/
+  .contentCont {
+    padding: 2rem;
+  }
+}
