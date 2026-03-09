@@ -69,6 +69,15 @@ h2 {
   background: none;
 }
 
+/*orange button: with rounded corners and full height/width*/
+.orangeBtn {
+  border: none;
+  border-radius: var(--border-radius-10);
+  background-color: var(--orange);
+  height: 100%;
+  width: 100%;
+}
+
 /*Vertically centers absolute positioned elements in relation to relative positioned parent*/
 .verticallyCenter {
   position: absolute;
@@ -104,5 +113,10 @@ h2 {
 @media (min-width: 64rem /*1024px*/) {
   button {
     cursor: pointer;
+  }
+
+  /*orange button: on hover, change color*/
+  .orangeBtn:hover {
+    background-color: var(--hover-orange);
   }
 }

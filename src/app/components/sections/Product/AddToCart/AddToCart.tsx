@@ -10,7 +10,10 @@ export default function AddToCart() {
   };
 
   return (
-    <button className={`flex-center ${styles.button}`} onClick={addToCart}>
+    <button
+      className={`flex-center orangeBtn ${styles.button}`}
+      onClick={addToCart}
+    >
       <svg
         className={styles.cartIcon}
         aria-hidden="true"
