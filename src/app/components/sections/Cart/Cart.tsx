@@ -1,6 +1,7 @@
 "use client"; // Client Component
 
 import styles from "./Cart.module.css";
+import Link from "next/link";
 import { useAppSelector } from "@/app/hooks";
 import LineDivider from "../../ui/LineDivider/LineDivider";
 import Item from "./Item/Item";
@@ -14,7 +15,7 @@ import Item from "./Item/Item";
  * If not empty:
  * - List of items with: image, name, original price, quantity, final price and remove button
  * - Subtotal value
- * - Checkout button
+ * - Checkout link
  */
 export default function Cart() {
   const cart = useAppSelector((state) => state.cart);
@@ -60,10 +61,10 @@ export default function Cart() {
               <strong>${cart.subTotal}</strong>
             </div>
 
-            {/*Checkout button*/}
-            <button className={`orangeBtn ${styles.checkoutBtn}`}>
-              Checkout
-            </button>
+            {/*Checkout Link*/}
+            <div className={`flex-center orangeBtn ${styles.checkoutBtn}`}>
+              <Link href="#">Checkout</Link>
+            </div>
           </div>
         )}
       </div>

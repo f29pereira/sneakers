@@ -53,10 +53,15 @@ CSS Module for Cart component
   gap: 0.5rem;
 }
 
-/*checkout button*/
+/*checkout button link*/
 .checkoutBtn {
   margin-top: 1rem;
   padding: 1rem 2rem;
+}
+
+/*override link color*/
+.checkoutBtn a {
+  color: var(--dark-blue);
 }
 
 /*Tablet Styles*/
@@ -84,5 +89,27 @@ CSS Module for Cart component
   /*list of items container: increase padding*/
   .contentCont {
     padding: 2rem;
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*main container: set width/height values and box-shadow (left/right/bottom)*/
+  .cartCont {
+    height: 18.75rem; /*300px*/
+    width: 25rem; /*400px*/
+    box-shadow:
+      4px 10px 12px -4px var(--light-box-shadow),
+      -4px 10px 12px -4px var(--light-box-shadow);
+  }
+
+  /*list of items container: decrease height value*/
+  .itemsCont {
+    max-height: 5.125rem; /*82px*/
+  }
+
+  /*list of items container: decrease padding*/
+  .contentCont {
+    padding: 1.5rem;
   }
 }
