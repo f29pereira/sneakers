@@ -30,12 +30,10 @@ CSS Module for Nav component
 /*Card component container: flex centered container*/
 .userCartCont {
   position: absolute;
-  top: 5rem;
+  top: 5rem; /*80px*/
   left: 0.5rem;
   right: 0.5rem;
   z-index: 1;
-  display: flex;
-  justify-content: center;
 }
 
 /*user shopping cart svg*/
@@ -116,6 +114,13 @@ CSS Module for Nav component
     width: 2.2rem; /*35px*/
     height: 2.2rem; /*35px*/
   }
+
+  /*Card component container: increate top, left and right values*/
+  .userCartCont {
+    top: 6rem; /*96px*/
+    left: 0.7rem; /*11.2px*/
+    right: 0.7rem; /*11.2px*/
+  }
 }
 
 /*Desktop Styles*/
@@ -187,6 +192,12 @@ CSS Module for Nav component
   .navDivider {
     display: block;
   }
+
+  /*Card component container: positioned on the right side*/
+  .userCartCont {
+    left: auto;
+    right: 2rem;
+  }
 }
 
 /*Large Desktop Styles*/
@@ -194,5 +205,10 @@ CSS Module for Nav component
   /*navigation main container: increase left/right padding*/
   .navCont {
     padding: 2rem 10rem;
+  }
+
+  /*Card component container: increase right value*/
+  .userCartCont {
+    right: 6rem;
   }
 }

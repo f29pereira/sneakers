@@ -2,10 +2,11 @@
 import styles from "./Nav.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
-import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
 import useToggle from "@/app/components/customHooks/useToggle";
 import { useAppSelector } from "@/app/hooks";
+import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
+import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
+import Cart from "../../Cart/Cart";
 
 /**
  * Renders desktop/mobile main navigation with links for:
@@ -73,7 +74,7 @@ export default function Nav() {
 
         {/*Right Navigation*/}
         <ul className={styles.rightNavCont} aria-label="User Links">
-          {/*Shopping Cart*/}
+          {/*Shopping Cart Toggle*/}
           <li className={styles.cartItem}>
             <button
               className={`flex-center buttonIcon ${styles.navLink}`}
@@ -117,6 +118,13 @@ export default function Nav() {
       <div className={styles.navDivider}>
         <LineDivider />
       </div>
+
+      {/*User Shopping Cart*/}
+      {isToggled ? (
+        <div className={styles.userCartCont}>
+          <Cart />
+        </div>
+      ) : null}
     </nav>
   );
 }
