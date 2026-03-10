@@ -25,7 +25,7 @@ export default function AddToCart() {
           fillRule="nonzero"
         />
       </svg>
-      <span className={styles.text}>Add to cart</span>
+      <span>Add to cart</span>
     </button>
   );
 }

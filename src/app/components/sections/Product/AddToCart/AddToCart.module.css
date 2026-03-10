@@ -9,12 +9,6 @@ CSS Module for AddToCart component
   padding: 1rem 2rem;
 }
 
-/*button text*/
-.text {
-  font-weight: var(--font-weight-700);
-  font-size: var(--font-size-base);
-}
-
 /*shopping cart svg*/
 .cartIcon {
   width: 1.125rem; /*18px*/

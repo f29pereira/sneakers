@@ -30,6 +30,7 @@ Global CSS styles
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
   --lightbox-bg: hsla(0, 0%, 0%, 0.75);
+  --light-box-shadow: hsla(0, 0%, 0%, 0.08);
 
   /*Border*/
   --border-radius-5: 5px;
