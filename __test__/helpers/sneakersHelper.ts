@@ -4,7 +4,9 @@ import {
   getUserLinksDesc,
   getProductImagesData,
   getProductData,
+  getCartItemData,
 } from "../fixtures/sneakers.fixture";
+import { getLineTotal } from "@/app/lib/utils";
 
 /**
  * Helper function: checks the visibility of the following elements, in the MobileNav component:
@@ -26,12 +28,12 @@ export const checkMobileNav = () => {
  * Helper function: checks the visibility of the following elements, in the Nav component:
  * - Open navigation pop-up button
  * - Brand Logo
- * - Main and User navigation links
+ * - User's shopping cart toggle button and profile link
  */
 export const checkNav = () => {
   const brandLogo = screen.getByAltText("Sneakers Logo");
   const mainLinks = getMainNavigation();
-  const userLinks = getUserNavigation();
+  const user = getUserNavigation();
 
   checkMobileNavToggle();
   expect(brandLogo).toBeVisible();
@@ -39,8 +41,8 @@ export const checkNav = () => {
   expect(mainLinks.men).toBeVisible();
   expect(mainLinks.woman).toBeVisible();
   expect(mainLinks.contact).toBeVisible();
-  expect(userLinks.shopping).toBeVisible();
-  expect(userLinks.profile).toBeVisible();
+  expect(user.shoppingButton).toBeVisible();
+  expect(user.profileLink).toBeVisible();
 };
 
 /**
@@ -71,16 +73,14 @@ const getMainNavigation = () => {
 };
 
 /**
- * Helper function: returns user navigation links
+ * Helper function: returns user shopping cart toggle button and profile link
  */
 const getUserNavigation = () => {
   const data = getUserLinksDesc();
 
   return {
-    shopping: screen.getByRole("link", {
-      name: data.shoppingCartLink,
-    }),
-    profile: screen.getByRole("link", { name: data.profileLink }),
+    shoppingButton: screen.getByRole("button", { name: "Shopping Cart" }),
+    profileLink: screen.getByRole("link", { name: data.profileLink }),
   };
 };
 
