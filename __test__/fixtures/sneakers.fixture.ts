@@ -2,6 +2,7 @@ import type {
   ProductGallery,
   ProductDetail,
   CartItem,
+  CartState,
 } from "@/app/components/types";
 
 /**
@@ -87,4 +88,20 @@ export const getCartItemData = (): CartItem => {
     currentPrice: 125,
     quantity: 3,
   };
+};
+
+/**
+ * Mocked data: empty cart slice
+ */
+export const getEmptyCartState = (): CartState => {
+  return { items: [], totalQuantity: 0, subTotal: 0 };
+};
+
+/**
+ * Mocked data: cart slice with one item
+ */
+export const getCartState = (): CartState => {
+  const item = getCartItemData();
+
+  return { items: [item], totalQuantity: 1, subTotal: 125 };
 };

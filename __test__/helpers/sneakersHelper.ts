@@ -206,3 +206,43 @@ export const checkItem = () => {
   expect(lineTotal).toBeVisible();
   expect(removeItemBtn).toBeVisible();
 };
+
+/**
+ * Helper function: checks the visibility of the following elements, in the Cart component (when cart is empty):
+ * - Title
+ * - Empty cart message
+ */
+export const checkEmptyCart = () => {
+  const title = screen.getByRole("heading", {
+    level: 2,
+    name: "Cart",
+  });
+
+  const empty = screen.getByText("Your cart is empty.");
+
+  expect(title).toBeVisible();
+  expect(empty).toBeVisible();
+};
+
+/**
+ * Helper function: checks the visibility of the following elements, in the Cart component:
+ * - Title
+ * - Sub total text
+ * - Sub total value
+ * - Chekout link
+ */
+export const checkCart = (subTotal: number) => {
+  const title = screen.getByRole("heading", {
+    level: 2,
+    name: "Cart",
+  });
+
+  const subTotalText = screen.getByText("Subtotal:");
+  const subTotalValue = screen.getByText(`$${subTotal}`);
+  const checkOut = screen.getByRole("link", { name: "Checkout" });
+
+  expect(title).toBeVisible();
+  expect(subTotalText).toBeVisible();
+  expect(subTotalValue).toBeVisible();
+  expect(checkOut).toBeVisible();
+};
