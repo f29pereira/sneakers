@@ -1,6 +1,7 @@
 import styles from "./Item.module.css";
 import type { CartItem } from "@/app/components/types";
 import Image from "next/image";
+import { getLineTotal } from "@/app/lib/utils";
 
 /**
  * Renders an item from the user's cart.
@@ -10,7 +11,7 @@ import Image from "next/image";
  * - name
  * - current price
  * - quantity
- * - value to pay
+ * - line total
  *
  * - Remove Item button
  *
@@ -24,15 +25,7 @@ export default function Item({
   currentPrice,
   quantity,
 }: CartItem) {
-  /**
-   * Calculate the total value
-   */
-  const getTotal = (itemPrice: number, itemQuantity: number) => {
-    const total = itemPrice * itemQuantity;
-    return total.toFixed(2);
-  };
-
-  const valueToPay = getTotal(currentPrice, quantity);
+  const lineTotal = getLineTotal(currentPrice, quantity);
 
   /**
    * Remove item from the user's cart
@@ -60,12 +53,17 @@ export default function Item({
           <span className={`lightText ${styles.itemPriceQuantity}`}>
             ${currentPrice} x {quantity}
           </span>
-          <span className={styles.total}>${valueToPay}</span>
+          <h2 className="sr-only">Line total:</h2>
+          <span className={styles.total}>${lineTotal}</span>
         </div>
       </div>
 
       {/*Remove Item Buton*/}
-      <button className={`buttonIcon ${styles.removeBtn}`} onClick={removeItem}>
+      <button
+        className={`buttonIcon ${styles.removeBtn}`}
+        aria-label="Remove Item"
+        onClick={removeItem}
+      >
         <svg
           className={styles.removeIcon}
           aria-hidden="true"
