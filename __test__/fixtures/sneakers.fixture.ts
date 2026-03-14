@@ -1,4 +1,8 @@
-import type { ProductGallery, ProductDetail } from "@/app/components/types";
+import type {
+  ProductGallery,
+  ProductDetail,
+  CartItem,
+} from "@/app/components/types";
 
 /**
  * Mocked data: main navigation links descriptions
@@ -60,12 +64,27 @@ export const getProductImagesData = (): ProductGallery[] => {
  */
 export const getProductData = (): ProductDetail => {
   return {
+    id: 0,
     company: "Sneaker company",
     name: "Fall Limited Edition Sneakers",
     description:
       "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
-    originalPrice: "250.00",
-    currentPrice: "125.00",
+    originalPrice: 250.0,
+    currentPrice: 125.0,
     discount: "50",
+  };
+};
+
+/**
+ * Mocked data: Item from user's cart
+ */
+export const getCartItemData = (): CartItem => {
+  return {
+    imagePath: "/images/products/image-product-1.jpg",
+    imageDescription: "Fall Limited Edition Sneakers - front view and sole",
+    id: 0,
+    name: "Fall Limited Edition Sneakers",
+    currentPrice: 125,
+    quantity: 3,
   };
 };

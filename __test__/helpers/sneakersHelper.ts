@@ -169,3 +169,40 @@ export const checkAddToCart = () => {
 
   expect(addToCartBtn).toBeVisible();
 };
+
+/**
+ * Helper function: checks the visibility of the following elements, in the Item component:
+ * - Image
+ * - Name
+ * - Current Price
+ * - Quantity
+ * - Line total
+ * - Remove button
+ */
+export const checkItem = () => {
+  const item = getCartItemData();
+
+  const img = screen.getByRole("img", {
+    name: item.imageDescription,
+  });
+
+  const name = screen.getByRole("heading", {
+    level: 3,
+    name: item.name,
+  });
+
+  const currenPriceXQuantity = screen.getByText(
+    `$${item.currentPrice} x ${item.quantity}`,
+  );
+  const lineTotal = screen.getByText(
+    `$${getLineTotal(item.currentPrice, item.quantity)}`,
+  );
+
+  const removeItemBtn = screen.getByRole("button", { name: "Remove Item" });
+
+  expect(img).toBeVisible();
+  expect(name).toBeVisible();
+  expect(currenPriceXQuantity).toBeVisible();
+  expect(lineTotal).toBeVisible();
+  expect(removeItemBtn).toBeVisible();
+};
