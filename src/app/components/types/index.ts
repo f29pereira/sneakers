@@ -103,6 +103,22 @@ export type CloseButtonProps = {
 };
 
 /* ---------------------------------------------------- */
+/* Redux slice types                                    */
+/* ---------------------------------------------------- */
+
+/**
+ * Type for the cart slice
+ * @property items         - list of items in the cart
+ * @property totalQuantity - quanty of items in the cart
+ * @property subTotal      - total value to pay
+ */
+export type CartState = {
+  items: CartItem[];
+  totalQuantity: number;
+  subTotal: number;
+};
+
+/* ---------------------------------------------------- */
 /* Other component related types                        */
 /* ---------------------------------------------------- */
 
