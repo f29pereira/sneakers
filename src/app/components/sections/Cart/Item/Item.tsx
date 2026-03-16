@@ -53,7 +53,7 @@ export default function Item({
           <span className={`lightText ${styles.itemPriceQuantity}`}>
             ${currentPrice} x {quantity}
           </span>
-          <h2 className="sr-only">Line total:</h2>
+          <h4 className="sr-only">Line total:</h4>
           <span className={styles.total}>${lineTotal}</span>
         </div>
       </div>

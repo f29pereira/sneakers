@@ -21,10 +21,17 @@ export default function Cart() {
   const cart = useAppSelector((state) => state.cart);
 
   return (
-    <div className={styles.cartCont}>
+    <div
+      className={styles.cartCont}
+      role="dialog"
+      aria-labelledby="cart-title"
+      aria-live="polite"
+    >
       {/*Title*/}
       <div className={styles.titleCont}>
-        <h2 className={styles.title}>Cart</h2>
+        <h2 id="cart-title" className={styles.title}>
+          Cart
+        </h2>
       </div>
 
       <LineDivider />
