@@ -1,6 +1,6 @@
 import { FocusTrap } from "focus-trap-react";
 import styles from "./GalleryModal.module.css";
-import type { GalleryModal } from "@/app/components/types";
+import type { GalleryModalProps } from "@/app/components/types";
 import CloseButton from "@/app/components/ui/Buttons/CloseButton/CloseButton";
 import ProductImage from "../ProductImage/ProductImage";
 import ArrowButton from "@/app/components/ui/Buttons/ArrowButton/ArrowButton";
@@ -12,7 +12,7 @@ import ThumbnailList from "../ThumbnailList/ThumbnailList";
  * - Current image with prev/next button navigation
  * - list of thumbnails
  *
- * Props are defined in {@link GalleryModal}.
+ * Props are defined in {@link GalleryModalProps}.
  */
 export default function GalleryModal({
   gallery,
@@ -21,7 +21,7 @@ export default function GalleryModal({
   handleSelectPrevImg,
   handleSelectNextImg,
   handleSelectImg,
-}: GalleryModal) {
+}: GalleryModalProps) {
   return (
     <FocusTrap>
       <dialog className={styles.modalCont}>

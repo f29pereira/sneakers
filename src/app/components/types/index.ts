@@ -43,7 +43,7 @@ export type ProductImageProps = {
  * @property handleSelectNextImg - function to change to the next image
  * @property handleSelectImg     - function to change the current selected image
  */
-export type GalleryModal = {
+export type GalleryModalProps = {
   gallery: ProductGallery[];
   selectedImg: number;
   handleClose: () => void;
