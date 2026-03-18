@@ -1,20 +1,24 @@
 "use client"; // Client Component
 
 import styles from "./Counter.module.css";
-import useCounter from "../../customHooks/useCounter";
+import type { CounterProps } from "../../types";
 
 /**
  * Renders a counter value with decrement/increment buttons
+ *
+ * Props are defined in {@link CounterProps}.
  */
-export default function Counter() {
-  const { counter, decrement, increment } = useCounter(0);
-
+export default function Counter({
+  counter,
+  handleDecrement,
+  handleIncrement,
+}: CounterProps) {
   return (
     <div className={styles.counterCont}>
       {/*Decrement Button*/}
       <button
         className={`buttonIcon ${styles.counterBtn}`}
-        onClick={decrement}
+        onClick={handleDecrement}
         disabled={counter <= 0}
         aria-label="Decrease quantity"
       >
@@ -44,7 +48,7 @@ export default function Counter() {
       {/*Increment Button*/}
       <button
         className={`buttonIcon ${styles.counterBtn}`}
-        onClick={increment}
+        onClick={handleIncrement}
         aria-label="Increase quantity"
       >
         <svg

@@ -7,11 +7,6 @@ CSS Module for Product component
   padding: 1.5rem 1rem;
 }
 
-/*add to cart button container*/
-.addToCartCont {
-  margin: 1rem 0 2rem 0;
-}
-
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
   /*product details, counter and add to cart container: increase left/right padding*/
@@ -41,25 +36,6 @@ CSS Module for Product component
     padding: 0;
     margin-top: 4rem;
     flex: 1;
-  }
-
-  /*product counter and add to cart button container*/
-  .counterAddToCartCont {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    height: 3.75rem; /*60px*/
-  }
-
-  /*product counter container*/
-  .counterCont {
-    flex: 1;
-  }
-
-  /*add to cart button container: reset margin*/
-  .addToCartCont {
-    flex: 1.5;
-    margin: 0;
   }
 }
 

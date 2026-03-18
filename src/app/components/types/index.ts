@@ -102,6 +102,26 @@ export type CloseButtonProps = {
   handleClose: React.MouseEventHandler;
 };
 
+/**
+ * Props for the AddToCart component
+ * @property itemToAdd - product added to cart
+ */
+export type AddToCartProps = {
+  itemToAdd: CartItem;
+};
+
+/**
+ * Props for the Counter component
+ * @property counter         - current counter value
+ * @property handleDecrement - function to increment counter value
+ * @property handleIncrement - function to decrement counter value
+ */
+export type CounterProps = {
+  counter: number;
+  handleDecrement: () => void;
+  handleIncrement: () => void;
+};
+
 /* ---------------------------------------------------- */
 /* Redux slice types                                    */
 /* ---------------------------------------------------- */

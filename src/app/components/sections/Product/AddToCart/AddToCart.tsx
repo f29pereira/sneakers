@@ -1,10 +1,12 @@
 "use client"; // Client Component
+
 import styles from "./AddToCart.module.css";
+import { AddToCartProps } from "@/app/components/types";
 
 /**
  * Renders the add to cart button
  */
-export default function AddToCart() {
+export default function AddToCart({ itemToAdd }: AddToCartProps) {
   const addToCart = () => {
     /*TO DO - Add to cart logic*/
   };
