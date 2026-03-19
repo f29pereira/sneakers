@@ -1,5 +1,6 @@
 "use client"; // Client Component
 
+import clsx from "clsx";
 import styles from "./Counter.module.css";
 import type { CounterProps } from "../../types";
 
@@ -13,11 +14,15 @@ export default function Counter({
   handleDecrement,
   handleIncrement,
 }: CounterProps) {
+  const isBtnDisabled = counter === 0;
+
   return (
     <div className={styles.counterCont}>
       {/*Decrement Button*/}
       <button
-        className={`buttonIcon ${styles.counterBtn}`}
+        className={clsx("buttonIcon", styles.counterBtn, {
+          [styles.disabledBtn]: isBtnDisabled,
+        })}
         onClick={handleDecrement}
         disabled={counter <= 0}
         aria-label="Decrease quantity"
