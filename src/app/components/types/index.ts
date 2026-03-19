@@ -104,9 +104,11 @@ export type CloseButtonProps = {
 
 /**
  * Props for the AddToCart component
+ * @property counter   - current counter value
  * @property itemToAdd - product added to cart
  */
 export type AddToCartProps = {
+  counter: number;
   itemToAdd: CartItem;
 };
 

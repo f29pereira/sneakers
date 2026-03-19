@@ -49,7 +49,7 @@ export default function ProductActions({ gallery, details }: Product) {
       </div>
 
       <div className={styles.addToCartCont}>
-        <AddToCart itemToAdd={item} />
+        <AddToCart counter={item.quantity} itemToAdd={item} />
       </div>
     </div>
   );

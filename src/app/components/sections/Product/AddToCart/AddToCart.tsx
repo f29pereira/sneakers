@@ -1,20 +1,33 @@
 "use client"; // Client Component
 
+import clsx from "clsx";
 import styles from "./AddToCart.module.css";
 import { AddToCartProps } from "@/app/components/types";
+import { useAppDispatch } from "@/app/hooks";
+import { addToCart } from "@/app/features/cart/cartSlice";
 
 /**
  * Renders the add to cart button
  */
-export default function AddToCart({ itemToAdd }: AddToCartProps) {
-  const addToCart = () => {
-    /*TO DO - Add to cart logic*/
+export default function AddToCart({ counter, itemToAdd }: AddToCartProps) {
+  const dispatch = useAppDispatch();
+
+  /**
+   * Add item to user's shopping cart
+   */
+  const addItem = () => {
+    dispatch(addToCart(itemToAdd));
   };
+
+  const isBtnDisabled = counter === 0;
 
   return (
     <button
-      className={`flex-center orangeBtn ${styles.button}`}
-      onClick={addToCart}
+      className={clsx("flex-center", "orangeBtn", styles.button, {
+        [styles.disabledBtn]: isBtnDisabled,
+      })}
+      disabled={isBtnDisabled}
+      onClick={addItem}
     >
       <svg
         className={styles.cartIcon}
