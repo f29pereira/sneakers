@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { CartState, CartItem } from "@/app/components/types";
+import type {
+  CartState,
+  CartItem,
+  RemoveFromCartPayload,
+} from "@/app/components/types";
 
 const initialState: CartState = {
   items: [],
@@ -15,25 +19,45 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const itemQuantity = action.payload.quantity;
-      const itemPrice = action.payload.currentPrice;
-      const lineTotal = itemQuantity * itemPrice;
-      const isTemInCart = state.items.find(
-        (item) => item.id === action.payload.id,
-      );
+      const { id, currentPrice, quantity } = action.payload;
+      const lineTotal = quantity * currentPrice;
+      const isItemInCart = findItem(state.items, id);
 
-      if (isTemInCart) {
-        isTemInCart.quantity += itemQuantity;
+      if (isItemInCart) {
+        // Item already in cart, update item quantity
+        isItemInCart.quantity += quantity;
       } else {
         state.items.push(action.payload);
       }
 
-      state.totalQuantity += action.payload.quantity;
+      // Update total quantity of items
+      state.totalQuantity += quantity;
+
+      // Update total value to pay
       state.subTotal += lineTotal;
     },
-    /*TO DO: add removeFromCart reducer*/
+    removeFromCart: (state, action: PayloadAction<RemoveFromCartPayload>) => {
+      const { id, currentPrice, quantity } = action.payload;
+      const lineTotal = quantity * currentPrice;
+
+      // Update total quantity of items
+      state.totalQuantity -= quantity;
+
+      // Update total value to pay
+      state.subTotal -= lineTotal;
+
+      // Update state with removed item
+      state.items = state.items.filter((item) => item.id !== id);
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+/**
+ * Find the item in the user's shopping cart
+ */
+const findItem = (itemList: CartItem[], itemId: number) => {
+  return itemList.find((item) => item.id === itemId);
+};
+
+export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -140,6 +140,17 @@ export type CartState = {
   subTotal: number;
 };
 
+/**
+ * Type for the received payload when removing item from the cart
+ * @property id           - product id
+ * @property currentPrice - current product price
+ * @property quantity     - product quantity
+ */
+export type RemoveFromCartPayload = Pick<
+  CartItem,
+  "id" | "currentPrice" | "quantity"
+>;
+
 /* ---------------------------------------------------- */
 /* Other component related types                        */
 /* ---------------------------------------------------- */
@@ -151,7 +162,7 @@ export type CartState = {
  * @property id               - product id
  * @property name             - product name
  * @property currentPrice     - current product price
- *
+ * @property quantity         - product quantity
  */
 export type CartItem = Pick<ProductGallery, "imagePath" | "imageDescription"> &
   Pick<ProductDetail, "id" | "name" | "currentPrice"> & {
