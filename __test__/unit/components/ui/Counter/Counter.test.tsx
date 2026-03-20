@@ -6,7 +6,13 @@ import { checkCounter } from "../../../../helpers/sneakersHelper";
  * Unit testing for component: Counter
  */
 describe("Counter component", () => {
-  render(<Counter />);
+  render(
+    <Counter
+      counter={0}
+      handleDecrement={() => {}}
+      handleIncrement={() => {}}
+    />,
+  );
 
   it("renders the decrease button, counter value and increase button", () => {
     checkCounter();
