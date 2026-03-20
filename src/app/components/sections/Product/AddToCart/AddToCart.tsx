@@ -23,9 +23,15 @@ export default function AddToCart({ counter, itemToAdd }: AddToCartProps) {
 
   return (
     <button
-      className={clsx("flex-center", "orangeBtn", styles.button, {
-        [styles.disabledBtn]: isBtnDisabled,
-      })}
+      className={clsx(
+        "flex-center",
+        "orangeBtn",
+        "bg-color-transition",
+        styles.button,
+        {
+          [styles.disabledBtn]: isBtnDisabled,
+        },
+      )}
       disabled={isBtnDisabled}
       onClick={addItem}
     >

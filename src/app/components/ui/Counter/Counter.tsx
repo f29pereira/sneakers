@@ -20,9 +20,14 @@ export default function Counter({
     <div className={styles.counterCont}>
       {/*Decrement Button*/}
       <button
-        className={clsx("buttonIcon", styles.counterBtn, {
-          [styles.disabledBtn]: isBtnDisabled,
-        })}
+        className={clsx(
+          "buttonIcon",
+          "bg-color-transition",
+          styles.counterBtn,
+          {
+            [styles.disabledBtn]: isBtnDisabled,
+          },
+        )}
         onClick={handleDecrement}
         disabled={counter <= 0}
         aria-label="Decrease quantity"

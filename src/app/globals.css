@@ -85,6 +85,12 @@ strong {
   width: 100%;
 }
 
+/*background color transition*/
+.bg-color-transition {
+  transition-property: background-color;
+  transition-duration: 500ms;
+}
+
 /*Vertically centers absolute positioned elements in relation to relative positioned parent*/
 .verticallyCenter {
   position: absolute;
