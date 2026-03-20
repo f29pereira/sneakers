@@ -1,7 +1,9 @@
 import styles from "./Item.module.css";
-import type { CartItem } from "@/app/components/types";
+import type { CartItem, RemoveFromCartPayload } from "@/app/components/types";
 import Image from "next/image";
 import { getLineTotal } from "@/app/lib/utils";
+import { useAppDispatch } from "@/app/hooks";
+import { removeFromCart } from "@/app/features/cart/cartSlice";
 
 /**
  * Renders an item from the user's cart.
@@ -15,7 +17,7 @@ import { getLineTotal } from "@/app/lib/utils";
  *
  * - Remove Item button
  *
- * Props are defined in {@link ItemProps}.
+ * Props are defined in {@link CartItem}.
  */
 export default function Item({
   imagePath,
@@ -27,11 +29,19 @@ export default function Item({
 }: CartItem) {
   const lineTotal = getLineTotal(currentPrice, quantity);
 
+  const dispatch = useAppDispatch();
+
   /**
    * Remove item from the user's cart
    */
   const removeItem = () => {
-    /*TO DO: add remove item on click logic*/
+    const itemToRemove: RemoveFromCartPayload = {
+      id: id,
+      currentPrice: currentPrice,
+      quantity: quantity,
+    };
+
+    dispatch(removeFromCart(itemToRemove));
   };
 
   return (
