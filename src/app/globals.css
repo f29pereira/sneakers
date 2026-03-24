@@ -1,0 +1,135 @@
+/*
+Global CSS styles
+*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /*Font:*/
+  /*Family*/
+  --font-kumbh-sans: "Kumbh Sans", sans-serif;
+  /*Weight*/
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  /*Size*/
+  --font-size-base: 1rem;
+
+  /*Colors:*/
+  /*Orange*/
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  --hover-orange: hsl(26, 90%, 70%);
+
+  /*Neutral*/
+  --dark-blue: hsl(220, 13%, 13%);
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
+  --light-box-shadow: hsla(0, 0%, 0%, 0.08);
+
+  /*Border*/
+  --border-radius-5: 5px;
+  --border-radius-10: 10px;
+}
+
+html,
+body {
+  background-color: var(--white);
+  font-family: var(--font-kumbh-sans);
+  -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
+  -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-grayish-blue);
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2 {
+  color: var(--dark-blue);
+}
+
+strong {
+  font-weight: var(--font-weight-700);
+}
+
+/*light gray text*/
+.lightText {
+  color: var(--dark-grayish-blue);
+}
+
+/*button with icon*/
+.buttonIcon {
+  border: none;
+  background: none;
+}
+
+/*orange button: with rounded corners and full height/width*/
+.orangeBtn {
+  border: none;
+  border-radius: var(--border-radius-10);
+  background-color: var(--orange);
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-base);
+  height: 100%;
+  width: 100%;
+}
+
+/*background color transition*/
+.bg-color-transition {
+  transition-property: background-color;
+  transition-duration: 500ms;
+}
+
+/*Vertically centers absolute positioned elements in relation to relative positioned parent*/
+.verticallyCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*Centered flex row container*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Centered flex column container*/
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Available for screen readers*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  button {
+    cursor: pointer;
+  }
+
+  /*orange button: on hover, change color*/
+  .orangeBtn:hover {
+    background-color: var(--hover-orange);
+  }
+}

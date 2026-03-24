@@ -1,0 +1,4 @@
+/*line border width and style*/
+.line {
+  border-top: 1px solid var(--light-grayish-blue);
+}

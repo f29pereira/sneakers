@@ -1,0 +1,15 @@
+import { render } from "@testing-library/react";
+import Detail from "@/app/components/sections/Product/Detail/Detail";
+import { checkDetail } from "../../../../../helpers/sneakersHelper";
+import { getProductData } from "../../../../../fixtures/sneakers.fixture";
+
+/**
+ * Unit testing for component: Detail
+ */
+describe("Detail component", () => {
+  render(<Detail details={getProductData()} />);
+
+  it("renders the product: company, name, description, current price, discount percentage and original price", () => {
+    checkDetail();
+  });
+});

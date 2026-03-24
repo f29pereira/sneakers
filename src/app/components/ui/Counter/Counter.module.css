@@ -1,0 +1,82 @@
+/*
+CSS Module for Counter component
+*/
+
+/*counter main container*/
+.counterCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-grayish-blue);
+  border-radius: var(--border-radius-10);
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+/*counter button*/
+.counterBtn {
+  color: var(--orange);
+}
+
+/*counter icon svg: color matches .counterBtn*/
+.minusIcon,
+.plusIcon {
+  fill: currentColor;
+}
+
+/*minus button icon*/
+.minusIcon {
+  width: 0.75rem; /*12px*/
+  height: 0.25rem; /*4px*/
+}
+
+/*counter current value*/
+.counterValue {
+  font-weight: var(--font-weight-700);
+}
+
+/*plus button icon*/
+.plusIcon {
+  width: 0.75rem; /*12px*/
+  height: 0.75rem; /*12px*/
+}
+
+/*counter button: when disabled, the cursor is not allowed and change color */
+.disabledBtn {
+  cursor: not-allowed;
+  color: var(--dark-grayish-blue);
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*minus button icon: increase width and height*/
+  .minusIcon {
+    width: 1rem;
+    height: 0.5rem;
+  }
+
+  /*plus button icon: increase width and height*/
+  .plusIcon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /*counter current value: increase font size*/
+  .counterValue {
+    font-size: 1.2rem;
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*counter button: on hover, change color*/
+  .counterBtn:hover {
+    color: var(--hover-orange);
+  }
+
+  /*disabled minus button: on hover, don't change color*/
+  .counterBtn.disabledBtn:hover {
+    color: var(--dark-grayish-blue);
+  }
+}

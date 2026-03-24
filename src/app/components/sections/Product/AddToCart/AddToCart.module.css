@@ -1,0 +1,39 @@
+/*
+CSS Module for AddToCart component
+*/
+
+/*add to cart button*/
+.button {
+  gap: 1rem;
+  box-shadow: 0px 10px 5px -1px var(--pale-orange);
+  padding: 1rem 2rem;
+}
+
+/*add to cart button: when disabled, the cursor is not allowed and change background, color and box-shadow*/
+.button:disabled.disabledBtn {
+  cursor: not-allowed;
+  background-color: var(--dark-grayish-blue);
+  color: var(--white);
+  box-shadow: 0px 10px 5px -1px var(--light-box-shadow);
+}
+
+/*shopping cart svg: color matches .button*/
+.cartIcon {
+  width: 1.125rem; /*18px*/
+  height: 1rem; /*16px*/
+  fill: currentColor;
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*add to cart button: remove padding*/
+  .button {
+    padding: 0;
+  }
+
+  /*shopping cart svg: increase width/height*/
+  .cartIcon {
+    width: 1.25rem; /*20px*/
+    height: 1.125rem; /*18px*/
+  }
+}

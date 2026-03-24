@@ -1,0 +1,127 @@
+/*
+CSS Module for Detail component
+*/
+
+/*product company*/
+.company {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+/*header with product name*/
+.name {
+  font-size: 1.7rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+/*product description*/
+.description {
+  font-weight: var(--font-weight-400);
+  line-height: 1.7em;
+}
+
+/*product current price, discount and original price container*/
+.pricesCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+/*current price and discount container*/
+.priceDiscontCont {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*product current price*/
+.currentPrice {
+  font-size: 1.7rem;
+}
+
+/*product discount container*/
+.discountCont {
+  background-color: var(--dark-blue);
+  border-radius: var(--border-radius-5);
+  padding: 0.3rem 0.7rem;
+}
+
+/*product discount*/
+.discount {
+  color: var(--white);
+  font-size: var(--font-size-base);
+}
+
+/*product original price*/
+.originalPrice {
+  text-decoration: line-through;
+}
+
+/*product: company, current price, discount and original price font weight*/
+.company,
+.currentPrice,
+.discount,
+.originalPrice {
+  font-weight: var(--font-weight-700);
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*product company: increase font size*/
+  .company {
+    font-size: var(--font-size-base);
+  }
+
+  /*header with product name: increase font size*/
+  .name {
+    font-size: 2.5rem;
+  }
+
+  /*product current price: increase font size*/
+  .currentPrice {
+    font-size: 2rem;
+  }
+
+  /*product discount: increase font size*/
+  .discount {
+    font-size: 1.2rem;
+  }
+
+  /*product original price: set font size*/
+  .originalPrice {
+    font-size: 1.5rem;
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 62.5rem /*1000px*/) {
+  /*product current price and discount container: set relative position and bottom margin*/
+  .pricesCont {
+    position: relative;
+    margin: 1rem 0 4rem 0;
+  }
+
+  /*product original price: set absolute position to display bellow the current price and discount*/
+  .originalPrice {
+    position: absolute;
+    top: 2.8rem;
+    left: 0;
+    font-size: 1.2rem;
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*header with product name: increase font size and bottom margin*/
+  .name {
+    font-size: 2.8rem;
+    margin: 0.5rem 0 2rem 0;
+  }
+
+  /*product current price and discount container: increase top margin*/
+  .pricesCont {
+    margin: 2rem 0 4rem 0;
+  }
+}

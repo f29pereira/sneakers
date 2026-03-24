@@ -1,0 +1,64 @@
+/*
+CSS Module for Item component
+*/
+
+/*item main container*/
+.itemCont {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/*item image*/
+.itemImg {
+  border-radius: var(--border-radius-5);
+  width: 3.125rem; /*50px*/
+  height: 3.125rem; /*50px*/
+}
+
+/*unit price and quantity container*/
+.quantityPriceCont {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/*item name, unit price and quantity: font weight*/
+.itemName,
+.itemPriceQuantity {
+  font-weight: var(--font-weight-400);
+}
+
+/*item name, unit price, quantity and total value: font size*/
+.itemName,
+.itemPriceQuantity,
+.total {
+  font-size: var(--font-size-base);
+}
+
+/*total value to pay*/
+.total {
+  font-weight: var(--font-weight-700);
+}
+
+/*remove item button*/
+.removeBtn {
+  color: var(--dark-grayish-blue);
+  opacity: 0.4;
+}
+
+/*remove icon*/
+.removeIcon {
+  fill: currentColor;
+  width: 0.875rem; /*14px*/
+  height: 1rem;
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*remove item button: on hover, reset opacity value*/
+  .removeBtn:hover {
+    opacity: 1;
+  }
+}
