@@ -1,0 +1,44 @@
+/*
+CSS Module for Gallery component
+*/
+
+/*images/thumbnails main container*/
+.galleryCont {
+  position: relative;
+}
+
+/*previous image button: positioned 12.8px inside the product image left edge*/
+.leftArrowCont {
+  left: 0.8rem;
+}
+
+/*next image button: positioned 12.8px inside the product image right edge*/
+.rightArrowCont {
+  right: 0.8rem;
+}
+
+/*desktop button with current image and thumbnail list: not displayed for mobile/tablet screens*/
+.desktopImgCont,
+.desktopThumbnailCont {
+  display: none;
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*mobile current image: not displayed for desktop screens*/
+  .mobileImgCont {
+    display: none;
+  }
+
+  /*button with current image and thumbnail list: displayed for desktop screens*/
+  .desktopImgCont,
+  .desktopThumbnailCont {
+    display: block;
+  }
+
+  /*mobile image navigation prev/next buttons: not displayed for desktop screens*/
+  .leftArrowCont,
+  .rightArrowCont {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+/*
+CSS Module for ThumbnailList component
+*/
+
+/*product thumbnails list container*/
+.thumbnailsCont {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 2rem; /*row gap, column gap*/
+  margin-top: 1.5rem;
+}
+
+/*thumbnail button*/
+.thumbnailBtn {
+  border-radius: var(--border-radius-10);
+}
+
+/*thumbnail button: on hover, change opacity*/
+.thumbnailBtn:hover {
+  opacity: 0.33;
+}
+
+/*thumbnail image*/
+.thumbnailImg {
+  border-radius: var(--border-radius-10);
+  width: 4rem; /*64px*/
+  height: 4rem; /*64px*/
+}
+
+/*thumbnail image is selected*/
+.isSelected {
+  border: 4px solid var(--orange);
+  opacity: 0.33;
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*thumbnail image: set border and increase width/height*/
+  .thumbnailImg {
+    width: 5rem; /*80px*/
+    height: 5rem; /*80px*/
+  }
+}

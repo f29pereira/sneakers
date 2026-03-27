@@ -1,0 +1,95 @@
+/*
+CSS Module for GalleryModal component
+*/
+
+/*modal main container: not displayed for small screens*/
+.modalCont {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--lightbox-bg);
+  width: 100vw;
+  height: 100vh;
+}
+
+/*modal content container*/
+.contentCont {
+  width: 100%;
+  height: 100%;
+}
+
+/*close button container: button displayed on the right*/
+.closeBtnCont {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 1.5rem;
+}
+
+/*CloseButton component: override button color and size*/
+.closeModalBtn {
+  color: var(--orange);
+  width: 1.375rem; /*22px*/
+  height: 1.3125rem; /*21px*/
+}
+
+/*CloseButton component: on hover, change button color*/
+.closeModalBtn:hover {
+  color: var(--hover-orange);
+}
+
+/*product image, image navigation and thumbnails list container*/
+.imgsCont {
+  position: relative;
+}
+
+/*previous image button: positioned half its diameter (25px) outside product image left edge*/
+.leftArrowCont {
+  left: -1.5625rem; /*-25px*/
+}
+
+/*next image button: positioned half its diameter (25px) outside product image right edge*/
+.rightArrowCont {
+  right: -1.5625rem; /*25px*/
+}
+
+/*ArrowButton component: override previous/next image buttons size*/
+.imgBtn {
+  width: 3.125rem; /*50px*/
+  height: 3.125rem; /*50px*/
+}
+
+/*ArrowButton component: on hover, change previous/next image buttons color*/
+.imgBtn:hover {
+  color: var(--hover-orange);
+}
+
+/*ThumbnailList component: override opacity value*/
+.modalThumbnail {
+  /*filter: contrast(55%);*/
+  opacity: 1;
+  width: 90px; /*80px*/
+  height: 90px; /*80px*/
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*modal main container:  displayed for desktop screens*/
+  .modalCont {
+    display: block;
+  }
+
+  /*ProductImage component: override image height*/
+  .modalImg {
+    height: 31.25rem; /*500px*/
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*ProductImage component: override image height*/
+  .modalImg {
+    height: 34.375rem; /*550px*/
+  }
+}

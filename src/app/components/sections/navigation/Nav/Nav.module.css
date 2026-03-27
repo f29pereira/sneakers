@@ -1,0 +1,214 @@
+/*
+CSS Module for Nav component
+*/
+
+/*navigation main container: containing block to .userCartCont*/
+.navCont {
+  position: relative;
+  padding: 1.5rem 1rem;
+}
+
+/*navigation links container*/
+.linksCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*right navigation container: centered flex container*/
+.rightNavCont {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/*left navigation links list: not displayed for small screens*/
+.leftNavDesktop {
+  display: none;
+}
+
+/*Card component container: flex centered container*/
+.userCartCont {
+  position: absolute;
+  top: 5rem; /*80px*/
+  left: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+}
+
+/*user shopping cart svg*/
+.cartIcon {
+  width: 1.375rem; /*22px*/
+  height: 1.25rem; /*20px*/
+}
+
+/*user shopping cart svg: color*/
+.cartIcon path {
+  fill: var(--dark-grayish-blue);
+}
+
+/*user shopping cart: containing block to .itemsNumber*/
+.cartItem {
+  position: relative;
+}
+
+/*user's shopping cart items badge counter: positioned on the top right of the shopping cart button*/
+.itemsNumber {
+  position: absolute;
+  top: -0.5rem; /*-8px*/
+  right: -0.4rem; /*-6.4px*/
+  z-index: 1;
+  border-radius: var(--border-radius-5);
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: var(--font-weight-700);
+  text-align: center;
+  padding: 0.1rem 0.4rem;
+}
+
+/*user avatar link*/
+.avatarItem {
+  border-radius: 50%;
+  width: 1.5rem; /*24px*/
+  height: 1.5rem; /*24px*/
+}
+
+/*user avatar image*/
+.avatar {
+  width: 100%;
+  height: 100%;
+}
+
+/*LineDivider component:  not displayed for small screens*/
+.navDivider {
+  display: none;
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*Sneakers logo: increase width and height*/
+  .navLogo {
+    width: 9.3rem; /*150px*/
+    height: 1.5rem; /*24px*/
+  }
+
+  /*right navigation container: increase gap*/
+  .rightNavCont {
+    gap: 2rem;
+  }
+
+  /*user shopping cart svg: increase width and height*/
+  .cartIcon {
+    width: 1.75rem; /*28px*/
+    height: 1.6rem; /*26px*/
+  }
+
+  /*user's shopping cart items badge counter: reduce right position value*/
+  .itemsNumber {
+    right: -0.1rem; /*-1.6px*/
+  }
+
+  /*user avatar link: increase width and height*/
+  .avatarItem {
+    width: 2.2rem; /*35px*/
+    height: 2.2rem; /*35px*/
+  }
+
+  /*Card component container: increate top, left and right values*/
+  .userCartCont {
+    top: 6rem; /*96px*/
+    left: 0.7rem; /*11.2px*/
+    right: 0.7rem; /*11.2px*/
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*navigation main container: increase padding*/
+  .navCont {
+    padding: 2rem;
+  }
+
+  /*navigation links container: set bottom padding*/
+  .linksCont {
+    padding-bottom: 2rem;
+  }
+
+  /*left navigation container: set flex container*/
+  .leftNavCont {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  /*left navigation links list: set flex container*/
+  .leftNavDesktop {
+    display: flex;
+    gap: 2rem;
+  }
+
+  /*left navigation list item: set relative position for ::after*/
+  .item {
+    position: relative;
+  }
+
+  /*desktop navigation links: on hover, change link text color*/
+  .item:hover .navLink {
+    color: var(--dark-blue);
+  }
+
+  /*desktop navigation links: on hover, draw an orange underline below the link*/
+  .item:hover::after {
+    content: "";
+    position: absolute;
+    top: 3.7rem;
+    left: 0;
+    border: 0.5px solid var(--orange);
+    background-color: var(--orange);
+    width: 100%;
+    height: 0.2rem;
+  }
+
+  /*user shopping cart svg: on hover, change color*/
+  .cartItem:hover .cartIcon path {
+    fill: var(--dark-blue);
+  }
+
+  /*user avatar link: increase width/height and add invisible border*/
+  .avatarItem {
+    width: 2.8rem; /*44px*/
+    height: 2.8rem; /*44px*/
+    border: 3px solid transparent;
+  }
+
+  /*user avatar link: on hover, draw orange border*/
+  .avatarItem:hover {
+    border-color: var(--orange);
+  }
+
+  /*LineDivider component: displayed for desktop screens*/
+  .navDivider {
+    display: block;
+  }
+
+  /*Card component container: positioned on the right side*/
+  .userCartCont {
+    left: auto;
+    right: 2rem;
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*navigation main container: increase left/right padding*/
+  .navCont {
+    padding: 2rem 10rem;
+  }
+
+  /*Card component container: increase right value*/
+  .userCartCont {
+    right: 6rem;
+  }
+}

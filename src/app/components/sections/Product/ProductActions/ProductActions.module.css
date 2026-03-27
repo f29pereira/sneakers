@@ -1,0 +1,30 @@
+/*
+CSS Module for ProductActions component
+*/
+
+/*add to cart button container*/
+.addToCartCont {
+  margin: 1rem 0 2rem 0;
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*product counter and add to cart button container*/
+  .counterAddToCartCont {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    height: 3.75rem; /*60px*/
+  }
+
+  /*product counter container*/
+  .counterCont {
+    flex: 1;
+  }
+
+  /*add to cart button container: reset margin*/
+  .addToCartCont {
+    flex: 1.5;
+    margin: 0;
+  }
+}

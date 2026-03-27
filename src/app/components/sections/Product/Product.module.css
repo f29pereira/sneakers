@@ -1,0 +1,50 @@
+/*
+CSS Module for Product component
+*/
+
+/*product details, counter and add to cart container*/
+.productInfoCont {
+  padding: 1.5rem 1rem;
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*product details, counter and add to cart container: increase left/right padding*/
+  .productInfoCont {
+    padding: 1.5rem 3rem;
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*section container: set flex container for the product image/thumbnails and details/counter/add to cart button*/
+  .sectionCont {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 53.125rem; /*850px*/
+    margin: 1rem auto 4rem auto;
+  }
+
+  /*product image and thumbnails*/
+  .productImagesCont {
+    flex: 1;
+  }
+
+  /*product details, counter and add to cart container: reset padding and set margin top*/
+  .productInfoCont {
+    padding: 0;
+    margin-top: 4rem;
+    flex: 1;
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*section container: increase gap, max width and top margin*/
+  .sectionCont {
+    gap: 6rem;
+    max-width: 59.375rem; /*950px*/
+    margin: 2rem auto 4rem auto;
+  }
+}
