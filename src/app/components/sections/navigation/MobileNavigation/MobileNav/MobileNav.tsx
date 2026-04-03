@@ -19,7 +19,7 @@ import CloseButton from "@/app/components/ui/Buttons/CloseButton/CloseButton";
 export default function MobileNav({ handleToggle }: MobileNavProps) {
   return (
     <FocusTrap>
-      <div className={styles.popUpCont} data-testid="mobile-nav">
+      <div className={styles.popUpCont} data-testid="mobile-nav" role="dialog">
         <nav className={styles.mobileNavCont}>
           {/*Close Mobile Navigation Button*/}
           <div className={styles.closeBtnCont}>
