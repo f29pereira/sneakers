@@ -15,6 +15,7 @@ const config: Config = {
   // Absolute imports
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "focus-trap-react": "<rootDir>/__mocks__/focus-trap-react.tsx",
   },
   // Ignore fixtures and helpers folders files
   testPathIgnorePatterns: [
