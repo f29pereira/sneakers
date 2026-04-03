@@ -10,6 +10,7 @@ import ProductImage from "./ProductImage/ProductImage";
 import ArrowButton from "@/app/components/ui/Buttons/ArrowButton/ArrowButton";
 import ThumbnailList from "./ThumbnailList/ThumbnailList";
 import GalleryModal from "./GalleryModal/GalleryModal";
+import { useOnEscape } from "@/app/components/customHooks/useOnEscape";
 
 /**
  * Renders the product images gallery
@@ -28,29 +29,9 @@ export default function Gallery({ gallery }: GalleryProps) {
 
   const { isToggled, toggle } = useToggle(false); // Gallery modal toggle
 
+  useOnEscape(isToggled, toggle); // Close gallery modal on escape
+
   const { isScreenSize } = useMediaQuery("1023"); // 1023px
-
-  /**
-   * Closes gallery modal if espace key is pressed
-   */
-  useEffect(() => {
-    if (!isToggled) {
-      return;
-    }
-
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        toggle();
-      }
-    };
-
-    document.addEventListener("keydown", handleEscKey);
-
-    // Clean-up function
-    return () => {
-      document.removeEventListener("keydown", handleEscKey);
-    };
-  }, [isToggled]);
 
   /**
    * Closes gallery modal if screen is resized to minimum of 1023px
