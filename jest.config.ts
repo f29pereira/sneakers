@@ -17,10 +17,11 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/src/$1",
     "focus-trap-react": "<rootDir>/__mocks__/focus-trap-react.tsx",
   },
-  // Ignore fixtures and helpers folders files
+  // Ignore fixtures, helpers and e2e folder files
   testPathIgnorePatterns: [
     "<rootDir>/__tests__/fixtures/.*",
     "<rootDir>/__tests__/helpers/.*",
+    "<rootDir>/e2e/.",
   ],
 };
 
