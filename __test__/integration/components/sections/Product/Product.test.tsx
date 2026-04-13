@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { getEmptyCartState } from "../../../../fixtures/sneakers.fixture";
+import { getEmptyCartState } from "../../../../../fixtures/sneakers.fixture";
 import { renderWithProviders } from "../../../../helpers/reduxHelper";
 import Product from "@/app/components/sections/Product/Product";
 import userEvent from "@testing-library/user-event";

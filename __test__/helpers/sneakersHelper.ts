@@ -5,7 +5,7 @@ import {
   getProductImagesData,
   getProductData,
   getCartItemData,
-} from "../fixtures/sneakers.fixture";
+} from "../../fixtures/sneakers.fixture";
 import { getLineTotal } from "@/app/lib/utils";
 
 /**
