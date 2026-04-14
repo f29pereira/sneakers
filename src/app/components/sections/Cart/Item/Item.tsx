@@ -45,7 +45,7 @@ export default function Item({
   };
 
   return (
-    <div className={styles.itemCont}>
+    <div className={styles.itemCont} data-testid="cart">
       {/*Image*/}
       <Image
         className={styles.itemImg}
