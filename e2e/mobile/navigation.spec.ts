@@ -1,5 +1,5 @@
 import { test, devices, expect, Page } from "@playwright/test";
-import { getNavLinksDesc } from "../fixtures/sneakers.fixture";
+import { getNavLinksDesc } from "../../fixtures/sneakers.fixture";
 
 test.use({ ...devices["Pixel 5"] });
 
@@ -12,7 +12,7 @@ const openNavigation = async (page: Page) => {
 };
 
 /**
- * Returns movile navigation links
+ * Returns mobile navigation links
  */
 const getLinks = (page: Page) => {
   const links = getNavLinksDesc();
@@ -36,12 +36,7 @@ test.describe("Mobile navigation", () => {
     await page.goto("/"); // baseURL
   });
 
-  test("has mobile navigation button", async ({ page }) => {
-    const hamburgerBtn = page.getByRole("button", { name: "Open Menu" });
-    await expect(hamburgerBtn).toBeVisible();
-  });
-
-  test("allows the user to open the mobile navigation", async ({ page }) => {
+  test("open the mobile navigation", async ({ page }) => {
     await openNavigation(page);
 
     const closeBtn = page.getByRole("button", { name: "Close Menu" });
@@ -57,7 +52,7 @@ test.describe("Mobile navigation", () => {
     await expect(contactLink).toBeVisible();
   });
 
-  test("allows the user to close the mobile navigation", async ({ page }) => {
+  test("close the mobile navigation", async ({ page }) => {
     await openNavigation(page);
 
     const closeBtn = page.getByRole("button", { name: "Close Menu" });
