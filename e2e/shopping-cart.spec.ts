@@ -31,9 +31,7 @@ test.describe("User shopping cart", () => {
     await page.goto("/"); // baseURL
   });
 
-  test("shows empty cart message when there no items in the cart", async ({
-    page,
-  }) => {
+  test("shows message when cart is empty", async ({ page }) => {
     await openShoppingCart(page);
 
     const title = page.getByRole("heading", {
@@ -96,7 +94,7 @@ test.describe("User shopping cart", () => {
     await expect(checkout).toBeVisible();
   });
 
-  test("allows the user to remove items from the cart", async ({ page }) => {
+  test("remove items from the cart", async ({ page }) => {
     await addItem(page);
 
     await openShoppingCart(page);
