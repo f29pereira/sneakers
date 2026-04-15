@@ -75,7 +75,7 @@ export default function Gallery({ gallery }: GalleryProps) {
       {gallery.length > 0 ? (
         <>
           {/*Mobile: current image*/}
-          <div className={styles.mobileImgCont}>
+          <div className={styles.mobileImgCont} data-testid="mobile-gallery">
             <ProductImage
               path={gallery[currentImg].imagePath}
               description={gallery[currentImg].imageDescription}
