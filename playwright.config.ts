@@ -8,6 +8,10 @@ import { defineConfig, devices } from "@playwright/test";
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
+const desktopOnly = "desktop/**/*.spec.ts";
+const mobileOnly = "mobile/**/*.spec.ts";
+const shared = "shared/**/*.spec.ts";
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -34,29 +38,62 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    /* Test against desktop viewports. */
     {
-      name: "chromium",
+      name: "chromium-desktop",
       use: { ...devices["Desktop Chrome"] },
+      testMatch: desktopOnly,
     },
 
     {
-      name: "firefox",
+      name: "firefox-desktop",
       use: { ...devices["Desktop Firefox"] },
+      testMatch: desktopOnly,
     },
 
     {
-      name: "webkit",
+      name: "webkit-desktop",
       use: { ...devices["Desktop Safari"] },
+      testMatch: desktopOnly,
     },
 
     /* Test against mobile viewports. */
     {
-      name: "Mobile Chrome",
+      name: "chrome-mobile",
       use: { ...devices["Pixel 5"] },
+      testMatch: mobileOnly,
     },
     {
-      name: "Mobile Safari",
+      name: "safari-mobile",
       use: { ...devices["iPhone 12"] },
+      testMatch: mobileOnly,
+    },
+
+    /* Test against desktop and mobile viewports. */
+    {
+      name: "chromium-desktop-shared",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: shared,
+    },
+    {
+      name: "firefox-desktop-shared",
+      use: { ...devices["Desktop Firefox"] },
+      testMatch: shared,
+    },
+    {
+      name: "webkit-desktop-shared",
+      use: { ...devices["Desktop Safari"] },
+      testMatch: shared,
+    },
+    {
+      name: "chrome-mobile-shared",
+      use: { ...devices["Pixel 5"] },
+      testMatch: shared,
+    },
+    {
+      name: "safari-mobile-shared",
+      use: { ...devices["iPhone 12"] },
+      testMatch: shared,
     },
 
     /* Test against branded browsers. */
