@@ -1,8 +1,6 @@
 import { test, devices, expect, Page } from "@playwright/test";
 import { getNavLinksDesc } from "../../fixtures/sneakers.fixture";
 
-test.use({ ...devices["Pixel 5"] });
-
 /**
  * Open mobile navigation
  */
@@ -55,18 +53,18 @@ test.describe("Mobile navigation", () => {
   test("close the mobile navigation", async ({ page }) => {
     await openNavigation(page);
 
+    // Close navigation
     const closeBtn = page.getByRole("button", { name: "Close Menu" });
-
-    await closeBtn.click(); // Close mobile navigation
+    await closeBtn.click();
 
     const { collectionsLink, menLink, womanLink, aboutLink, contactLink } =
       getLinks(page);
 
-    await expect(closeBtn).not.toBeVisible();
-    await expect(collectionsLink).not.toBeVisible();
-    await expect(menLink).not.toBeVisible();
-    await expect(womanLink).not.toBeVisible();
-    await expect(aboutLink).not.toBeVisible();
-    await expect(contactLink).not.toBeVisible();
+    await expect(closeBtn).toBeHidden();
+    await expect(collectionsLink).toBeHidden();
+    await expect(menLink).toBeHidden();
+    await expect(womanLink).toBeHidden();
+    await expect(aboutLink).toBeHidden();
+    await expect(contactLink).toBeHidden();
   });
 });
