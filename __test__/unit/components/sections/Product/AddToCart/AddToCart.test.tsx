@@ -4,7 +4,7 @@ import { checkAddToCart } from "../../../../../helpers/sneakersHelper";
 import {
   getCartItemData,
   getCartState,
-} from "../../../../../fixtures/sneakers.fixture";
+} from "../../../../../../fixtures/sneakers.fixture";
 import { renderWithProviders } from "../../../../../helpers/reduxHelper";
 
 /**

@@ -211,4 +211,10 @@ CSS Module for Nav component
   .userCartCont {
     right: 6rem;
   }
+
+  /*user avatar link: increase width and height*/
+  .avatarItem {
+    width: 3.125rem; /*50px*/
+    height: 3.125rem; /*50px*/
+  }
 }

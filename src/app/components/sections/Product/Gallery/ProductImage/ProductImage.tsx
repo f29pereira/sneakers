@@ -22,6 +22,7 @@ export default function ProductImage({
       width={intrinsicWidth}
       height={intrinsicHeight}
       alt={description}
+      loading="eager"
     />
   );
 }

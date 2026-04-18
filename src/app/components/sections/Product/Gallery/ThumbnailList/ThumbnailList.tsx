@@ -15,23 +15,25 @@ export default function ThumbnailList({
   return (
     <ul className={styles.thumbnailsCont} aria-label="Product image thumbnails">
       {gallery.map((thumbnail, index) => (
-        <button
-          key={index}
-          className={`buttonIcon ${styles.thumbnailBtn}`}
-          aria-label={thumbnail.thumbnailDescription}
-          aria-current={selectedImg === index}
-          onClick={() => {
-            handleSelectImg(index);
-          }}
-        >
-          <Image
-            className={`${styles.thumbnailImg} ${selectedImg === index ? styles.isSelected : ""}`}
-            src={thumbnail.thumbnailPath}
-            width={176}
-            height={176}
-            alt=""
-          />
-        </button>
+        <li key={index}>
+          <button
+            key={index}
+            className={`buttonIcon ${styles.thumbnailBtn}`}
+            aria-label={thumbnail.thumbnailDescription}
+            aria-current={selectedImg === index}
+            onClick={() => {
+              handleSelectImg(index);
+            }}
+          >
+            <Image
+              className={`${styles.thumbnailImg} ${selectedImg === index ? styles.isSelected : ""}`}
+              src={thumbnail.thumbnailPath}
+              width={176}
+              height={176}
+              alt=""
+            />
+          </button>
+        </li>
       ))}
     </ul>
   );

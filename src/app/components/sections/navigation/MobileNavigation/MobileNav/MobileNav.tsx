@@ -1,3 +1,4 @@
+import { FocusTrap } from "focus-trap-react";
 import styles from "./MobileNav.module.css";
 import Link from "next/link";
 import type { MobileNavProps } from "../../../../types";
@@ -17,42 +18,44 @@ import CloseButton from "@/app/components/ui/Buttons/CloseButton/CloseButton";
  */
 export default function MobileNav({ handleToggle }: MobileNavProps) {
   return (
-    <div className={styles.popUpCont} data-testid="mobile-nav">
-      <nav className={styles.mobileNavCont}>
-        {/*Close Mobile Navigation Button*/}
-        <div className={styles.closeBtnCont}>
-          <CloseButton ariaLabel="Close Menu" handleClose={handleToggle} />
-        </div>
+    <FocusTrap>
+      <div className={styles.popUpCont} data-testid="mobile-nav" role="dialog">
+        <nav className={styles.mobileNavCont}>
+          {/*Close Mobile Navigation Button*/}
+          <div className={styles.closeBtnCont}>
+            <CloseButton ariaLabel="Close Menu" handleClose={handleToggle} />
+          </div>
 
-        {/*Mobile Navigation*/}
-        <ul>
-          <li className={styles.item}>
-            <Link className={styles.navLink} href="#">
-              Collections
-            </Link>
-          </li>
-          <li className={styles.item}>
-            <Link className={styles.navLink} href="#">
-              Men
-            </Link>
-          </li>
-          <li className={styles.item}>
-            <Link className={styles.navLink} href="#">
-              Woman
-            </Link>
-          </li>
-          <li className={styles.item}>
-            <Link className={styles.navLink} href="#">
-              About
-            </Link>
-          </li>
-          <li className={styles.item}>
-            <Link className={styles.navLink} href="#">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+          {/*Mobile Navigation*/}
+          <ul>
+            <li className={styles.item}>
+              <Link className={styles.navLink} href="#">
+                Collections
+              </Link>
+            </li>
+            <li className={styles.item}>
+              <Link className={styles.navLink} href="#">
+                Men
+              </Link>
+            </li>
+            <li className={styles.item}>
+              <Link className={styles.navLink} href="#">
+                Woman
+              </Link>
+            </li>
+            <li className={styles.item}>
+              <Link className={styles.navLink} href="#">
+                About
+              </Link>
+            </li>
+            <li className={styles.item}>
+              <Link className={styles.navLink} href="#">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </FocusTrap>
   );
 }

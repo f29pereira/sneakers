@@ -63,7 +63,7 @@ export default function Cart() {
             </div>
 
             {/*Subtotal*/}
-            <div className={styles.subTotalCont}>
+            <div className={styles.subTotalCont} data-testid="subTotal">
               <span className="lightText">Subtotal:</span>
               <strong>${cart.subTotal}</strong>
             </div>

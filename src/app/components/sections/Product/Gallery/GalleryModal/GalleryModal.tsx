@@ -24,7 +24,7 @@ export default function GalleryModal({
 }: GalleryModalProps) {
   return (
     <FocusTrap>
-      <dialog className={styles.modalCont}>
+      <dialog className={styles.modalCont} data-testid="modal-gallery">
         <div className={`flex-col-center ${styles.contentCont}`}>
           <div>
             {/*Close button*/}
@@ -36,7 +36,7 @@ export default function GalleryModal({
               />
             </div>
 
-            <div className={styles.imgsCont}>
+            <div className={styles.imgsCont} data-testid="modal-img">
               {/*Current Image*/}
               <ProductImage
                 path={gallery[selectedImg].imagePath}
@@ -47,7 +47,10 @@ export default function GalleryModal({
               />
 
               {/*Image navigation: prev/next buttons*/}
-              <div className={`verticallyCenter ${styles.leftArrowCont}`}>
+              <div
+                className={`verticallyCenter ${styles.leftArrowCont}`}
+                data-testid="modal-prev-btn"
+              >
                 <ArrowButton
                   direction="left"
                   ariaLabel="Previous Product Image"
@@ -56,7 +59,10 @@ export default function GalleryModal({
                 />
               </div>
 
-              <div className={`verticallyCenter ${styles.rightArrowCont}`}>
+              <div
+                className={`verticallyCenter ${styles.rightArrowCont}`}
+                data-testid="modal-next-btn"
+              >
                 <ArrowButton
                   direction="right"
                   ariaLabel="Next Product Image"
@@ -67,11 +73,13 @@ export default function GalleryModal({
             </div>
 
             {/*Thumbnail list*/}
-            <ThumbnailList
-              gallery={gallery}
-              selectedImg={selectedImg}
-              handleSelectImg={handleSelectImg}
-            />
+            <div data-testid="modal-thumbnails">
+              <ThumbnailList
+                gallery={gallery}
+                selectedImg={selectedImg}
+                handleSelectImg={handleSelectImg}
+              />
+            </div>
           </div>
         </div>
       </dialog>
