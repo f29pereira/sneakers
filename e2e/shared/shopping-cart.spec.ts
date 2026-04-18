@@ -1,9 +1,9 @@
 import { test, devices, expect, Page } from "@playwright/test";
-import { getCartItemData } from "../fixtures/sneakers.fixture";
+import { getCartItemData } from "../../fixtures/sneakers.fixture";
 import { getLineTotal } from "@/app/lib/utils";
 
 /**
- * Open shopping cart
+ * Open the shopping cart pop-up
  */
 const openShoppingCart = async (page: Page) => {
   const cartBtn = page.getByRole("button", { name: "Shopping Cart" });
@@ -31,7 +31,7 @@ test.describe("User shopping cart", () => {
     await page.goto("/"); // baseURL
   });
 
-  test("shows message when cart is empty", async ({ page }) => {
+  test("show message when cart is empty", async ({ page }) => {
     await openShoppingCart(page);
 
     const title = page.getByRole("heading", {
@@ -44,7 +44,7 @@ test.describe("User shopping cart", () => {
     await expect(emptyMsg).toBeVisible();
   });
 
-  test("shows item info and checkout link, after adding an item to the cart", async ({
+  test("show item info and checkout link, after adding an item to the cart", async ({
     page,
   }) => {
     const item = getCartItemData();
@@ -76,9 +76,11 @@ test.describe("User shopping cart", () => {
     );
     const removeItemBtn = page.getByRole("button", { name: "Remove Item" });
 
-    const subTotalText = page.getByText("Subtotal:");
-    const subTotalValue = page.getByTestId("cart");
-    subTotalValue.getByText(getLineTotal(item.currentPrice, item.quantity));
+    const subTotalContainer = page.getByTestId("subTotal");
+    const subTotalText = subTotalContainer.getByText("Subtotal:");
+    const subTotalValue = subTotalContainer.getByText(
+      `$${item.currentPrice * item.quantity}`,
+    );
 
     // Checkout link
     const checkout = page.getByRole("link", { name: "Checkout" });
@@ -94,11 +96,12 @@ test.describe("User shopping cart", () => {
     await expect(checkout).toBeVisible();
   });
 
-  test("remove items from the cart", async ({ page }) => {
+  test("remove item from the cart", async ({ page }) => {
     await addItem(page);
 
     await openShoppingCart(page);
 
+    // Remove item
     const removeItemBtn = page.getByRole("button", { name: "Remove Item" });
     removeItemBtn.click();
 
