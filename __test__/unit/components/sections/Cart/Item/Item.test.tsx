@@ -2,7 +2,7 @@ import Item from "@/app/components/sections/Cart/Item/Item";
 import {
   getCartItemData,
   getCartState,
-} from "../../../../../fixtures/sneakers.fixture";
+} from "../../../../../../fixtures/sneakers.fixture";
 import { checkItem } from "../../../../../helpers/sneakersHelper";
 import { renderWithProviders } from "../../../../../helpers/reduxHelper";
 

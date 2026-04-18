@@ -3,7 +3,7 @@ import Cart from "@/app/components/sections/Cart/Cart";
 import {
   getCartState,
   getEmptyCartState,
-} from "../../../../fixtures/sneakers.fixture";
+} from "../../../../../fixtures/sneakers.fixture";
 import { checkEmptyCart, checkCart } from "../../../../helpers/sneakersHelper";
 
 /**

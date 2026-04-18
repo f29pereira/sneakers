@@ -1,8 +1,9 @@
 "use client"; //Client Component
-
 import styles from "./MobileNavToggle.module.css";
 import Image from "next/image";
+import { useEffect } from "react";
 import useToggle from "@/app/components/customHooks/useToggle";
+import { useOnEscape } from "@/app/components/customHooks/useOnEscape";
 import MobileNav from "../MobileNav/MobileNav";
 
 /**
@@ -14,6 +15,8 @@ import MobileNav from "../MobileNav/MobileNav";
  */
 export default function MobileNavToggle() {
   const { isToggled, toggle } = useToggle(false);
+
+  useOnEscape(isToggled, toggle); // close pop-up on escape
 
   return (
     <>

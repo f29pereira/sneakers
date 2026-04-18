@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import Gallery from "@/app/components/sections/Product/Gallery/Gallery";
-import { getProductImagesData } from "../../../../../fixtures/sneakers.fixture";
+import { getProductImagesData } from "../../../../../../fixtures/sneakers.fixture";
 import { checkGallery } from "../../../../../helpers/sneakersHelper";
 
 /**

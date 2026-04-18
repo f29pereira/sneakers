@@ -15,6 +15,9 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
     - [Shopping cart](#shopping-cart)
     - [Hover states](#hover-states)
   - [Tests](#tests)
+    - [Unit and Integration Tests](#unit-and-integration-tests)
+    - [E2E Tests](#e2e-tests)
+    - [Accessibility Tests](#accessibility-tests)
   - [Links](#links)
   - [Built with](#built-with)
 - [Author](#author)
@@ -148,7 +151,7 @@ To be able to add items to the shopping cart, the user needs to click the "incre
 
 ### Tests
 
-**Unit and Integration Tests**
+#### **Unit and Integration Tests**
 
 This project uses Jest and React Testing Library for unit and integration testing.
 
@@ -162,7 +165,30 @@ The integration tests cover:
 - Allowing the user to increase the product counter value
 - Allowing the user to add a product to cart
 
-**Accessibility Tests**
+#### **E2E Tests**
+
+This project uses Playwright for end to end testing.
+
+The E2E tests cover:
+
+1. Mobile only (Pixel 5 and iPhone 12):
+
+- Opening and closing the mobile navigation
+- Browsing the product gallery using the next/previous buttons
+
+2. Desktop only (Chromium, Firefox and Webkit):
+
+- Browsing the product gallery using the thumbnail list
+- Browsing the modal product gallery using the next/previous buttons or thumbnail list
+- Closing the modal product gallery by pressing the close button or escape key
+
+3. All viewport tests:
+
+- Displaying a message when the cart is empty
+- Adding an item to cart
+- Removing an item from cart
+
+#### **Accessibility Tests**
 
 1. Automated Tests
 
@@ -197,6 +223,7 @@ The integration tests cover:
 - [Jest](https://jestjs.io/) - JS testing library
 - [React Testing Library](https://testing-library.com/) - React components testing library
 - [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of React Testing Library
+- [Playwright](https://playwright.dev/) - automation library for end-to-end testing
 - [NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/) - open-source screen reader for Windows
 
 ## Author
