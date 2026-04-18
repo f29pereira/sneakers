@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 import { getProductImagesData } from "../../fixtures/sneakers.fixture";
 
 /**
@@ -11,6 +11,68 @@ const getImagesAlt = () => {
   }));
 
   return images;
+};
+
+/**
+ * Open the modal gallery
+ */
+const openModalGallery = async (page: Page) => {
+  const modalBtn = page.getByTestId("desktop-img");
+  await modalBtn.click();
+};
+
+/**
+ * Returns modal gallery elements
+ */
+const getModalGalleryElements = (page: Page) => {
+  const images = getImagesAlt();
+
+  const modalContainer = page.getByTestId("modal-gallery");
+
+  const closeBtn = page.getByRole("button", {
+    name: /Close/,
+  });
+
+  const prevBtnContainer = page.getByTestId("modal-prev-btn");
+  const prevImageBtn = prevBtnContainer.getByRole("button", {
+    name: "Previous Product Image",
+  });
+
+  const nextBtnContainer = page.getByTestId("modal-next-btn");
+  const nextImageBtn = nextBtnContainer.getByRole("button", {
+    name: "Next Product Image",
+  });
+
+  const galleryContainer = page.getByTestId("modal-img");
+  const firstImage = galleryContainer.getByRole("img", {
+    name: images[0].image,
+  });
+  const secondImage = galleryContainer.getByRole("img", {
+    name: images[1].image,
+  });
+  const fourthImage = galleryContainer.getByRole("img", {
+    name: images[3].image,
+  });
+
+  const thumbnailsContainer = page.getByTestId("modal-thumbnails");
+  const firstThumbnail = thumbnailsContainer.getByRole("button", {
+    name: images[0].thumbnail,
+  });
+  const secondThumbnail = thumbnailsContainer.getByRole("button", {
+    name: images[1].thumbnail,
+  });
+
+  return {
+    modalContainer,
+    closeBtn,
+    nextImageBtn,
+    prevImageBtn,
+    firstImage,
+    secondImage,
+    fourthImage,
+    firstThumbnail,
+    secondThumbnail,
+  };
 };
 
 /**
@@ -50,5 +112,75 @@ test.describe("Desktop product gallery", () => {
     await secondThumbnail.click();
     await expect(secondImage).toBeVisible();
     await expect(firstImage).toBeHidden();
+  });
+
+  test("browse the modal gallery using the prev/next buttons", async ({
+    page,
+  }) => {
+    await openModalGallery(page);
+
+    const { nextImageBtn, prevImageBtn, firstImage, secondImage, fourthImage } =
+      getModalGalleryElements(page);
+
+    // Default image
+    await expect(firstImage).toBeVisible();
+
+    // Show second image
+    await nextImageBtn.click();
+    await expect(secondImage).toBeVisible();
+    await expect(firstImage).toBeHidden();
+
+    // Show first image again
+    await prevImageBtn.click();
+    await expect(firstImage).toBeVisible();
+    await expect(secondImage).toBeHidden();
+
+    // Show last image
+    await prevImageBtn.click();
+    await expect(fourthImage).toBeVisible();
+    await expect(firstImage).toBeHidden();
+  });
+
+  test("browse the modal gallery using the thumbnail list", async ({
+    page,
+  }) => {
+    await openModalGallery(page);
+
+    const { firstImage, secondImage, firstThumbnail, secondThumbnail } =
+      getModalGalleryElements(page);
+
+    // Default image
+    await expect(firstImage).toBeVisible();
+
+    // Show second image
+    await secondThumbnail.click();
+    await expect(secondImage).toBeVisible();
+    await expect(firstImage).toBeHidden();
+  });
+
+  test("close the modal gallery by clicking the close button", async ({
+    page,
+  }) => {
+    await openModalGallery(page);
+
+    const { modalContainer, closeBtn } = getModalGalleryElements(page);
+
+    // Close modal
+    await closeBtn.click();
+
+    await expect(modalContainer).toBeHidden();
+  });
+
+  test("close the modal gallery by pressing the escape key", async ({
+    page,
+  }) => {
+    await openModalGallery(page);
+
+    const { modalContainer } = getModalGalleryElements(page);
+
+    // Close modal
+    await page.keyboard.press("Escape");
+
+    await expect(modalContainer).toBeHidden();
   });
 });
