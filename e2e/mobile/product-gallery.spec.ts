@@ -1,7 +1,5 @@
-import { test, devices, expect, Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import { getProductImagesData } from "../../fixtures/sneakers.fixture";
-
-test.use({ ...devices["Pixel 5"] });
 
 /**
  * Returns a list with alt text for the product images
@@ -20,7 +18,7 @@ test.describe("Mobile product gallery", () => {
     await page.goto("/"); // baseURL
   });
 
-  test("cycle through product gallery", async ({ page }) => {
+  test("browse the gallery using the prev/next buttons", async ({ page }) => {
     const altList = getImagesAlt();
 
     const itemContainer = page.getByTestId("mobile-gallery");
@@ -46,13 +44,16 @@ test.describe("Mobile product gallery", () => {
     // Show second image
     await nextImageBtn.click();
     await expect(secondImage).toBeVisible();
+    await expect(firstImage).toBeHidden();
 
     // Show first image again
     await prevImageBtn.click();
     await expect(firstImage).toBeVisible();
+    await expect(secondImage).toBeHidden();
 
     // Show last image
     await prevImageBtn.click();
     await expect(fourthImage).toBeVisible();
+    await expect(firstImage).toBeHidden();
   });
 });

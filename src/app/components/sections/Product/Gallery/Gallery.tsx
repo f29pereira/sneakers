@@ -86,7 +86,11 @@ export default function Gallery({ gallery }: GalleryProps) {
 
           {/*Desktop: button with current image*/}
           <div className={styles.desktopImgCont}>
-            <button className="buttonIcon" onClick={toggle}>
+            <button
+              className="buttonIcon"
+              onClick={toggle}
+              data-testid="desktop-img"
+            >
               <ProductImage
                 path={gallery[currentImg].imagePath}
                 description={gallery[currentImg].imageDescription}
