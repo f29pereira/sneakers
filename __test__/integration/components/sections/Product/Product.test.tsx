@@ -1,5 +1,8 @@
 import { screen } from "@testing-library/react";
-import { getEmptyCartState } from "../../../../../fixtures/sneakers.fixture";
+import {
+  getEmptyCartState,
+  getProductData,
+} from "../../../../../fixtures/sneakers.fixture";
 import { renderWithProviders } from "../../../../helpers/reduxHelper";
 import Product from "@/app/components/sections/Product/Product";
 import userEvent from "@testing-library/user-event";
@@ -33,8 +36,9 @@ describe("Product component", () => {
    */
   beforeEach(() => {
     const emptyState = getEmptyCartState();
+    const product = getProductData();
 
-    const rendered = renderWithProviders(<Product />, {
+    const rendered = renderWithProviders(<Product product={product} />, {
       preloadedState: {
         cart: emptyState,
       },
