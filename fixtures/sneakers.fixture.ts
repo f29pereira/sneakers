@@ -3,6 +3,7 @@ import type {
   ProductDetail,
   CartItem,
   CartState,
+  Product,
 } from "@/app/components/types";
 
 /**
@@ -25,6 +26,16 @@ export const getUserLinksDesc = () => {
   return {
     shoppingCartLink: "Shopping Cart",
     profileLink: "Profile",
+  };
+};
+
+/**
+ * Mocked data: Product images/thumbnails and details
+ */
+export const getProductData = (): Product => {
+  return {
+    gallery: getProductImagesData(),
+    details: getProductDetailsData(),
   };
 };
 
@@ -63,7 +74,7 @@ export const getProductImagesData = (): ProductGallery[] => {
 /**
  * Mocked data: Product details
  */
-export const getProductData = (): ProductDetail => {
+export const getProductDetailsData = (): ProductDetail => {
   return {
     id: 0,
     company: "Sneaker company",

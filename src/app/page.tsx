@@ -1,7 +1,8 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Product from "./components/sections/Product/Product";
+import { getProduct } from "./components/sections/Product/Product.utils";
 
 export default function Home() {
-  return <Product />;
+  const productInfo = getProduct();
+
+  return <Product product={productInfo} />;
 }
