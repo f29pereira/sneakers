@@ -3,7 +3,7 @@ import {
   getNavLinksDesc,
   getUserLinksDesc,
   getProductImagesData,
-  getProductData,
+  getProductDetailsData,
   getCartItemData,
 } from "../../fixtures/sneakers.fixture";
 import { getLineTotal } from "@/app/lib/utils";
@@ -116,7 +116,7 @@ export const checkGallery = () => {
  * - discount percentage (if available)
  */
 export const checkDetail = () => {
-  const productData = getProductData();
+  const productData = getProductDetailsData();
 
   const company = screen.getByText(productData.company);
 

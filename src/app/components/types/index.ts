@@ -72,6 +72,14 @@ export type DetailProps = {
   details: ProductDetail;
 };
 
+/**
+ * Props for the Product component
+ * @property product - product gallery and details
+ */
+export type ProductProps = {
+  product: Product;
+};
+
 /* ---------------------------------------------------- */
 /* Reusable UI components Props types                   */
 /* ---------------------------------------------------- */
