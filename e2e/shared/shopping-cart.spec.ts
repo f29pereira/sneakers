@@ -7,6 +7,7 @@ import { getLineTotal } from "@/app/lib/utils";
  */
 const openShoppingCart = async (page: Page) => {
   const cartBtn = page.getByRole("button", { name: "Shopping Cart" });
+  await expect(cartBtn).toBeVisible();
   await cartBtn.click();
 };
 
@@ -15,11 +16,13 @@ const openShoppingCart = async (page: Page) => {
  */
 const addItem = async (page: Page) => {
   const increaseBtn = page.getByRole("button", { name: "Increase quantity" });
+  await expect(increaseBtn).toBeVisible();
   await increaseBtn.click();
   await increaseBtn.click();
   await increaseBtn.click();
 
   const addToCart = page.getByRole("button", { name: "Add to cart" });
+  await expect(addToCart).toBeVisible();
   await addToCart.click();
 };
 
@@ -103,7 +106,8 @@ test.describe("User shopping cart", () => {
 
     // Remove item
     const removeItemBtn = page.getByRole("button", { name: "Remove Item" });
-    removeItemBtn.click();
+    await expect(removeItemBtn).toBeVisible();
+    await removeItemBtn.click();
 
     const emptyMsg = page.getByText("Your cart is empty.");
 
