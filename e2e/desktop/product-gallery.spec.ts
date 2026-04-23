@@ -18,6 +18,7 @@ const getImagesAlt = () => {
  */
 const openModalGallery = async (page: Page) => {
   const modalBtn = page.getByTestId("desktop-img");
+  await expect(modalBtn).toBeVisible();
   await modalBtn.click();
 };
 
@@ -108,8 +109,11 @@ test.describe("Desktop product gallery", () => {
     await expect(firstThumbnail).toBeVisible();
     await expect(secondThumbnail).toBeVisible();
 
-    // Show second image
+    // Click the second thumbnail image
+    await expect(secondThumbnail).toBeVisible();
     await secondThumbnail.click();
+
+    // Show second image
     await expect(secondImage).toBeVisible();
     await expect(firstImage).toBeHidden();
   });
@@ -125,18 +129,27 @@ test.describe("Desktop product gallery", () => {
     // Default image
     await expect(firstImage).toBeVisible();
 
-    // Show second image
+    // Click the "Next" button
+    await expect(nextImageBtn).toBeVisible();
     await nextImageBtn.click();
+
+    // Show second image
     await expect(secondImage).toBeVisible();
     await expect(firstImage).toBeHidden();
 
-    // Show first image again
+    // Click the "Previous" button
+    await expect(prevImageBtn).toBeVisible();
     await prevImageBtn.click();
+
+    // Show first image again
     await expect(firstImage).toBeVisible();
     await expect(secondImage).toBeHidden();
 
-    // Show last image
+    // Click the "Previous" button
+    await expect(prevImageBtn).toBeVisible();
     await prevImageBtn.click();
+
+    // Show last image
     await expect(fourthImage).toBeVisible();
     await expect(firstImage).toBeHidden();
   });
@@ -146,14 +159,17 @@ test.describe("Desktop product gallery", () => {
   }) => {
     await openModalGallery(page);
 
-    const { firstImage, secondImage, firstThumbnail, secondThumbnail } =
+    const { firstImage, secondImage, secondThumbnail } =
       getModalGalleryElements(page);
 
     // Default image
     await expect(firstImage).toBeVisible();
 
-    // Show second image
+    // Click the second thumbnail image
+    await expect(secondThumbnail).toBeVisible();
     await secondThumbnail.click();
+
+    // Show second image
     await expect(secondImage).toBeVisible();
     await expect(firstImage).toBeHidden();
   });
@@ -166,6 +182,7 @@ test.describe("Desktop product gallery", () => {
     const { modalContainer, closeBtn } = getModalGalleryElements(page);
 
     // Close modal
+    await expect(closeBtn).toBeVisible();
     await closeBtn.click();
 
     await expect(modalContainer).toBeHidden();
