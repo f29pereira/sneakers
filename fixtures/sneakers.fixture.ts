@@ -6,7 +6,7 @@ import type {
   Product,
 } from "@/app/components/types";
 
-const imagePath = process.env.CI ? "images" : "/images";
+const imagePath = process.env.NODE_ENV === "production" ? "images" : "/images";
 
 /**
  * Mocked data: main navigation links descriptions
