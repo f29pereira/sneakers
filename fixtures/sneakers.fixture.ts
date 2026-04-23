@@ -6,6 +6,8 @@ import type {
   Product,
 } from "@/app/components/types";
 
+const imagePath = process.env.CI ? "images" : "/images";
+
 /**
  * Mocked data: main navigation links descriptions
  */
@@ -45,27 +47,27 @@ export const getProductData = (): Product => {
 export const getProductImagesData = (): ProductGallery[] => {
   return [
     {
-      imagePath: "/images/products/image-product-1.jpg",
+      imagePath: `${imagePath}/products/image-product-1.jpg`,
       imageDescription: "Fall Limited Edition Sneakers - front view and sole",
-      thumbnailPath: "/images/products/image-product-1-thumbnail.jpg",
+      thumbnailPath: `${imagePath}/products/image-product-1-thumbnail.jpg`,
       thumbnailDescription: "Show front view and sole",
     },
     {
-      imagePath: "/images/products/image-product-2.jpg",
+      imagePath: `${imagePath}/products/image-product-2.jpg`,
       imageDescription: "Fall Limited Edition Sneakers - back view",
-      thumbnailPath: "/images/products/image-product-2-thumbnail.jpg",
+      thumbnailPath: `${imagePath}/products/image-product-2-thumbnail.jpg`,
       thumbnailDescription: "Show back view",
     },
     {
-      imagePath: "/images/products/image-product-3.jpg",
+      imagePath: `${imagePath}/products/image-product-3.jpg`,
       imageDescription: "Fall Limited Edition Sneakers - side view",
-      thumbnailPath: "/images/products/image-product-3-thumbnail.jpg",
+      thumbnailPath: `${imagePath}/products/image-product-3-thumbnail.jpg`,
       thumbnailDescription: "Show side view",
     },
     {
-      imagePath: "/images/products/image-product-4.jpg",
+      imagePath: `${imagePath}/products/image-product-4.jpg`,
       imageDescription: "Fall Limited Edition Sneakers - side view close up",
-      thumbnailPath: "/images/products/image-product-4-thumbnail.jpg",
+      thumbnailPath: `${imagePath}/products/image-product-4-thumbnail.jpg`,
       thumbnailDescription: "Show side view close up",
     },
   ];
@@ -92,7 +94,7 @@ export const getProductDetailsData = (): ProductDetail => {
  */
 export const getCartItemData = (): CartItem => {
   return {
-    imagePath: "/images/products/image-product-1.jpg",
+    imagePath: `${imagePath}/products/image-product-1.jpg`,
     imageDescription: "Fall Limited Edition Sneakers - front view and sole",
     id: 0,
     name: "Fall Limited Edition Sneakers",
