@@ -6,7 +6,8 @@ import type {
   Product,
 } from "@/app/components/types";
 
-const imagePath = process.env.NODE_ENV === "production" ? "images" : "/images";
+// Jest CI job - uses dev server, Playwright CI job - uses production server
+const imagePath = process.env.PLAYWRIGHT ? "images" : "/images";
 
 /**
  * Mocked data: main navigation links descriptions
