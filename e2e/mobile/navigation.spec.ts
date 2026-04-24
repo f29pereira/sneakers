@@ -5,9 +5,7 @@ import { getNavLinksDesc } from "../../fixtures/sneakers.fixture";
  * Open mobile navigation
  */
 const openNavigation = async (page: Page) => {
-  const hamburgerBtn = page.getByRole("button", { name: "Open Menu" });
-  await expect(hamburgerBtn).toBeVisible();
-  await hamburgerBtn.click();
+  await page.getByRole("button", { name: "Open Menu" }).click();
 };
 
 /**
@@ -56,7 +54,6 @@ test.describe("Mobile navigation", () => {
 
     // Close navigation
     const closeBtn = page.getByRole("button", { name: "Close Menu" });
-    await expect(closeBtn).toBeVisible();
     await closeBtn.click();
 
     const { collectionsLink, menLink, womanLink, aboutLink, contactLink } =

@@ -42,7 +42,6 @@ test.describe("Mobile product gallery", () => {
     await expect(firstImage).toBeVisible();
 
     // Click the "Next" button
-    await expect(nextImageBtn).toBeVisible();
     await nextImageBtn.click();
 
     // Show second image
@@ -50,7 +49,6 @@ test.describe("Mobile product gallery", () => {
     await expect(firstImage).toBeHidden();
 
     // Click the "Previous" button
-    await expect(prevImageBtn).toBeVisible();
     await prevImageBtn.click();
 
     // Show first image again
@@ -58,7 +56,6 @@ test.describe("Mobile product gallery", () => {
     await expect(secondImage).toBeHidden();
 
     // Click the "Previous" button
-    await expect(prevImageBtn).toBeVisible();
     await prevImageBtn.click();
 
     // Show last image
