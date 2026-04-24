@@ -17,9 +17,7 @@ const getImagesAlt = () => {
  * Open the modal gallery
  */
 const openModalGallery = async (page: Page) => {
-  const modalBtn = page.getByTestId("desktop-img");
-  await expect(modalBtn).toBeVisible();
-  await modalBtn.click();
+  await page.getByTestId("desktop-img").click();
 };
 
 /**
@@ -77,7 +75,7 @@ const getModalGalleryElements = (page: Page) => {
 };
 
 /**
- * End to End testing: desktop product gallery
+ * End to End testing: desktop product gallery and modal gallery
  */
 test.describe("Desktop product gallery", () => {
   test.beforeEach(async ({ page }) => {
@@ -105,17 +103,19 @@ test.describe("Desktop product gallery", () => {
     // Default image
     await expect(firstImage).toBeVisible();
 
-    // Thumbnail list
-    await expect(firstThumbnail).toBeVisible();
-    await expect(secondThumbnail).toBeVisible();
-
     // Click the second thumbnail image
-    await expect(secondThumbnail).toBeVisible();
     await secondThumbnail.click();
 
     // Show second image
     await expect(secondImage).toBeVisible();
     await expect(firstImage).toBeHidden();
+
+    // Click the first thumbnail image
+    await firstThumbnail.click();
+
+    // Show first image again
+    await expect(firstImage).toBeVisible();
+    await expect(secondImage).toBeHidden();
   });
 
   test("browse the modal gallery using the prev/next buttons", async ({
@@ -130,7 +130,6 @@ test.describe("Desktop product gallery", () => {
     await expect(firstImage).toBeVisible();
 
     // Click the "Next" button
-    await expect(nextImageBtn).toBeVisible();
     await nextImageBtn.click();
 
     // Show second image
@@ -145,8 +144,7 @@ test.describe("Desktop product gallery", () => {
     await expect(firstImage).toBeVisible();
     await expect(secondImage).toBeHidden();
 
-    // Click the "Previous" button
-    await expect(prevImageBtn).toBeVisible();
+    // Click the "Previous" button again
     await prevImageBtn.click();
 
     // Show last image
@@ -159,19 +157,25 @@ test.describe("Desktop product gallery", () => {
   }) => {
     await openModalGallery(page);
 
-    const { firstImage, secondImage, secondThumbnail } =
+    const { firstImage, secondImage, firstThumbnail, secondThumbnail } =
       getModalGalleryElements(page);
 
     // Default image
     await expect(firstImage).toBeVisible();
 
     // Click the second thumbnail image
-    await expect(secondThumbnail).toBeVisible();
     await secondThumbnail.click();
 
     // Show second image
     await expect(secondImage).toBeVisible();
     await expect(firstImage).toBeHidden();
+
+    // Click the first thumbnail image
+    await firstThumbnail.click();
+
+    // Show first image again
+    await expect(firstImage).toBeVisible();
+    await expect(secondImage).toBeHidden();
   });
 
   test("close the modal gallery by clicking the close button", async ({
@@ -182,7 +186,6 @@ test.describe("Desktop product gallery", () => {
     const { modalContainer, closeBtn } = getModalGalleryElements(page);
 
     // Close modal
-    await expect(closeBtn).toBeVisible();
     await closeBtn.click();
 
     await expect(modalContainer).toBeHidden();
