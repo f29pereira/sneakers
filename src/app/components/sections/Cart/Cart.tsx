@@ -69,9 +69,12 @@ export default function Cart() {
             </div>
 
             {/*Checkout Link*/}
-            <div className={`flex-center orangeBtn ${styles.checkoutBtn}`}>
-              <Link href="#">Checkout</Link>
-            </div>
+            <Link
+              href="#"
+              className={`flex-center orangeBtn ${styles.checkoutBtn}`}
+            >
+              Checkout
+            </Link>
           </div>
         )}
       </div>

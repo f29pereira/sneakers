@@ -57,10 +57,6 @@ CSS Module for Cart component
 .checkoutBtn {
   margin-top: 1rem;
   padding: 1rem 2rem;
-}
-
-/*override link color*/
-.checkoutBtn a {
   color: var(--dark-blue);
 }
 
