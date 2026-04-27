@@ -159,6 +159,14 @@ export type RemoveFromCartPayload = Pick<
   "id" | "currentPrice" | "quantity"
 >;
 
+/**
+ * Type for the theme slice
+ * @property isDarkTheme - is the dark mode theme active
+ */
+export type ThemeState = {
+  isDarkTheme: boolean;
+};
+
 /* ---------------------------------------------------- */
 /* Other component related types                        */
 /* ---------------------------------------------------- */
