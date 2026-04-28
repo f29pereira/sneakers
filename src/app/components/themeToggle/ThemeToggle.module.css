@@ -1,0 +1,49 @@
+/*
+CSS Module for ThemeToggle component
+*/
+
+/*toggle theme button*/
+.themeBtn {
+  color: var(--dark-grayish-blue);
+}
+
+.themeIcon {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.themeIcon path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/*sun and moon icons*/
+.sunIcon,
+.moonIcon {
+  width: 1.5rem; /*24px*/
+  height: 1.25rem; /*20px*/
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*moon icon: increase width and height*/
+  .moonIcon {
+    width: 1.75rem; /*28px*/
+    height: 1.5rem; /*24px*/
+  }
+
+  /*sun icon: increase width and height*/
+  .sunIcon {
+    width: 1.75rem; /*28px*/
+    height: 1.75rem; /*28px*/
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*toggle theme button: on hover, change color*/
+  .themeBtn:hover {
+    color: var(--dark-blue);
+  }
+}

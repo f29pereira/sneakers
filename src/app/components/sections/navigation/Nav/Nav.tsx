@@ -7,6 +7,7 @@ import { useAppSelector } from "@/app/hooks";
 import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
 import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
 import Cart from "../../Cart/Cart";
+import ThemeToggle from "@/app/components/themeToggle/ThemeToggle";
 
 /**
  * Renders desktop/mobile main navigation with links for:
@@ -24,7 +25,7 @@ import Cart from "../../Cart/Cart";
 export default function Nav() {
   const { isToggled, toggle } = useToggle(false); // User Cart toggle
 
-  const cart = useAppSelector((state) => state.cart); // User´s cart items
+  const cart = useAppSelector((state) => state.cart); // User's shopping cart
 
   return (
     <nav className={styles.navCont}>
@@ -74,6 +75,8 @@ export default function Nav() {
 
         {/*Right Navigation*/}
         <ul className={styles.rightNavCont} aria-label="User Links">
+          <ThemeToggle />
+
           {/*Shopping Cart Toggle*/}
           <li className={styles.cartItem}>
             <button

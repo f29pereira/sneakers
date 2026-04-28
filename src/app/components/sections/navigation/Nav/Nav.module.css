@@ -19,7 +19,7 @@ CSS Module for Nav component
 .rightNavCont {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /*left navigation links list: not displayed for small screens*/
