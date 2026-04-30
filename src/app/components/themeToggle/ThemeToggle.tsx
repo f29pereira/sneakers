@@ -1,6 +1,8 @@
+"use client"; // Client Component
 import styles from "./ThemeToggle.module.css";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { toggleTheme } from "@/app/features/theme/themeSlice";
+import { useEffect } from "react";
 
 /**
  * Renders the dark/light theme button toggle
@@ -8,6 +10,10 @@ import { toggleTheme } from "@/app/features/theme/themeSlice";
 export default function ThemeToggle() {
   const theme = useAppSelector((state) => state.theme); // Light/Dark Theme
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-theme", theme.isDarkTheme);
+  }, [theme.isDarkTheme]);
 
   return (
     <button
