@@ -24,6 +24,11 @@ CSS Module for AddToCart component
   fill: currentColor;
 }
 
+/*add to cart button - dark theme: remove box-shadow*/
+:global(.dark-theme) .button {
+  box-shadow: none;
+}
+
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
   /*add to cart button: remove padding*/
