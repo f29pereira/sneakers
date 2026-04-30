@@ -29,13 +29,14 @@ export default function MobileNavToggle() {
             aria-expanded={isToggled}
             onClick={toggle}
           >
-            <Image
+            <svg
               className={styles.hamburgerIcon}
-              src="images/icons/icon-menu.svg"
-              alt=""
-              width={16}
-              height={15}
-            />
+              aria-hidden="true"
+              viewBox="0 0 16 15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" />
+            </svg>
           </button>
         </>
       ) : (

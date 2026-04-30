@@ -25,6 +25,16 @@ CSS Module for ThemeToggle component
   height: 1.25rem; /*20px*/
 }
 
+/*toggle theme button - dark theme: change color*/
+:global(.dark-theme) .themeBtn {
+  color: var(--orange);
+}
+
+/*toggle theme button - dark theme: on hover, change color*/
+:global(.dark-theme) .themeBtn:hover {
+  color: var(--hover-orange);
+}
+
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
   /*moon icon: increase width and height*/
