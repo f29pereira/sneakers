@@ -106,6 +106,12 @@ CSS Module for Nav component
   color: var(--hover-orange);
 }
 
+/*user's shopping cart items badge counter - dark theme: change background color*/
+:global(.dark-theme) .itemsNumber {
+  background-color: var(--light-grayish-blue);
+  color: var(--dark-theme);
+}
+
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
   /*right navigation container: increase gap*/
