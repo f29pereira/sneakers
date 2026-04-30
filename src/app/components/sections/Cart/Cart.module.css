@@ -60,6 +60,22 @@ CSS Module for Cart component
   color: var(--dark-blue);
 }
 
+/*Dark theme styles*/
+/*main container - dark theme: change background color*/
+:global(.dark-theme) .cartCont {
+  background-color: var(--dark-theme-shopping-cart);
+}
+
+/*title, empty cart message, sub total - dark theme: change text color*/
+:global(.dark-theme) :is(.title, .emptyMsg, .subTotalText) {
+  color: var(--grayish-blue);
+}
+
+/*sub total value - dark theme: change text color*/
+:global(.dark-theme) .subTotalValue {
+  color: var(--light-grayish-blue);
+}
+
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
   /*main container: set height value*/

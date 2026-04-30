@@ -34,6 +34,7 @@ Global CSS styles
 
   /*Dark theme*/
   --dark-theme: hsl(220, 18%, 12%);
+  --dark-theme-shopping-cart: hsl(223, 12%, 23%);
 
   /*Border*/
   --border-radius-5: 5px;

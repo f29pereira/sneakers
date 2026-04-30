@@ -55,6 +55,17 @@ CSS Module for Item component
   height: 1rem;
 }
 
+/*Dark theme styles*/
+/*item name, unit price - dark theme: change text color*/
+:global(.dark-theme) :is(.itemName, .itemPriceQuantity) {
+  color: var(--grayish-blue);
+}
+
+/*total value to pay and remove item button - dark theme: change color*/
+:global(.dark-theme) :is(.total, .removeBtn) {
+  color: var(--light-grayish-blue);
+}
+
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
   /*remove item button: on hover, reset opacity value*/
