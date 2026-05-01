@@ -115,6 +115,11 @@ CSS Module for Cart component
       -4px 10px 12px -4px var(--light-box-shadow);
   }
 
+  /*main container - dark theme: remove box shadow*/
+  :global(.dark-theme) .cartCont {
+    box-shadow: none;
+  }
+
   /*list of items container: decrease height value*/
   .itemsCont {
     max-height: 5.125rem; /*82px*/
