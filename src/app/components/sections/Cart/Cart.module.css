@@ -57,11 +57,23 @@ CSS Module for Cart component
 .checkoutBtn {
   margin-top: 1rem;
   padding: 1rem 2rem;
+  color: var(--dark-blue);
 }
 
-/*override link color*/
-.checkoutBtn a {
-  color: var(--dark-blue);
+/*Dark theme styles*/
+/*main container - dark theme: change background color*/
+:global(.dark-theme) .cartCont {
+  background-color: var(--dark-theme-shopping-cart);
+}
+
+/*title, empty cart message, sub total - dark theme: change text color*/
+:global(.dark-theme) :is(.title, .emptyMsg, .subTotalText) {
+  color: var(--grayish-blue);
+}
+
+/*sub total value - dark theme: change text color*/
+:global(.dark-theme) .subTotalValue {
+  color: var(--light-grayish-blue);
 }
 
 /*Tablet Styles*/
@@ -101,6 +113,11 @@ CSS Module for Cart component
     box-shadow:
       4px 10px 12px -4px var(--light-box-shadow),
       -4px 10px 12px -4px var(--light-box-shadow);
+  }
+
+  /*main container - dark theme: remove box shadow*/
+  :global(.dark-theme) .cartCont {
+    box-shadow: none;
   }
 
   /*list of items container: decrease height value*/

@@ -67,6 +67,28 @@ CSS Module for Detail component
   font-weight: var(--font-weight-700);
 }
 
+/*Dark theme styles*/
+/*header with product name and current price - dark theme: change text color*/
+:global(.dark-theme) :is(.name, .currentPrice) {
+  color: var(--light-grayish-blue);
+}
+
+/*product: company, description and original price - dark theme: change text color*/
+:global(.dark-theme) :is(.company, .description, .originalPrice) {
+  color: var(--grayish-blue);
+}
+
+/*product discount container - dark theme: change background color*/
+:global(.dark-theme) .discountCont {
+  color: var(--dark-blue);
+  background-color: var(--grayish-blue);
+}
+
+/*product discount - dark theme: change text color*/
+:global(.dark-theme) .discount {
+  color: var(--dark-blue);
+}
+
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
   /*product company: increase font size*/

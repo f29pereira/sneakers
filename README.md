@@ -2,7 +2,7 @@
 
 This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6).
 
-![Sneakers desktop layout](public/images/readme/layout/desktop.png)
+<img src="public/images/readme/layout/lightTheme/desktop.png" width="750" alt="Sneakers desktop layout">
 
 ## Table of contents
 
@@ -10,6 +10,7 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
     - [Mobile and Desktop Layout](#mobile-and-desktop-layout)
+    - [Dark Theme](#dark-theme)
     - [Product](#product)
     - [Add items to shopping cart](#add-items-to-shopping-cart)
     - [Shopping cart](#shopping-cart)
@@ -41,15 +42,31 @@ Users should be able to:
 
 1. Mobile layout
 
-   ![Sneakers mobile layout](public/images/readme/layout/mobile.png)
+    <img src="public/images/readme/layout/lightTheme/mobile.png" width="250" alt="Sneakers mobile layout - light theme">
 
    1.1 Mobile Navigation
 
-   ![Sneakers mobile navigation menu](public/images/readme/layout/mobile_navigation.png)
+    <img src="public/images/readme/layout/lightTheme/mobile_navigation.png" width="250" alt="Sneakers mobile navigation menu - light theme">
 
 2. Desktop layout
 
-   ![Sneakers desktop layout](public/images/readme/layout/desktop.png)
+   <img src="public/images/readme/layout/lightTheme/desktop.png" width="750" alt="Sneakers desktop layout - light theme">
+
+#### Dark Theme
+
+Clicking the theme toggle button allows to change the app's theme.
+
+1. Mobile layout
+
+   <img src="public/images/readme/layout/darkTheme/mobile.png" width="250" alt="Sneakers mobile layout - dark theme">
+
+   1.1 Mobile Navigation
+
+    <img src="public/images/readme/layout/darkTheme/mobile_navigation.png" width="250" alt="Sneakers mobile navigation menu - dark theme">
+
+2. Desktop layout
+
+   <img src="public/images/readme/layout/darkTheme/desktop.png" width="750" alt="Sneakers desktop layout - dark theme">
 
 #### Product
 
@@ -67,7 +84,7 @@ Users should be able to:
 
    Clicking on the current product image will open the lightbox gallery.
 
-   ![Lightbox gallery](public/images/readme/product/gallery/lightbox_gallery.png)
+   <img src="public/images/readme/product/gallery/lightbox_gallery.png" width="750" alt="Lightbox gallery">
 
 #### Add items to shopping cart
 
@@ -83,25 +100,45 @@ To be able to add items to the shopping cart, the user needs to click the "incre
 
 1. Empty cart
 
-   ![Empty cart](public/images/readme/shoppingCart/empty.png)
+   1.1 Light theme
+
+   ![Empty cart - light theme](public/images/readme/shoppingCart/lightTheme/empty.png)
+
+   1.2 Dark theme
+
+   ![Empty cart - dark theme](public/images/readme/shoppingCart/darkTheme/empty.png)
 
 2. Items badge
 
    When the cart has items, a badge will appear above the user cart icon.
 
-   ![Items badge](public/images/readme/shoppingCart/items_badge.png)
+   1.1 Light theme
+
+   ![Items badge - light theme](public/images/readme/shoppingCart/lightTheme/items_badge.png)
+
+   1.2 Dark theme
+
+   ![Items badge - dark theme](public/images/readme/shoppingCart/darkTheme/items_badge.png)
 
 3. Cart with items
 
    Clicking the user cart icon, the shopping cart pop-up will appear.
 
-   ![Cart with items](public/images/readme/shoppingCart/items.png)
+   1.1 Light theme
+
+   ![Cart with items - light theme](public/images/readme/shoppingCart/lightTheme/items.png)
+
+   1.2 Dark theme
+
+   ![Cart with items - dark theme](public/images/readme/shoppingCart/darkTheme/items.png)
 
 4. Remove items
 
    To remove an item, the user needs to click the "Remove item" button.
 
-   ![Remove item](public/images/readme/shoppingCart/remove_item.png)
+   1.1 Light theme
+
+   ![Remove item - light theme](public/images/readme/shoppingCart/lightTheme/remove_item.png)
 
 #### Hover states
 
@@ -109,15 +146,21 @@ To be able to add items to the shopping cart, the user needs to click the "incre
 
 - Links
 
-  ![Page links hover state](public/images/readme/hover/links/page.png)
+  ![Page links hover state](public/images/readme/hover/links/ligthTheme/page.png)
 
 - User shopping cart icon
 
-  ![User cart icon hover state](public/images/readme/hover/links/shopping_cart_icon.png)
+  Light Theme
+
+  ![User cart icon hover state - light theme](public/images/readme/hover/links/ligthTheme/shopping_cart_icon.png)
+
+  Dark Theme
+
+  ![User cart icon hover state - dark theme](public/images/readme/hover/links/darkTheme/shopping_cart_icon.png)
 
 - User profile
 
-  ![User profile link hover state](public/images/readme/hover/links/user_profile.png)
+  ![User profile link hover state - light theme](public/images/readme/hover/links/ligthTheme/user_profile.png)
 
 2. Product
 
@@ -143,11 +186,17 @@ To be able to add items to the shopping cart, the user needs to click the "incre
 
 - Delete item button
 
-  ![Shopping cart delete item button hover state](public/images/readme/hover/shoppingCart/remove_btn.png)
+  Light Theme
+
+  ![Shopping cart delete item button hover state - light theme](public/images/readme/hover/shoppingCart/lightTheme/remove_btn.png)
+
+  Dark Theme
+
+  ![Shopping cart delete item button hover state - dark theme](public/images/readme/hover/shoppingCart/darkTheme/remove_btn.png)
 
 - Checkout button
 
-  ![Shopping cart checkout button hover state](public/images/readme/hover/shoppingCart/checkout_btn.png)
+  ![Shopping cart checkout button hover state](public/images/readme/hover/shoppingCart/lightTheme/checkout_btn.png)
 
 ### Tests
 
@@ -181,6 +230,7 @@ The E2E tests cover:
 - Browsing the product gallery using the thumbnail list
 - Browsing the modal product gallery using the next/previous buttons or thumbnail list
 - Closing the modal product gallery by pressing the close button or escape key
+- Toggling the light and dark app theme
 
 3. All viewport tests:
 
@@ -192,7 +242,7 @@ The E2E tests cover:
 
 1. Automated Tests
 
-- Run Lighthouse audits in Chrome and Edge DevTools (98 value score).
+- Run Lighthouse audits in Chrome and Edge DevTools (98 score).
 
 2. Manual Tests
 
@@ -213,16 +263,17 @@ The E2E tests cover:
 - Flexbox
 - Mobile-first workflow
 - TypeScript
+- [heroicons](https://heroicons.com/outline) - collection of MIT open source interface icons for web and app development
 - [Next.js](https://nextjs.org/) - React framework
-- [React](https://reactjs.org/) - JS library
+- [React](https://reactjs.org/) - JavaScript library
 - [React Developer Tools](https://react.dev/learn/react-developer-tools) - browser extension
 - [clsx](https://www.npmjs.com/package/clsx) - Utility for constructing className strings conditionally.
 - [focus-trap-react](https://www.npmjs.com/package/focus-trap-react) - React component that traps focus
 - [Redux Toolkit](https://redux-toolkit.js.org/) - Redux state management
 - [Redux DevTools](https://github.com/reduxjs/redux-devtools) - browser extension
-- [Jest](https://jestjs.io/) - JS testing library
+- [Jest](https://jestjs.io/) - JavaScript testing library
 - [React Testing Library](https://testing-library.com/) - React components testing library
-- [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of React Testing Library
+- [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of the React Testing Library
 - [Playwright](https://playwright.dev/) - automation library for end-to-end testing
 - [NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/) - open-source screen reader for Windows
 

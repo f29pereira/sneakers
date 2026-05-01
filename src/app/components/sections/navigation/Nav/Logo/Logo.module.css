@@ -1,0 +1,26 @@
+/*logo*/
+.navLogo {
+  width: 8.625rem; /*138px*/
+  height: 1.25rem; /*20px*/
+}
+
+/*logo svg path*/
+.navLogo path {
+  fill: var(--dark-blue);
+  fill-rule: nonzero;
+}
+
+/*Dark mode styles*/
+/*logo - dark theme: change svg color*/
+:global(.dark-theme) .navLogo path {
+  fill: var(--light-grayish-blue);
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*Sneakers logo: increase width and height*/
+  .navLogo {
+    width: 9.3rem; /*150px*/
+    height: 1.5rem; /*24px*/
+  }
+}

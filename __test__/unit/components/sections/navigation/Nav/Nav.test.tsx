@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import { renderWithProviders } from "../../../../../helpers/reduxHelper";
 import Nav from "@/app/components/sections/navigation/Nav/Nav";
 import { checkNav } from "../../../../../helpers/sneakersHelper";
@@ -8,10 +7,14 @@ import { checkNav } from "../../../../../helpers/sneakersHelper";
  */
 describe("Nav component", () => {
   beforeEach(() => {
-    renderWithProviders(<Nav />);
+    renderWithProviders(<Nav />, {
+      preloadedState: {
+        theme: { isDarkTheme: false },
+      },
+    });
   });
 
-  it("renders the mobile navigation hamburguer button, brand logo, user's shopping cart toggle button and profile link", () => {
+  it("renders the mobile navigation hamburguer button, brand logo, theme toggle button, user's shopping cart toggle button and profile link", () => {
     checkNav();
   });
 });

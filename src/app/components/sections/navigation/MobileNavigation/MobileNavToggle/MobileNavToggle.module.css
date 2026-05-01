@@ -5,11 +5,28 @@ CSS Module for MobileNavToggle component
 /*button with hamburger icon*/
 .hamburgerButton {
   margin-right: 1rem;
+  color: var(--dark-grayish-blue);
+}
+
+/*hamburger icon*/
+.hamburgerIcon {
+  width: 1rem;
+  height: 0.9375rem; /*15px*/
+}
+
+.hamburgerIcon path {
+  fill: currentColor;
+  fill-rule: evenodd;
+}
+
+/*hamburger icon - dark theme: change color*/
+:global(.dark-theme) .hamburgerButton {
+  color: var(--orange);
 }
 
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
-  /*button with hamburger icon: set icon width/height*/
+  /*hamburger icon: increase width and height*/
   .hamburgerIcon {
     width: 1.2rem; /*19px*/
     height: 1.2rem; /*19px*/

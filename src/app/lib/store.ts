@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../features/cart/cartSlice";
+import themeReducer from "../features/theme/themeSlice";
 
 // Create the root reducer independently to obtain the RootState type
 const rootReducer = combineReducers({
   cart: cartReducer,
+  theme: themeReducer,
 });
 
 /**
