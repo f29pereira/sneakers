@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${kumbhSans.variable}`}>
         <StoreProvider>
           <Nav />
-          {children}
+          <main className="pageCont">{children}</main>
         </StoreProvider>
       </body>
     </html>

@@ -1,12 +1,13 @@
 "use client"; // Client Component
 import styles from "./Nav.module.css";
-import Image from "next/image";
 import Link from "next/link";
 import useToggle from "@/app/components/customHooks/useToggle";
 import { useAppSelector } from "@/app/hooks";
 import MobileNavToggle from "../MobileNavigation/MobileNavToggle/MobileNavToggle";
+import Logo from "./Logo/Logo";
 import LineDivider from "@/app/components/ui/LineDivider/LineDivider";
 import Cart from "../../Cart/Cart";
+import ThemeToggle from "@/app/components/themeToggle/ThemeToggle";
 
 /**
  * Renders desktop/mobile main navigation with links for:
@@ -24,7 +25,7 @@ import Cart from "../../Cart/Cart";
 export default function Nav() {
   const { isToggled, toggle } = useToggle(false); // User Cart toggle
 
-  const cart = useAppSelector((state) => state.cart); // User´s cart items
+  const cart = useAppSelector((state) => state.cart); // User's shopping cart
 
   return (
     <nav className={styles.navCont}>
@@ -33,14 +34,7 @@ export default function Nav() {
         <div className={styles.leftNavCont}>
           <MobileNavToggle />
 
-          {/*Logo*/}
-          <Image
-            className={styles.navLogo}
-            src="images/logo.svg"
-            alt="Sneakers Logo"
-            width={138}
-            height={20}
-          />
+          <Logo />
 
           {/*Desktop navigation*/}
           <ul className={styles.leftNavDesktop}>
@@ -74,10 +68,12 @@ export default function Nav() {
 
         {/*Right Navigation*/}
         <ul className={styles.rightNavCont} aria-label="User Links">
+          <ThemeToggle />
+
           {/*Shopping Cart Toggle*/}
           <li className={styles.cartItem}>
             <button
-              className={`flex-center buttonIcon ${styles.navLink}`}
+              className={`flex-center buttonIcon ${styles.shoppingCartBtn}`}
               aria-label="Shopping Cart"
               onClick={toggle}
             >
@@ -103,7 +99,7 @@ export default function Nav() {
 
           {/*User Profile*/}
           <li className={styles.avatarItem}>
-            <Link className={`flex-center ${styles.navLink}`} href="#">
+            <Link className="flex-center" href="#">
               <img
                 src="images/user/image-avatar.png"
                 alt="Profile"

@@ -38,6 +38,17 @@ CSS Module for MobileNav component
   color: var(--dark-blue);
 }
 
+/*Dark theme styles*/
+/*mobile nav container - dark theme: change background color*/
+:global(.dark-theme) .mobileNavCont {
+  background-color: var(--dark-theme);
+}
+
+/*mobile navigation links - dark theme: change color*/
+:global(.dark-theme) .navLink {
+  color: var(--light-grayish-blue);
+}
+
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
   /*mobile navigation pop up main container: not displayed*/

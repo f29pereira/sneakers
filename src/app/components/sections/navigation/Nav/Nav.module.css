@@ -19,7 +19,7 @@ CSS Module for Nav component
 .rightNavCont {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /*left navigation links list: not displayed for small screens*/
@@ -36,6 +36,11 @@ CSS Module for Nav component
   z-index: 1;
 }
 
+/*user shopping cart button*/
+.shoppingCartBtn {
+  color: var(--dark-grayish-blue);
+}
+
 /*user shopping cart svg*/
 .cartIcon {
   width: 1.375rem; /*22px*/
@@ -44,7 +49,7 @@ CSS Module for Nav component
 
 /*user shopping cart svg: color*/
 .cartIcon path {
-  fill: var(--dark-grayish-blue);
+  fill: currentColor;
 }
 
 /*user shopping cart: containing block to .itemsNumber*/
@@ -85,14 +90,30 @@ CSS Module for Nav component
   display: none;
 }
 
+/*Dark theme styles*/
+/*navigation main container - dark theme: change background color*/
+:global(.dark-theme) .navCont {
+  background-color: var(--dark-theme);
+}
+
+/*user shopping cart button - dark theme: change color*/
+:global(.dark-theme) .shoppingCartBtn {
+  color: var(--orange);
+}
+
+/*user shopping cart button - dark theme: change color*/
+:global(.dark-theme) .shoppingCartBtn:hover {
+  color: var(--hover-orange);
+}
+
+/*user's shopping cart items badge counter - dark theme: change background color*/
+:global(.dark-theme) .itemsNumber {
+  background-color: var(--light-grayish-blue);
+  color: var(--dark-theme);
+}
+
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
-  /*Sneakers logo: increase width and height*/
-  .navLogo {
-    width: 9.3rem; /*150px*/
-    height: 1.5rem; /*24px*/
-  }
-
   /*right navigation container: increase gap*/
   .rightNavCont {
     gap: 2rem;
@@ -171,9 +192,9 @@ CSS Module for Nav component
     height: 0.2rem;
   }
 
-  /*user shopping cart svg: on hover, change color*/
-  .cartItem:hover .cartIcon path {
-    fill: var(--dark-blue);
+  /*user shopping cart button: on hover, change color*/
+  .shoppingCartBtn:hover {
+    color: var(--dark-blue);
   }
 
   /*user avatar link: increase width/height and add invisible border*/
@@ -197,6 +218,17 @@ CSS Module for Nav component
   .userCartCont {
     left: auto;
     right: 2rem;
+  }
+
+  /*Dark theme styles*/
+  /*desktop navigation links - darh theme: change link text color*/
+  :global(.dark-theme) .navLink {
+    color: var(--white);
+  }
+
+  /*desktop navigation links - darh theme: on hover, change link text color*/
+  :global(.dark-theme) .navLink:hover {
+    color: var(--light-grayish-blue);
   }
 }
 

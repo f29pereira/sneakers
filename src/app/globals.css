@@ -32,6 +32,10 @@ Global CSS styles
   --lightbox-bg: hsla(0, 0%, 0%, 0.75);
   --light-box-shadow: hsla(0, 0%, 0%, 0.08);
 
+  /*Dark theme*/
+  --dark-theme: hsl(220, 18%, 12%);
+  --dark-theme-shopping-cart: hsl(223, 12%, 23%);
+
   /*Border*/
   --border-radius-5: 5px;
   --border-radius-10: 10px;
@@ -39,10 +43,26 @@ Global CSS styles
 
 html,
 body {
-  background-color: var(--white);
   font-family: var(--font-kumbh-sans);
   -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
   -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
+  transition-property: background-color;
+  transition-duration: 500ms;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
+.pageCont {
+  flex: 1;
+}
+
+/*dark theme: change background color*/
+body.dark-theme {
+  background-color: var(--dark-theme);
 }
 
 a {
