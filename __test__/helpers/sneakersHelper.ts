@@ -28,11 +28,15 @@ export const checkMobileNav = () => {
  * Helper function: checks the visibility of the following elements, in the Nav component:
  * - Open navigation pop-up button
  * - Brand Logo
+ * - theme toggle button
  * - User's shopping cart toggle button and profile link
  */
 export const checkNav = () => {
-  const brandLogo = screen.getByAltText("Sneakers Logo");
+  const brandLogo = screen.getByRole("img", { name: "Sneakers Logo" });
   const mainLinks = getMainNavigation();
+  const themeToggleBtn = screen.getByRole("button", {
+    name: "Set Dark theme",
+  });
   const user = getUserNavigation();
 
   checkMobileNavToggle();
@@ -41,6 +45,7 @@ export const checkNav = () => {
   expect(mainLinks.men).toBeVisible();
   expect(mainLinks.woman).toBeVisible();
   expect(mainLinks.contact).toBeVisible();
+  expect(themeToggleBtn).toBeVisible();
   expect(user.shoppingButton).toBeVisible();
   expect(user.profileLink).toBeVisible();
 };
