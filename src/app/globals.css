@@ -50,6 +50,16 @@ body {
   transition-duration: 500ms;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
+.pageCont {
+  flex: 1;
+}
+
 /*dark theme: change background color*/
 body.dark-theme {
   background-color: var(--dark-theme);
