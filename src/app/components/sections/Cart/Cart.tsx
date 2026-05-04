@@ -45,7 +45,7 @@ export default function Cart() {
             </p>
           </div>
         ) : (
-          <div>
+          <div className={styles.innerCont}>
             {/*List of Items*/}
             <div className={styles.itemsCont}>
               {cart.items.map((item, index) => (
@@ -62,21 +62,25 @@ export default function Cart() {
               ))}
             </div>
 
-            {/*Subtotal*/}
-            <div className={styles.subTotalCont} data-testid="subTotal">
-              <span className={`lightText ${styles.subTotalText}`}>
-                Subtotal:
-              </span>
-              <strong className={styles.subTotalValue}>${cart.subTotal}</strong>
-            </div>
+            <div>
+              {/*Subtotal*/}
+              <div className={styles.subTotalCont} data-testid="subTotal">
+                <span className={`lightText ${styles.subTotalText}`}>
+                  Subtotal:
+                </span>
+                <strong className={styles.subTotalValue}>
+                  ${cart.subTotal}
+                </strong>
+              </div>
 
-            {/*Checkout Link*/}
-            <Link
-              href="#"
-              className={`flex-center orangeBtn ${styles.checkoutBtn}`}
-            >
-              Checkout
-            </Link>
+              {/*Checkout Link*/}
+              <Link
+                href="#"
+                className={`flex-center orangeBtn ${styles.checkoutBtn}`}
+              >
+                Checkout
+              </Link>
+            </div>
           </div>
         )}
       </div>

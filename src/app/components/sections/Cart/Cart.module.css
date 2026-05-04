@@ -43,6 +43,14 @@ CSS Module for Cart component
   font-weight: var(--font-weight-700);
 }
 
+/*cart content inner container: puts the subtotal and checkout link always at the bottom of the cart*/
+.innerCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 /*sub total text and value container*/
 .subTotalCont {
   display: flex;
@@ -51,6 +59,7 @@ CSS Module for Cart component
 
 /*checkout button link*/
 .checkoutBtn {
+  height: auto;
   margin-top: 1rem;
   padding: 1rem 2rem;
   color: var(--dark-blue);
@@ -86,7 +95,7 @@ CSS Module for Cart component
 
   /*list of items container: increase height value*/
   .itemsCont {
-    max-height: 13.75rem; /*220px*/
+    max-height: 12.5rem; /*200px*/
   }
 
   /*title container: increase padding*/

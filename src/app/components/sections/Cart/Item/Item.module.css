@@ -66,8 +66,29 @@ CSS Module for Item component
   color: var(--light-grayish-blue);
 }
 
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*item main container: change justify-content to flex-start and increase gap*/
+  .itemCont {
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+
+  /*remove item button: move button*/
+  .removeBtn {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+}
+
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
+  /*item main container: revert justify-content and gap*/
+  .itemCont {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
   /*remove item button: on hover, reset opacity value*/
   .removeBtn:hover {
     opacity: 1;
