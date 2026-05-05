@@ -67,8 +67,10 @@ export default function Nav() {
         </div>
 
         {/*Right Navigation*/}
-        <ul className={styles.rightNavCont} aria-label="User Links">
-          <ThemeToggle />
+        <ul className={styles.rightNavCont} aria-label="User Actions">
+          <li>
+            <ThemeToggle />
+          </li>
 
           {/*Shopping Cart Toggle*/}
           <li className={styles.cartItem}>
