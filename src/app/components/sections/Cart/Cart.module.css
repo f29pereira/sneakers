@@ -140,4 +140,9 @@ CSS Module for Cart component
   .contentCont {
     padding: 1.5rem;
   }
+
+  /*list of items container - dark theme: change scrollbar track and thumb*/
+  :global(.dark-theme) .itemsCont {
+    scrollbar-color: var(--white) var(--dark-grayish-blue);
+  }
 }
