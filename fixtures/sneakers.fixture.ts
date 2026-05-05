@@ -114,5 +114,5 @@ export const getEmptyCartState = (): CartState => {
 export const getCartState = (): CartState => {
   const item = getCartItemData();
 
-  return { items: [item], totalQuantity: 1, subTotal: 125 };
+  return { items: [item], totalQuantity: 3, subTotal: 125 };
 };

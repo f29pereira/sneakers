@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import {
   getNavLinksDesc,
   getUserLinksDesc,
@@ -232,22 +232,32 @@ export const checkEmptyCart = () => {
 /**
  * Helper function: checks the visibility of the following elements, in the Cart component:
  * - Title
- * - Sub total text
- * - Sub total value
+ * - Sub total text and value
+ * - Items text and value
  * - Chekout link
  */
-export const checkCart = (subTotal: number) => {
+export const checkCart = (subTotal: number, totalItems: number) => {
   const title = screen.getByRole("heading", {
     level: 2,
     name: "Cart",
   });
 
-  const subTotalText = screen.getByText("Subtotal:");
-  const subTotalValue = screen.getByText(`$${subTotal}`);
+  const subTotalContainer = screen.getByTestId("subTotal");
+  const subTotalText = within(subTotalContainer).getByText("Subtotal:");
+  const subTotalValue = within(subTotalContainer).getByText(`$${subTotal}`);
+
+  const totalItemsContainer = screen.getByTestId("totalQuantity");
+  const totalItemsText = within(totalItemsContainer).getByText("Items:");
+  const totalItemsValue = within(totalItemsContainer).getByText(
+    `${totalItems}`,
+  );
+
   const checkOut = screen.getByRole("link", { name: "Checkout" });
 
   expect(title).toBeVisible();
   expect(subTotalText).toBeVisible();
   expect(subTotalValue).toBeVisible();
+  expect(totalItemsText).toBeVisible();
+  expect(totalItemsValue).toBeVisible();
   expect(checkOut).toBeVisible();
 };

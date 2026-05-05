@@ -75,7 +75,7 @@ export default function Cart() {
                 </div>
 
                 {/*Items in cart*/}
-                <div className={styles.totalCont}>
+                <div className={styles.totalCont} data-testid="totalQuantity">
                   <span className={`lightText ${styles.totalText}`}>
                     Items:
                   </span>
