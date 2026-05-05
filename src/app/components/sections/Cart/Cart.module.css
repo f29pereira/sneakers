@@ -11,10 +11,10 @@ CSS Module for Cart component
   width: 100%;
 }
 
-/*list of items container: displays vertical scroll bar*/
+/*list of items container: displays vertical scroll bar only if content is overflowing*/
 .itemsCont {
   max-height: 5.125rem; /*82px*/
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /*title container*/
@@ -22,19 +22,15 @@ CSS Module for Cart component
   padding: 1rem;
 }
 
-/*list of items container*/
-.contentCont {
-  padding: 1.5rem;
-}
-
 /*title*/
 .title {
   font-size: var(--font-size-base);
 }
 
-/*content container: occupies the remaining available space*/
+/*list of items, subtotal and checkout link container: occupies the remaining available space*/
 .contentCont {
   flex: 1;
+  padding: 1.5rem;
 }
 
 /*empty cart message container*/
@@ -47,14 +43,29 @@ CSS Module for Cart component
   font-weight: var(--font-weight-700);
 }
 
-/*sub total text and value container*/
-.subTotalCont {
+/*cart content inner container: puts the subtotal and checkout link always at the bottom of the cart*/
+.innerCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/*subtotal and number of items in cart container*/
+.subItemsTotalCont {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*container used by the subtotal and number of items in cart*/
+.totalCont {
   display: flex;
   gap: 0.5rem;
 }
 
 /*checkout button link*/
 .checkoutBtn {
+  height: auto;
   margin-top: 1rem;
   padding: 1rem 2rem;
   color: var(--dark-blue);
@@ -66,13 +77,13 @@ CSS Module for Cart component
   background-color: var(--dark-theme-shopping-cart);
 }
 
-/*title, empty cart message, sub total - dark theme: change text color*/
-:global(.dark-theme) :is(.title, .emptyMsg, .subTotalText) {
+/*title, empty cart message, sub total and number of items in cart - dark theme: change text color*/
+:global(.dark-theme) :is(.title, .emptyMsg, .totalText) {
   color: var(--grayish-blue);
 }
 
-/*sub total value - dark theme: change text color*/
-:global(.dark-theme) .subTotalValue {
+/*subtotal value and number of items in cart - dark theme: change text color*/
+:global(.dark-theme) .totalValue {
   color: var(--light-grayish-blue);
 }
 
@@ -90,7 +101,7 @@ CSS Module for Cart component
 
   /*list of items container: increase height value*/
   .itemsCont {
-    max-height: 13.75rem; /*220px*/
+    max-height: 12.5rem; /*200px*/
   }
 
   /*title container: increase padding*/
@@ -98,7 +109,7 @@ CSS Module for Cart component
     padding: 1.5rem;
   }
 
-  /*list of items container: increase padding*/
+  /*list of items, subtotal and checkout link container:: increase padding*/
   .contentCont {
     padding: 2rem;
   }
@@ -125,8 +136,13 @@ CSS Module for Cart component
     max-height: 5.125rem; /*82px*/
   }
 
-  /*list of items container: decrease padding*/
+  /*list of items, subtotal and checkout link container: decrease padding*/
   .contentCont {
     padding: 1.5rem;
+  }
+
+  /*list of items container - dark theme: change scrollbar track and thumb*/
+  :global(.dark-theme) .itemsCont {
+    scrollbar-color: var(--white) var(--dark-grayish-blue);
   }
 }

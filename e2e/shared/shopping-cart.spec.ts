@@ -42,7 +42,7 @@ test.describe("User shopping cart", () => {
     await expect(emptyMsg).toBeVisible();
   });
 
-  test("show item info and checkout link, after adding an item to the cart", async ({
+  test("show item info, subtotal, number of items and checkout link, after adding an item to the cart", async ({
     page,
   }) => {
     const item = getCartItemData();
@@ -74,11 +74,17 @@ test.describe("User shopping cart", () => {
     );
     const removeItemBtn = page.getByRole("button", { name: "Remove Item" });
 
+    // SubTotal
     const subTotalContainer = page.getByTestId("subTotal");
     const subTotalText = subTotalContainer.getByText("Subtotal:");
     const subTotalValue = subTotalContainer.getByText(
       `$${item.currentPrice * item.quantity}`,
     );
+
+    // Number of items
+    const totalItemsContainer = page.getByTestId("totalQuantity");
+    const totalItemsText = totalItemsContainer.getByText("Items:");
+    const totalItemsValue = totalItemsContainer.getByText(`3`);
 
     // Checkout link
     const checkout = page.getByRole("link", { name: "Checkout" });
@@ -91,6 +97,8 @@ test.describe("User shopping cart", () => {
     await expect(lineTotal).toBeVisible();
     await expect(subTotalText).toBeVisible();
     await expect(subTotalValue).toBeVisible();
+    await expect(totalItemsText).toBeVisible();
+    await expect(totalItemsValue).toBeVisible();
     await expect(checkout).toBeVisible();
   });
 
