@@ -9,14 +9,19 @@ import { addToCart } from "@/app/features/cart/cartSlice";
 /**
  * Renders the add to cart button
  */
-export default function AddToCart({ counter, itemToAdd }: AddToCartProps) {
+export default function AddToCart({
+  counter,
+  itemToAdd,
+  resetCounter,
+}: AddToCartProps) {
   const dispatch = useAppDispatch();
 
   /**
-   * Add item to user's shopping cart
+   * Add item to user's shopping cart and reset counter to 0
    */
   const addItem = () => {
     dispatch(addToCart(itemToAdd));
+    resetCounter();
   };
 
   const isBtnDisabled = counter === 0;

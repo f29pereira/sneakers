@@ -112,12 +112,14 @@ export type CloseButtonProps = {
 
 /**
  * Props for the AddToCart component
- * @property counter   - current counter value
- * @property itemToAdd - product added to cart
+ * @property counter      - current counter value
+ * @property itemToAdd    - product added to cart
+ * @property resetCoutner - function to reset the counter to 0
  */
 export type AddToCartProps = {
   counter: number;
   itemToAdd: CartItem;
+  resetCounter: () => void;
 };
 
 /**
