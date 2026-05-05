@@ -11,10 +11,10 @@ CSS Module for Cart component
   width: 100%;
 }
 
-/*list of items container: displays vertical scroll bar*/
+/*list of items container: displays vertical scroll bar only if content is overflowing*/
 .itemsCont {
   max-height: 5.125rem; /*82px*/
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /*title container*/
@@ -51,8 +51,14 @@ CSS Module for Cart component
   height: 100%;
 }
 
-/*sub total text and value container*/
-.subTotalCont {
+/*subtotal and number of items in cart container*/
+.subItemsTotalCont {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*container used by the subtotal and number of items in cart*/
+.totalCont {
   display: flex;
   gap: 0.5rem;
 }
@@ -71,13 +77,13 @@ CSS Module for Cart component
   background-color: var(--dark-theme-shopping-cart);
 }
 
-/*title, empty cart message, sub total - dark theme: change text color*/
-:global(.dark-theme) :is(.title, .emptyMsg, .subTotalText) {
+/*title, empty cart message, sub total and number of items in cart - dark theme: change text color*/
+:global(.dark-theme) :is(.title, .emptyMsg, .totalText) {
   color: var(--grayish-blue);
 }
 
-/*sub total value - dark theme: change text color*/
-:global(.dark-theme) .subTotalValue {
+/*subtotal value and number of items in cart - dark theme: change text color*/
+:global(.dark-theme) .totalValue {
   color: var(--light-grayish-blue);
 }
 

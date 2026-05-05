@@ -30,6 +30,14 @@ CSS Module for Item component
   font-weight: var(--font-weight-400);
 }
 
+/*item name: show ellipsis for the overflowing text */
+.itemName {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 13.3rem; /*212.8px*/
+  text-overflow: ellipsis;
+}
+
 /*item name, unit price, quantity and total value: font size*/
 .itemName,
 .itemPriceQuantity,
@@ -74,6 +82,11 @@ CSS Module for Item component
     gap: 1.5rem;
   }
 
+  /*item name: increase width value*/
+  .itemName {
+    width: 25rem; /*400px*/
+  }
+
   /*remove item button: move button*/
   .removeBtn {
     margin-left: auto;
@@ -87,6 +100,11 @@ CSS Module for Item component
   .itemCont {
     justify-content: space-between;
     gap: 1rem;
+  }
+
+  /*item name: revert width value*/
+  .itemName {
+    width: 13.3rem; /*212.8px*/
   }
 
   /*remove item button: on hover, reset opacity value*/

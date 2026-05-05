@@ -63,14 +63,26 @@ export default function Cart() {
             </div>
 
             <div>
-              {/*Subtotal*/}
-              <div className={styles.subTotalCont} data-testid="subTotal">
-                <span className={`lightText ${styles.subTotalText}`}>
-                  Subtotal:
-                </span>
-                <strong className={styles.subTotalValue}>
-                  ${cart.subTotal}
-                </strong>
+              <div className={styles.subItemsTotalCont}>
+                {/*Subtotal*/}
+                <div className={styles.totalCont} data-testid="subTotal">
+                  <span className={`lightText ${styles.totalText}`}>
+                    Subtotal:
+                  </span>
+                  <strong className={styles.totalValue}>
+                    ${cart.subTotal}
+                  </strong>
+                </div>
+
+                {/*Items in cart*/}
+                <div className={styles.totalCont}>
+                  <span className={`lightText ${styles.totalText}`}>
+                    Items:
+                  </span>
+                  <strong className={styles.totalValue}>
+                    {cart.totalQuantity}
+                  </strong>
+                </div>
               </div>
 
               {/*Checkout Link*/}
