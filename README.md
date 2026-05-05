@@ -9,7 +9,7 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
-    - [Mobile and Desktop Layout](#mobile-and-desktop-layout)
+    - [Responsive Layout](#responsive-layout)
     - [Dark Theme](#dark-theme)
     - [Product](#product)
     - [Add items to shopping cart](#add-items-to-shopping-cart)
@@ -36,17 +36,30 @@ Users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
+Additional features:
+
+- Toggle the light/dark app theme
+- When the product quantity is 0 the "Decrease quantity" and "Add to cart" buttons are disabled and greyed out.
+
 ### Screenshots
 
-#### Mobile and Desktop Layout
+#### Responsive Layout
+
+This project features a responsive design, having been created with a "mobile-first" approach.
 
 1. Mobile layout
 
-    <img src="public/images/readme/layout/lightTheme/mobile.png" width="250" alt="Sneakers mobile layout - light theme">
+   1.1 Small Screens
 
-   1.1 Mobile Navigation
+      <img src="public/images/readme/layout/lightTheme/mobile.png" width="250" alt="Sneakers mobile layout - light theme">
+      
+      - Mobile Navigation
 
-    <img src="public/images/readme/layout/lightTheme/mobile_navigation.png" width="250" alt="Sneakers mobile navigation menu - light theme">
+      <img src="public/images/readme/layout/lightTheme/mobile_navigation.png" width="250" alt="Sneakers mobile navigation menu - light theme">
+
+   1.2 Tablet Screens
+
+      <img src="public/images/readme/layout/lightTheme/tablet.png" width="350" alt="Sneakers mobile navigation menu - light theme">
 
 2. Desktop layout
 
@@ -88,7 +101,7 @@ Clicking the theme toggle button allows to change the app's theme.
 
 #### Add items to shopping cart
 
-As the default behavior, the "decrease quantity" counter button and "add to cart" button are disabled and have a gray color.
+As the default behavior, the "decrease quantity" counter button and "add to cart" button are disabled and greyed out.
 
 ![Decrease quantity and add to cart buttons disabled state](public/images/readme/product/counterAddToCart/disabled.png)
 

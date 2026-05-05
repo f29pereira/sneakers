@@ -31,8 +31,10 @@ describe("Cart component", () => {
       },
     });
 
-    const subTotal = store.getState().cart.subTotal;
+    const cartState = store.getState().cart;
+    const subTotal = cartState.subTotal;
+    const totalItems = cartState.totalQuantity;
 
-    checkCart(subTotal);
+    checkCart(subTotal, totalItems);
   });
 });

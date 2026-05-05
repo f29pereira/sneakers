@@ -45,7 +45,7 @@ export default function Cart() {
             </p>
           </div>
         ) : (
-          <div>
+          <div className={styles.innerCont}>
             {/*List of Items*/}
             <div className={styles.itemsCont}>
               {cart.items.map((item, index) => (
@@ -62,21 +62,37 @@ export default function Cart() {
               ))}
             </div>
 
-            {/*Subtotal*/}
-            <div className={styles.subTotalCont} data-testid="subTotal">
-              <span className={`lightText ${styles.subTotalText}`}>
-                Subtotal:
-              </span>
-              <strong className={styles.subTotalValue}>${cart.subTotal}</strong>
-            </div>
+            <div>
+              <div className={styles.subItemsTotalCont}>
+                {/*Subtotal*/}
+                <div className={styles.totalCont} data-testid="subTotal">
+                  <span className={`lightText ${styles.totalText}`}>
+                    Subtotal:
+                  </span>
+                  <strong className={styles.totalValue}>
+                    ${cart.subTotal}
+                  </strong>
+                </div>
 
-            {/*Checkout Link*/}
-            <Link
-              href="#"
-              className={`flex-center orangeBtn ${styles.checkoutBtn}`}
-            >
-              Checkout
-            </Link>
+                {/*Items in cart*/}
+                <div className={styles.totalCont} data-testid="totalQuantity">
+                  <span className={`lightText ${styles.totalText}`}>
+                    Items:
+                  </span>
+                  <strong className={styles.totalValue}>
+                    {cart.totalQuantity}
+                  </strong>
+                </div>
+              </div>
+
+              {/*Checkout Link*/}
+              <Link
+                href="#"
+                className={`flex-center orangeBtn ${styles.checkoutBtn}`}
+              >
+                Checkout
+              </Link>
+            </div>
           </div>
         )}
       </div>

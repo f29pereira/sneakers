@@ -30,6 +30,14 @@ CSS Module for Item component
   font-weight: var(--font-weight-400);
 }
 
+/*item name: show ellipsis for the overflowing text */
+.itemName {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 13.3rem; /*212.8px*/
+  text-overflow: ellipsis;
+}
+
 /*item name, unit price, quantity and total value: font size*/
 .itemName,
 .itemPriceQuantity,
@@ -66,8 +74,39 @@ CSS Module for Item component
   color: var(--light-grayish-blue);
 }
 
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*item main container: change justify-content to flex-start and increase gap*/
+  .itemCont {
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+
+  /*item name: increase width value*/
+  .itemName {
+    width: 25rem; /*400px*/
+  }
+
+  /*remove item button: move button*/
+  .removeBtn {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+}
+
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
+  /*item main container: revert justify-content and gap*/
+  .itemCont {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /*item name: revert width value*/
+  .itemName {
+    width: 13.3rem; /*212.8px*/
+  }
+
   /*remove item button: on hover, reset opacity value*/
   .removeBtn:hover {
     opacity: 1;

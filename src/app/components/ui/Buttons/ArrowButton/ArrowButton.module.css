@@ -25,19 +25,25 @@ CSS Module for ArrowButton component
 
 /*Tablet Styles*/
 @media (min-width: 48rem /*768px*/) {
-  /*arrow icon: increase with/height*/
+  /*arrow button: increase width/height*/
+  .arrowBtn {
+    width: 2.5rem; /*40px*/
+    height: 2.5rem; /*40px*/
+  }
+
+  /*arrow icon: decrease with/height and decrease thickness*/
   .arrowIcon {
-    width: 0.5rem; /*8px*/
-    height: 1rem; /*16px*/
+    width: 0.625rem; /*10px*/
+    height: 1.125rem; /*18px*/
+    stroke-width: 3;
   }
 }
 
 /*Desktop Styles*/
 @media (min-width: 64rem /*1024px*/) {
-  /*arrow icon: increase with/height and decrease thickness*/
-  .arrowIcon {
-    width: 0.625rem; /*10px*/
-    height: 1.125rem; /*18px*/
-    stroke-width: 3;
+  /*arrow button: revert width/height*/
+  .arrowBtn {
+    width: 1.875rem; /*30px*/
+    height: 1.875rem; /*30px*/
   }
 }
