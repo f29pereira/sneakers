@@ -1,6 +1,14 @@
+import { ReactNode } from "react";
 /* ---------------------------------------------------- */
 /* Components Props types                               */
 /* ---------------------------------------------------- */
+
+/**
+ * Type for React children
+ */
+export type ReactChildrenProp = {
+  children: ReactNode;
+};
 
 /**
  * Props for the MobileNav component
@@ -132,6 +140,35 @@ export type CounterProps = {
   counter: number;
   handleDecrement: () => void;
   handleIncrement: () => void;
+};
+
+/* ---------------------------------------------------- */
+/* Reducer types                                        */
+/* ---------------------------------------------------- */
+
+/**
+ * Type for the NotificationProvider state
+ * @property message - notification message
+ */
+export type NotificationState = {
+  message: string;
+};
+
+/**
+ * Type for the NotificationContext
+ * @property notificationState - NotificationProvider state
+ * @propery notify             - function to create new notification
+ */
+export type NotificationContextType = {
+  notification: NotificationState;
+  notify: (notification: NotificationReducerAction) => void;
+};
+
+/**
+ * Type for the NotificationProvider reducer actions
+ */
+export type NotificationReducerAction = {
+  type: "add_item" | "remove_item" | "reset";
 };
 
 /* ---------------------------------------------------- */
