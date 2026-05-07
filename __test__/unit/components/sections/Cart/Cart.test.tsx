@@ -3,8 +3,23 @@ import Cart from "@/app/components/sections/Cart/Cart";
 import {
   getCartState,
   getEmptyCartState,
+  getEmptyNotification,
 } from "../../../../../fixtures/sneakers.fixture";
 import { checkEmptyCart, checkCart } from "../../../../helpers/sneakersHelper";
+import type { NotificationContextType } from "@/app/components/types";
+import NotificationProvider from "@/app/components/ui/Notification/NotificationProvider";
+
+// Mock NotificationContext
+const mockContext: NotificationContextType = {
+  notification: getEmptyNotification(),
+  notify: jest.fn(),
+  closeNotification: jest.fn(),
+};
+
+// Mock useNotification hook
+jest.mock("@/app/components/customHooks/useNotification", () => ({
+  useNotification: () => ({ ...mockContext }),
+}));
 
 /**
  * Unit testing for component: Cart
@@ -13,11 +28,16 @@ describe("Cart component", () => {
   it("renders an empty cart message, when no items are on the cart", () => {
     const emptyState = getEmptyCartState();
 
-    renderWithProviders(<Cart />, {
-      preloadedState: {
-        cart: emptyState,
+    renderWithProviders(
+      <NotificationProvider>
+        <Cart />
+      </NotificationProvider>,
+      {
+        preloadedState: {
+          cart: emptyState,
+        },
       },
-    });
+    );
 
     checkEmptyCart();
   });
