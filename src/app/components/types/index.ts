@@ -148,10 +148,12 @@ export type CounterProps = {
 
 /**
  * Type for the NotificationProvider state
- * @property message - notification message
+ * @property message  - notification message
+ * @property isSucess - is a sucess message
  */
 export type NotificationState = {
   message: string;
+  isSucess: boolean;
 };
 
 /**
@@ -161,14 +163,15 @@ export type NotificationState = {
  */
 export type NotificationContextType = {
   notification: NotificationState;
-  notify: (notification: NotificationReducerAction) => void;
+  notify: (notification: NotificationReducerAction, timeout: number) => void;
+  closeNotification: () => void;
 };
 
 /**
  * Type for the NotificationProvider reducer actions
  */
 export type NotificationReducerAction = {
-  type: "add_item" | "remove_item" | "reset";
+  type: "add_item" | "remove_item" | "error" | "reset";
 };
 
 /* ---------------------------------------------------- */
