@@ -5,6 +5,7 @@ import styles from "./AddToCart.module.css";
 import { AddToCartProps } from "@/app/components/types";
 import { useAppDispatch } from "@/app/hooks";
 import { addToCart } from "@/app/features/cart/cartSlice";
+import { useNotification } from "@/app/components/customHooks/useNotification";
 
 /**
  * Renders the add to cart button
@@ -16,11 +17,14 @@ export default function AddToCart({
 }: AddToCartProps) {
   const dispatch = useAppDispatch();
 
+  const { notify } = useNotification();
+
   /**
    * Add item to user's shopping cart and reset counter to 0
    */
   const addItem = () => {
     dispatch(addToCart(itemToAdd));
+    notify({ type: "add_item" }, 3000);
     resetCounter();
   };
 

@@ -1,0 +1,167 @@
+/*
+CSS Module for Notification component
+*/
+
+/*notification wrapper container*/
+.wrapperCont {
+  z-index: 1;
+  width: 100%;
+}
+
+/*notification container: 80% of .wrapperCont width*/
+.notifCont {
+  border: 1px;
+  border-style: solid;
+  border-radius: var(--border-radius-10);
+  width: auto;
+  padding: 1rem;
+}
+
+/*success  notification: set background and border color*/
+.success {
+  background-color: var(--pale-green);
+  border-color: var(--green);
+}
+
+/*error notification: set background and border color*/
+.error {
+  background-color: var(--pale-red);
+  border-color: var(--red);
+}
+
+/*success/error icon, message and close button container*/
+.contentCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*success  icon: color*/
+.sucessIconCont {
+  color: var(--green);
+}
+
+/*error icon: color*/
+.errorIconCont {
+  color: var(--red);
+}
+
+/*notification icons: set width/height values*/
+.sucessIconCont,
+.errorIconCont {
+  width: 1.56rem; /*25px*/
+  height: 1.56rem; /*25px*/
+}
+
+/*check circle and x circle icon*/
+.icon {
+  fill: none;
+  stroke-width: 1.5;
+  stroke: currentColor;
+}
+
+/*check circle and x circle icon: path properties*/
+.icon path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/*notification message*/
+.message {
+  font-size: var(--font-size-14);
+  text-align: center;
+  color: var(--dark-blue);
+  max-width: 12rem; /*190px*/
+}
+
+/*close notification button icon: set width/height*/
+.closeNotifBtn {
+  width: 0.875rem; /*14px*/
+  height: 0.9375rem; /*15px*/
+}
+
+/*notification icons and close button: always stay with fixed size*/
+.sucessIconCont,
+.errorIconCont {
+  flex-shrink: 0;
+}
+
+/*close button for success  notification: override CloseButton color*/
+:global(.dark-theme) .success .closeNotifBtn,
+.success .closeNotifBtn {
+  color: var(--green);
+}
+
+/*close button for error notification: override CloseButton color*/
+:global(.dark-theme) .error .closeNotifBtn,
+.error .closeNotifBtn {
+  color: var(--red);
+}
+
+/*Tablet Styles*/
+@media (min-width: 48rem /*768px*/) {
+  /*notification container: decrease to 40% of .wrapperCont width and decrease right/left padding*/
+  .notifCont {
+    padding: 1rem 1.5rem;
+  }
+
+  /*notification icons: increase width/height*/
+  .sucessIconCont,
+  .errorIconCont {
+    width: 2.1875rem; /*35px*/
+    height: 2.1875rem; /*35px*/
+  }
+
+  /*notification message: increase font-size*/
+  .message {
+    font-size: var(--font-size-base);
+  }
+
+  /*close notification button icon: increase width/height values*/
+  .closeNotifBtn {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /*close notification button icon: on hover, change color*/
+  .closeNotifBtn:hover {
+    color: var(--hover-green);
+  }
+}
+
+/*Desktop Styles*/
+@media (min-width: 64rem /*1024px*/) {
+  /*notification wrapper container: override flex-center and verticallyCenter positioning, set notification on the right side of the screen*/
+  .wrapperCont {
+    justify-content: flex-end;
+    top: -1rem; /*position above the main container*/
+    right: 2rem;
+    transform: unset;
+  }
+
+  /*notification container: set width to auto and decrease padding*/
+  .notifCont {
+    padding: 0.5rem 1.2rem;
+  }
+
+  /*success/error icon, message and close button container: increase gap value*/
+  .contentCont {
+    gap: 1.5rem;
+  }
+
+  /*notification icons: revert width/height values*/
+  .sucessIconCont,
+  .errorIconCont {
+    width: 1.875rem; /*30px*/
+    height: 1.875rem; /*30px*/
+  }
+}
+
+/*Large Desktop Styles*/
+@media (min-width: 90rem /*1440px*/) {
+  /*notification wrapper container: increase right value*/
+  .wrapperCont {
+    right: 10rem; /*value matching the right padding of the nav*/
+  }
+}
