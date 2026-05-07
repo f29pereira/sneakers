@@ -11,7 +11,7 @@ export const NotificationContext = createContext<
   NotificationContextType | undefined
 >(undefined);
 
-const initialState: NotificationState = { message: "", isSucess: false };
+const initialState: NotificationState = { message: "", isSuccess: false };
 
 const reducer = (
   state: NotificationState,
@@ -21,14 +21,14 @@ const reducer = (
     case "add_item":
       return {
         message: "Item added to cart",
-        isSucess: true,
+        isSuccess: true,
       };
     case "remove_item":
-      return { message: "Item removed from cart", isSucess: true };
+      return { message: "Item removed from cart", isSuccess: true };
     case "error":
       return {
         message: "Sorry something went wrong. Please try again",
-        isSucess: false,
+        isSuccess: false,
       };
     case "reset":
       return initialState;

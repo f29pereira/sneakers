@@ -149,11 +149,11 @@ export type CounterProps = {
 /**
  * Type for the NotificationProvider state
  * @property message  - notification message
- * @property isSucess - is a sucess message
+ * @property isSuccess - is a success  message
  */
 export type NotificationState = {
   message: string;
-  isSucess: boolean;
+  isSuccess: boolean;
 };
 
 /**
