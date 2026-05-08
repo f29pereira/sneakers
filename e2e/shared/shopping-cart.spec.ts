@@ -22,6 +22,34 @@ const addItem = async (page: Page) => {
 };
 
 /**
+ * Checks for the success notification: icon, message and close button
+ * @param page    - Playwright page object
+ * @param message - notification message
+ */
+const checkNotification = async (page: Page, message: string) => {
+  const notificationContainer = page.getByTestId("notification");
+  const successIcon = notificationContainer.getByTestId("successIcon");
+  const notificationText = notificationContainer.getByText(message);
+  const closeBtn = notificationContainer.getByRole("button", {
+    name: "Close notification",
+  });
+
+  await expect(successIcon).toBeVisible();
+  await expect(notificationText).toBeVisible();
+  await expect(closeBtn).toBeVisible();
+};
+
+/**
+ * Checks if the notification is closed after given timeout
+ * @param timeoutValue - timeout in milliseconds
+ */
+const isNotificationClosed = async (page: Page, timeoutValue: number) => {
+  await expect(page.getByTestId("notification")).not.toBeVisible({
+    timeout: timeoutValue,
+  });
+};
+
+/**
  * End to End testing: user shopping cart
  */
 test.describe("User shopping cart", () => {
@@ -102,6 +130,32 @@ test.describe("User shopping cart", () => {
     await expect(checkout).toBeVisible();
   });
 
+  test("show success notification, when adding item to the cart, which disappears automatically after 3 seconds", async ({
+    page,
+  }) => {
+    await addItem(page);
+
+    await openShoppingCart(page);
+
+    await checkNotification(page, "Item added to cart");
+
+    await isNotificationClosed(page, 4000);
+  });
+
+  test("show success notification, when adding item to the cart, which is closed by the user", async ({
+    page,
+  }) => {
+    await addItem(page);
+
+    await openShoppingCart(page);
+
+    await checkNotification(page, "Item added to cart");
+
+    await page.getByRole("button", { name: "Close notification" }).click();
+
+    await isNotificationClosed(page, 4000);
+  });
+
   test("remove item from the cart", async ({ page }) => {
     await addItem(page);
 
@@ -111,5 +165,20 @@ test.describe("User shopping cart", () => {
     await page.getByRole("button", { name: "Remove Item" }).click();
 
     await expect(page.getByText("Your cart is empty.")).toBeVisible();
+  });
+
+  test("show success notification, when removing item to the cart", async ({
+    page,
+  }) => {
+    await addItem(page);
+
+    await openShoppingCart(page);
+
+    // Remove item
+    await page.getByRole("button", { name: "Remove Item" }).click();
+
+    await checkNotification(page, "Item removed from cart");
+
+    await isNotificationClosed(page, 6000);
   });
 });

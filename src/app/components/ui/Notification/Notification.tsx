@@ -20,6 +20,7 @@ export default function Notification() {
       className={`flex-center verticallyCenter ${styles.wrapperCont}`}
       aria-live="assertive"
       aria-atomic="true"
+      data-testid="notification"
     >
       {notification.message !== "" ? (
         <div
