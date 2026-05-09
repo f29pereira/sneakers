@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { getGalleryButtons, getGalleryImages } from "../helpers/mobileHelpers";
+import { getGalleryButtons } from "../helpers/mobileHelpers";
+import { getGalleryImages } from "../helpers/utilHelper";
 
 /**
  * End to End testing: mobile product gallery
@@ -12,7 +13,10 @@ test.describe("Mobile product gallery", () => {
   test("browse the gallery using the previous and next buttons", async ({
     page,
   }) => {
-    const { firstImage, secondImage } = getGalleryImages(page);
+    const { firstImage, secondImage } = getGalleryImages(
+      page,
+      "mobile-gallery",
+    );
 
     const { prevImageBtn, nextImageBtn } = getGalleryButtons(page);
 
@@ -37,7 +41,7 @@ test.describe("Mobile product gallery", () => {
   test("show the last image when clicking the previous button on the first image", async ({
     page,
   }) => {
-    const { firstImage, lastImage } = getGalleryImages(page);
+    const { firstImage, lastImage } = getGalleryImages(page, "mobile-gallery");
 
     const { prevImageBtn } = getGalleryButtons(page);
 

@@ -1,10 +1,7 @@
 // Reusable helper functions for mobile only E2E tests
 
 import { Page, expect } from "@playwright/test";
-import {
-  getNavLinksDesc,
-  getProductImagesData,
-} from "../../fixtures/sneakers.fixture";
+import { getNavLinksDesc } from "../../fixtures/sneakers.fixture";
 
 /**
  * Opens the mobile navigation
@@ -47,26 +44,6 @@ export const expectMobileNavHidden = async (page: Page) => {
 };
 
 /**
- * Returns the mobile gallery images
- */
-export const getGalleryImages = (page: Page) => {
-  const altList = getImagesAltText();
-
-  const itemContainer = page.getByTestId("mobile-gallery");
-  const firstImage = itemContainer.getByRole("img", {
-    name: altList[0],
-  });
-  const secondImage = itemContainer.getByRole("img", {
-    name: altList[1],
-  });
-  const lastImage = itemContainer.getByRole("img", {
-    name: altList[3],
-  });
-
-  return { firstImage, secondImage, lastImage };
-};
-
-/**
  * Returns the mobile gallery buttons
  */
 export const getGalleryButtons = (page: Page) => {
@@ -95,13 +72,4 @@ const getLinks = (page: Page) => {
   const contactLink = page.getByRole("link", { name: links.contactLink });
 
   return { collectionsLink, menLink, womanLink, aboutLink, contactLink };
-};
-
-/**
- * Returns a list with the alternative text for the product images
- */
-const getImagesAltText = (): string[] => {
-  const images = getProductImagesData().map((image) => image.imageDescription);
-
-  return images;
 };
