@@ -21,23 +21,6 @@ export const closeMobileNav = async (page: Page) => {
 };
 
 /**
- * Returns the mobile navigation links
- */
-export const getLinks = (page: Page) => {
-  const links = getNavLinksDesc();
-
-  const collectionsLink = page.getByRole("link", {
-    name: links.collectionsLink,
-  });
-  const menLink = page.getByRole("link", { name: links.menLink });
-  const womanLink = page.getByRole("link", { name: links.womanLink });
-  const aboutLink = page.getByRole("link", { name: links.aboutLink });
-  const contactLink = page.getByRole("link", { name: links.contactLink });
-
-  return { collectionsLink, menLink, womanLink, aboutLink, contactLink };
-};
-
-/**
  * Asserts that the mobile navigation is visible
  */
 export const expectMobileNavVisible = async (page: Page) => {
@@ -61,4 +44,64 @@ export const expectMobileNavHidden = async (page: Page) => {
   for (const link of links) {
     await expect(link).toBeHidden();
   }
+};
+
+/**
+ * Returns the mobile gallery images
+ */
+export const getGalleryImages = (page: Page) => {
+  const altList = getImagesAltText();
+
+  const itemContainer = page.getByTestId("mobile-gallery");
+  const firstImage = itemContainer.getByRole("img", {
+    name: altList[0],
+  });
+  const secondImage = itemContainer.getByRole("img", {
+    name: altList[1],
+  });
+  const lastImage = itemContainer.getByRole("img", {
+    name: altList[3],
+  });
+
+  return { firstImage, secondImage, lastImage };
+};
+
+/**
+ * Returns the mobile gallery buttons
+ */
+export const getGalleryButtons = (page: Page) => {
+  const prevImageBtn = page.getByRole("button", {
+    name: "Previous Product Image",
+  });
+  const nextImageBtn = page.getByRole("button", {
+    name: "Next Product Image",
+  });
+
+  return { prevImageBtn, nextImageBtn };
+};
+
+/**
+ * Returns the mobile navigation links
+ */
+const getLinks = (page: Page) => {
+  const links = getNavLinksDesc();
+
+  const collectionsLink = page.getByRole("link", {
+    name: links.collectionsLink,
+  });
+  const menLink = page.getByRole("link", { name: links.menLink });
+  const womanLink = page.getByRole("link", { name: links.womanLink });
+  const aboutLink = page.getByRole("link", { name: links.aboutLink });
+  const contactLink = page.getByRole("link", { name: links.contactLink });
+
+  return { collectionsLink, menLink, womanLink, aboutLink, contactLink };
+};
+
+/**
+ * Returns a list with the alternative text for the product images
+ */
+const getImagesAltText = (): string[] => {
+  const images = getProductImagesData().map((image) => image.imageDescription);
+
+  return images;
 };
