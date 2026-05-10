@@ -2,11 +2,26 @@ import { screen } from "@testing-library/react";
 import {
   getEmptyCartState,
   getProductData,
+  getEmptyNotification,
 } from "../../../../../fixtures/sneakers.fixture";
 import { renderWithProviders } from "../../../../helpers/reduxHelper";
 import Product from "@/app/components/sections/Product/Product";
 import userEvent from "@testing-library/user-event";
 import type { AppStore } from "@/app/lib/store";
+import type { NotificationContextType } from "@/app/components/types";
+import NotificationProvider from "@/app/components/ui/Notification/NotificationProvider";
+
+// Mock NotificationContext
+const mockContext: NotificationContextType = {
+  notification: getEmptyNotification(),
+  notify: jest.fn(),
+  closeNotification: jest.fn(),
+};
+
+// Mock useNotification hook
+jest.mock("@/app/components/customHooks/useNotification", () => ({
+  useNotification: () => ({ ...mockContext }),
+}));
 
 /**
  * Integration testing for component: Product
@@ -38,11 +53,16 @@ describe("Product component", () => {
     const emptyState = getEmptyCartState();
     const product = getProductData();
 
-    const rendered = renderWithProviders(<Product product={product} />, {
-      preloadedState: {
-        cart: emptyState,
+    const rendered = renderWithProviders(
+      <NotificationProvider>
+        <Product product={product} />
+      </NotificationProvider>,
+      {
+        preloadedState: {
+          cart: emptyState,
+        },
       },
-    });
+    );
 
     store = rendered.store;
   });

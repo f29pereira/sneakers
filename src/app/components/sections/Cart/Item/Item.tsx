@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getLineTotal } from "@/app/lib/utils";
 import { useAppDispatch } from "@/app/hooks";
 import { removeFromCart } from "@/app/features/cart/cartSlice";
+import { useNotification } from "@/app/components/customHooks/useNotification";
 
 /**
  * Renders an item from the user's cart.
@@ -31,6 +32,8 @@ export default function Item({
 
   const dispatch = useAppDispatch();
 
+  const { notify } = useNotification();
+
   /**
    * Remove item from the user's cart
    */
@@ -42,6 +45,7 @@ export default function Item({
     };
 
     dispatch(removeFromCart(itemToRemove));
+    notify({ type: "remove_item" }, 5000);
   };
 
   return (

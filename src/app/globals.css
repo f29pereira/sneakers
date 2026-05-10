@@ -15,6 +15,7 @@ Global CSS styles
   --font-weight-400: 400;
   --font-weight-700: 700;
   /*Size*/
+  --font-size-15: 0.9375rem; /*15px*/
   --font-size-base: 1rem;
 
   /*Colors:*/
@@ -22,6 +23,15 @@ Global CSS styles
   --orange: hsl(26, 100%, 55%);
   --pale-orange: hsl(25, 100%, 94%);
   --hover-orange: hsl(26, 90%, 70%);
+
+  /*Green*/
+  --green: hsl(116, 76%, 34%);
+  --pale-green: hsl(127, 56%, 94%);
+  --hover-green: hsl(116, 66%, 44%);
+
+  /*Red*/
+  --red: hsl(0, 100%, 55%);
+  --pale-red: hsl(0, 100%, 94%);
 
   /*Neutral*/
   --dark-blue: hsl(220, 13%, 13%);
@@ -56,7 +66,9 @@ body {
   background-color: var(--white);
 }
 
+/*main page container*/
 .pageCont {
+  position: relative;
   flex: 1;
 }
 

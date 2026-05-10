@@ -38,6 +38,13 @@ export default function ProductActions({ gallery, details }: Product) {
     }));
   };
 
+  /**
+   * Reset counter to 0
+   */
+  const resetCounter = () => {
+    setItem((prev) => ({ ...prev, quantity: 0 }));
+  };
+
   return (
     <div className={styles.counterAddToCartCont}>
       <div className={styles.counterCont}>
@@ -49,7 +56,11 @@ export default function ProductActions({ gallery, details }: Product) {
       </div>
 
       <div className={styles.addToCartCont}>
-        <AddToCart counter={item.quantity} itemToAdd={item} />
+        <AddToCart
+          counter={item.quantity}
+          itemToAdd={item}
+          resetCounter={resetCounter}
+        />
       </div>
     </div>
   );

@@ -261,3 +261,19 @@ export const checkCart = (subTotal: number, totalItems: number) => {
   expect(totalItemsValue).toBeVisible();
   expect(checkOut).toBeVisible();
 };
+
+/**
+ * Helper function: checks the visibility of the following elements, in the Notification component:
+ * - Success icon
+ * - Message
+ * - Close button
+ */
+export const checkNotification = (message: string) => {
+  const successIcon = screen.getByTestId("successIcon");
+  const notificationText = screen.getByText(message);
+  const closeBtn = screen.getByRole("button", { name: "Close notification" });
+
+  expect(successIcon).toBeVisible();
+  expect(notificationText).toBeVisible();
+  expect(closeBtn).toBeVisible();
+};
