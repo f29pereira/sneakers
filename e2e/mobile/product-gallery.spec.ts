@@ -1,14 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { getProductImagesData } from "../../fixtures/sneakers.fixture";
-
-/**
- * Returns a list with alt text for the product images
- */
-const getImagesAlt = (): string[] => {
-  const images = getProductImagesData().map((image) => image.imageDescription);
-
-  return images;
-};
+import { getGalleryButtons } from "../helpers/mobileHelpers";
+import { getGalleryImages } from "../helpers/utilHelper";
 
 /**
  * End to End testing: mobile product gallery
@@ -18,27 +10,17 @@ test.describe("Mobile product gallery", () => {
     await page.goto("/"); // baseURL
   });
 
-  test("browse the gallery using the prev/next buttons", async ({ page }) => {
-    const altList = getImagesAlt();
+  test("browse the gallery using the previous and next buttons", async ({
+    page,
+  }) => {
+    const { firstImage, secondImage } = getGalleryImages(
+      page,
+      "mobile-gallery",
+    );
 
-    const itemContainer = page.getByTestId("mobile-gallery");
-    const firstImage = itemContainer.getByRole("img", {
-      name: altList[0],
-    });
-    const secondImage = itemContainer.getByRole("img", {
-      name: altList[1],
-    });
-    const fourthImage = itemContainer.getByRole("img", {
-      name: altList[3],
-    });
+    const { prevImageBtn, nextImageBtn } = getGalleryButtons(page);
 
-    const prevImageBtn = page.getByRole("button", {
-      name: "Previous Product Image",
-    });
-    const nextImageBtn = page.getByRole("button", {
-      name: "Next Product Image",
-    });
-
+    // Show first image
     await expect(firstImage).toBeVisible();
 
     // Click the "Next" button
@@ -54,12 +36,23 @@ test.describe("Mobile product gallery", () => {
     // Show first image again
     await expect(firstImage).toBeVisible();
     await expect(secondImage).toBeHidden();
+  });
+
+  test("show the last image when clicking the previous button on the first image", async ({
+    page,
+  }) => {
+    const { firstImage, lastImage } = getGalleryImages(page, "mobile-gallery");
+
+    const { prevImageBtn } = getGalleryButtons(page);
+
+    // Show first image
+    await expect(firstImage).toBeVisible();
 
     // Click the "Previous" button
     await prevImageBtn.click();
 
     // Show last image
-    await expect(fourthImage).toBeVisible();
+    await expect(lastImage).toBeVisible();
     await expect(firstImage).toBeHidden();
   });
 });

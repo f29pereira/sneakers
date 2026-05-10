@@ -120,7 +120,10 @@ export default function Gallery({ gallery }: GalleryProps) {
       </div>
 
       {/*Desktop: Thumbnail list*/}
-      <div className={styles.desktopThumbnailCont}>
+      <div
+        className={styles.desktopThumbnailCont}
+        data-testid="desktop-thumbnails"
+      >
         <ThumbnailList
           gallery={gallery}
           selectedImg={currentImg}

@@ -1,6 +1,14 @@
+import { ReactNode } from "react";
 /* ---------------------------------------------------- */
 /* Components Props types                               */
 /* ---------------------------------------------------- */
+
+/**
+ * Type for React children
+ */
+export type ReactChildrenProp = {
+  children: ReactNode;
+};
 
 /**
  * Props for the MobileNav component
@@ -112,12 +120,14 @@ export type CloseButtonProps = {
 
 /**
  * Props for the AddToCart component
- * @property counter   - current counter value
- * @property itemToAdd - product added to cart
+ * @property counter      - current counter value
+ * @property itemToAdd    - product added to cart
+ * @property resetCoutner - function to reset the counter to 0
  */
 export type AddToCartProps = {
   counter: number;
   itemToAdd: CartItem;
+  resetCounter: () => void;
 };
 
 /**
@@ -130,6 +140,38 @@ export type CounterProps = {
   counter: number;
   handleDecrement: () => void;
   handleIncrement: () => void;
+};
+
+/* ---------------------------------------------------- */
+/* Reducer types                                        */
+/* ---------------------------------------------------- */
+
+/**
+ * Type for the NotificationProvider state
+ * @property message  - notification message
+ * @property isSuccess - is a success  message
+ */
+export type NotificationState = {
+  message: string;
+  isSuccess: boolean;
+};
+
+/**
+ * Type for the NotificationContext
+ * @property notificationState - NotificationProvider state
+ * @propery notify             - function to create new notification
+ */
+export type NotificationContextType = {
+  notification: NotificationState;
+  notify: (notification: NotificationReducerAction, timeout: number) => void;
+  closeNotification: () => void;
+};
+
+/**
+ * Type for the NotificationProvider reducer actions
+ */
+export type NotificationReducerAction = {
+  type: "add_item" | "remove_item" | "error" | "reset";
 };
 
 /* ---------------------------------------------------- */

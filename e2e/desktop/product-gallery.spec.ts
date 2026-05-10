@@ -1,78 +1,11 @@
-import { test, expect, Page } from "@playwright/test";
-import { getProductImagesData } from "../../fixtures/sneakers.fixture";
-
-/**
- * Returns a list with alt text for the product images and thumbnails
- */
-const getImagesAlt = () => {
-  const images = getProductImagesData().map((image) => ({
-    image: image.imageDescription,
-    thumbnail: image.thumbnailDescription,
-  }));
-
-  return images;
-};
-
-/**
- * Open the modal gallery
- */
-const openModalGallery = async (page: Page) => {
-  await page.getByTestId("desktop-img").click();
-};
-
-/**
- * Returns modal gallery elements
- */
-const getModalGalleryElements = (page: Page) => {
-  const images = getImagesAlt();
-
-  const modalContainer = page.getByTestId("modal-gallery");
-
-  const closeBtn = page.getByRole("button", {
-    name: /Close/,
-  });
-
-  const prevBtnContainer = page.getByTestId("modal-prev-btn");
-  const prevImageBtn = prevBtnContainer.getByRole("button", {
-    name: "Previous Product Image",
-  });
-
-  const nextBtnContainer = page.getByTestId("modal-next-btn");
-  const nextImageBtn = nextBtnContainer.getByRole("button", {
-    name: "Next Product Image",
-  });
-
-  const galleryContainer = page.getByTestId("modal-img");
-  const firstImage = galleryContainer.getByRole("img", {
-    name: images[0].image,
-  });
-  const secondImage = galleryContainer.getByRole("img", {
-    name: images[1].image,
-  });
-  const fourthImage = galleryContainer.getByRole("img", {
-    name: images[3].image,
-  });
-
-  const thumbnailsContainer = page.getByTestId("modal-thumbnails");
-  const firstThumbnail = thumbnailsContainer.getByRole("button", {
-    name: images[0].thumbnail,
-  });
-  const secondThumbnail = thumbnailsContainer.getByRole("button", {
-    name: images[1].thumbnail,
-  });
-
-  return {
-    modalContainer,
-    closeBtn,
-    nextImageBtn,
-    prevImageBtn,
-    firstImage,
-    secondImage,
-    fourthImage,
-    firstThumbnail,
-    secondThumbnail,
-  };
-};
+import { test, expect } from "@playwright/test";
+import {
+  closeModalGallery,
+  expectModalGalleryHidden,
+  getGalleryElements,
+  getModalGalleryElements,
+  openModalGallery,
+} from "../helpers/desktopHelper";
 
 /**
  * End to End testing: desktop product gallery and modal gallery
@@ -83,22 +16,8 @@ test.describe("Desktop product gallery", () => {
   });
 
   test("browse the gallery using the thumbnail list", async ({ page }) => {
-    const images = getImagesAlt();
-
-    const imgContainer = page.getByTestId("desktop-img");
-    const firstImage = imgContainer.getByRole("img", {
-      name: images[0].image,
-    });
-    const secondImage = imgContainer.getByRole("img", {
-      name: images[1].image,
-    });
-
-    const firstThumbnail = page.getByRole("button", {
-      name: images[0].thumbnail,
-    });
-    const secondThumbnail = page.getByRole("button", {
-      name: images[1].thumbnail,
-    });
+    const { firstImage, secondImage, firstThumbnail, secondThumbnail } =
+      getGalleryElements(page);
 
     // Default image
     await expect(firstImage).toBeVisible();
@@ -123,7 +42,7 @@ test.describe("Desktop product gallery", () => {
   }) => {
     await openModalGallery(page);
 
-    const { nextImageBtn, prevImageBtn, firstImage, secondImage, fourthImage } =
+    const { nextImageBtn, prevImageBtn, firstImage, secondImage, lastImage } =
       getModalGalleryElements(page);
 
     // Default image
@@ -148,7 +67,7 @@ test.describe("Desktop product gallery", () => {
     await prevImageBtn.click();
 
     // Show last image
-    await expect(fourthImage).toBeVisible();
+    await expect(lastImage).toBeVisible();
     await expect(firstImage).toBeHidden();
   });
 
@@ -183,12 +102,9 @@ test.describe("Desktop product gallery", () => {
   }) => {
     await openModalGallery(page);
 
-    const { modalContainer, closeBtn } = getModalGalleryElements(page);
+    await closeModalGallery(page);
 
-    // Close modal
-    await closeBtn.click();
-
-    await expect(modalContainer).toBeHidden();
+    await expectModalGalleryHidden(page);
   });
 
   test("close the modal gallery by pressing the escape key", async ({
@@ -196,11 +112,9 @@ test.describe("Desktop product gallery", () => {
   }) => {
     await openModalGallery(page);
 
-    const { modalContainer } = getModalGalleryElements(page);
-
-    // Close modal
+    // Press the "Escape" key
     await page.keyboard.press("Escape");
 
-    await expect(modalContainer).toBeHidden();
+    await expectModalGalleryHidden(page);
   });
 });

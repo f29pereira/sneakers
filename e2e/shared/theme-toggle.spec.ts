@@ -1,11 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
-
-/**
- * Click the theme toggle button
- */
-const clickThemeToggle = async (page: Page, btnName: string) => {
-  await page.getByRole("button", { name: btnName }).click();
-};
+import { clickThemeToggle } from "../helpers/sharedHelper";
 
 /**
  * End to End testing: app theme toggle

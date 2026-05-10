@@ -1,29 +1,10 @@
-import { test, devices, expect, Page } from "@playwright/test";
-import { getNavLinksDesc } from "../../fixtures/sneakers.fixture";
-
-/**
- * Open mobile navigation
- */
-const openNavigation = async (page: Page) => {
-  await page.getByRole("button", { name: "Open Menu" }).click();
-};
-
-/**
- * Returns mobile navigation links
- */
-const getLinks = (page: Page) => {
-  const links = getNavLinksDesc();
-
-  const collectionsLink = page.getByRole("link", {
-    name: links.collectionsLink,
-  });
-  const menLink = page.getByRole("link", { name: links.menLink });
-  const womanLink = page.getByRole("link", { name: links.womanLink });
-  const aboutLink = page.getByRole("link", { name: links.aboutLink });
-  const contactLink = page.getByRole("link", { name: links.contactLink });
-
-  return { collectionsLink, menLink, womanLink, aboutLink, contactLink };
-};
+import { test } from "@playwright/test";
+import {
+  openMobileNav,
+  closeMobileNav,
+  expectMobileNavVisible,
+  expectMobileNavHidden,
+} from "../helpers/mobileHelpers";
 
 /**
  * End to End testing: mobile navigation
@@ -34,36 +15,16 @@ test.describe("Mobile navigation", () => {
   });
 
   test("open the mobile navigation", async ({ page }) => {
-    await openNavigation(page);
+    await openMobileNav(page);
 
-    const closeBtn = page.getByRole("button", { name: "Close Menu" });
-
-    const { collectionsLink, menLink, womanLink, aboutLink, contactLink } =
-      getLinks(page);
-
-    await expect(closeBtn).toBeVisible();
-    await expect(collectionsLink).toBeVisible();
-    await expect(menLink).toBeVisible();
-    await expect(womanLink).toBeVisible();
-    await expect(aboutLink).toBeVisible();
-    await expect(contactLink).toBeVisible();
+    await expectMobileNavVisible(page);
   });
 
   test("close the mobile navigation", async ({ page }) => {
-    await openNavigation(page);
+    await openMobileNav(page);
 
-    // Close navigation
-    const closeBtn = page.getByRole("button", { name: "Close Menu" });
-    await closeBtn.click();
+    await closeMobileNav(page);
 
-    const { collectionsLink, menLink, womanLink, aboutLink, contactLink } =
-      getLinks(page);
-
-    await expect(closeBtn).toBeHidden();
-    await expect(collectionsLink).toBeHidden();
-    await expect(menLink).toBeHidden();
-    await expect(womanLink).toBeHidden();
-    await expect(aboutLink).toBeHidden();
-    await expect(contactLink).toBeHidden();
+    await expectMobileNavHidden(page);
   });
 });

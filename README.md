@@ -2,7 +2,7 @@
 
 This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6).
 
-<img src="public/images/readme/layout/lightTheme/desktop.png" width="750" alt="Sneakers desktop layout">
+<img src="public/images/readme/sneakers.png" width="750" alt="Sneakers desktop layout">
 
 ## Table of contents
 
@@ -20,7 +20,9 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
     - [E2E Tests](#e2e-tests)
     - [Accessibility Tests](#accessibility-tests)
   - [Links](#links)
-  - [Built with](#built-with)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
 - [Author](#author)
 
 ## Overview
@@ -39,13 +41,14 @@ Users should be able to:
 Additional features:
 
 - Toggle the light/dark app theme
-- When the product quantity is 0 the "Decrease quantity" and "Add to cart" buttons are disabled and greyed out.
+- When the product quantity is 0 the "Decrease quantity" and "Add to cart" buttons are disabled and greyed out
+- Show toast notifications when successfully adding or removing an item from the cart
 
 ### Screenshots
 
 #### Responsive Layout
 
-This project features a responsive design, having been created with a "mobile-first" approach.
+This project features a responsive design, built with with a "mobile-first" approach.
 
 1. Mobile layout
 
@@ -67,7 +70,7 @@ This project features a responsive design, having been created with a "mobile-fi
 
 #### Dark Theme
 
-Clicking the theme toggle button allows to change the app's theme.
+Clicking the theme toggle button allows the users to change the app's theme.
 
 1. Mobile layout
 
@@ -105,9 +108,19 @@ As the default behavior, the "decrease quantity" counter button and "add to cart
 
 ![Decrease quantity and add to cart buttons disabled state](public/images/readme/product/counterAddToCart/disabled.png)
 
-To be able to add items to the shopping cart, the user needs to click the "increase quantity" button and then the "Add to cart" button.
+To be able to add items to the shopping cart, the user must click the "increase quantity" button and then the "Add to cart" button.
 
 ![Counter buttons and add to cart button enabled state](public/images/readme/product/counterAddToCart/enabled.png)
+
+After adding an item to the shopping cart, a toast notification will appear. After 3 seconds, this notification will automatically disappear, or the user can close it by clicking the "Close Notification" button.
+
+- Mobile Layout: notification appears in the center of the screen.
+
+  <img src="public/images/readme/notifications/addItem/mobile.png" width="250" alt="Add item notification - mobile screens">
+
+- Desktop Layout: notification appears below the shopping cart icon.
+
+  <img src="public/images/readme/notifications/addItem/desktop.png" width="750" alt="Add item notification - desktop screens">
 
 #### Shopping cart
 
@@ -149,9 +162,16 @@ To be able to add items to the shopping cart, the user needs to click the "incre
 
    To remove an item, the user needs to click the "Remove item" button.
 
-   1.1 Light theme
-
    ![Remove item - light theme](public/images/readme/shoppingCart/lightTheme/remove_item.png)
+
+   After removing an item from the shopping cart, a toast notification will appear. After 5 seconds, this notification will automatically disappear, or the user can close it by clicking the "Close Notification" button.
+   - Mobile Layout: notification appears in the center of the screen.
+
+     <img src="public/images/readme/notifications/removeItem/mobile.png" width="250" alt="Remove item notification - mobile screens">
+
+   - Desktop Layout: notification appears below the shopping cart icon.
+
+     <img src="public/images/readme/notifications/removeItem/desktop.png" width="750" alt="Remove item notification - desktop screens">
 
 #### Hover states
 
@@ -160,6 +180,16 @@ To be able to add items to the shopping cart, the user needs to click the "incre
 - Links
 
   ![Page links hover state](public/images/readme/hover/links/ligthTheme/page.png)
+
+- Theme toggle
+
+  Light Theme
+
+  ![Theme toggle hover state - light theme](public/images/readme/hover/links/ligthTheme/theme_toggle.png)
+
+  Dark Theme
+
+  ![Theme toggle hover state - dark theme](public/images/readme/hover/links/darkTheme/theme_toggle.png)
 
 - User shopping cart icon
 
@@ -243,26 +273,27 @@ The E2E tests cover:
 - Browsing the product gallery using the thumbnail list
 - Browsing the modal product gallery using the next/previous buttons or thumbnail list
 - Closing the modal product gallery by pressing the close button or escape key
-- Toggling the light and dark app theme
 
 3. All viewport tests:
 
 - Displaying a message when the cart is empty
-- Adding an item to cart
-- Removing an item from cart
+- Adding an item to cart and displaying a notification
+- Removing an item from cart and displaying a notification
+- Toggling the light and dark app theme
 
 #### **Accessibility Tests**
 
 1. Automated Tests
 
-- Run Lighthouse audits in Chrome and Edge DevTools (98 score).
+- Run Lighthouse audits in Chrome and Edge DevTools (100 score).
 
 2. Manual Tests
 
 - Screen Reader testing with NVDA:
   - Checked that headings (h1, h2, h3) are announced correctly.
   - Checked that all section content is announced correctly.
-  - Checked that the buttons: "Previous Product Image", "Next Product Image", thumbnail items, "Decrease quantity", "Increase quantity", "Add to cart", "Remove Item" and "Checkout" are read when focused.
+  - Checked that all buttons are read when focused.
+  - Checked that all notifications are announced assertively when they appear on screen.
 
 ### Links
 
@@ -280,7 +311,7 @@ The E2E tests cover:
 - [Next.js](https://nextjs.org/) - React framework
 - [React](https://reactjs.org/) - JavaScript library
 - [React Developer Tools](https://react.dev/learn/react-developer-tools) - browser extension
-- [clsx](https://www.npmjs.com/package/clsx) - Utility for constructing className strings conditionally.
+- [clsx](https://www.npmjs.com/package/clsx) - Utility for constructing className strings conditionally
 - [focus-trap-react](https://www.npmjs.com/package/focus-trap-react) - React component that traps focus
 - [Redux Toolkit](https://redux-toolkit.js.org/) - Redux state management
 - [Redux DevTools](https://github.com/reduxjs/redux-devtools) - browser extension
@@ -289,6 +320,14 @@ The E2E tests cover:
 - [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of the React Testing Library
 - [Playwright](https://playwright.dev/) - automation library for end-to-end testing
 - [NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/) - open-source screen reader for Windows
+
+### What I learned
+
+- Use the focus-trap-react package to capture focus on the mobile navigation and desktop lightbox gallery
+- Use the clsx package to easily manage the components classnames, like the Add To Cart component that changes the button color based on the product counter value
+- Use React's useReducer hook to manage the app notifications when adding/removing items from the cart
+- Create E2E tests using Playwright for mobile/desktop only and all screens tests
+- Create Git Actions jobs for unit/integration and E2E tests to run automatically during pull requests on the master branch
 
 ## Author
 

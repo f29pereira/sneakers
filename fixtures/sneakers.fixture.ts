@@ -4,6 +4,7 @@ import type {
   CartItem,
   CartState,
   Product,
+  NotificationState,
 } from "@/app/components/types";
 
 // Jest CI job - uses dev server, Playwright CI job - uses production server
@@ -118,4 +119,18 @@ export const getCartState = (): CartState => {
   const item = getCartItemData();
 
   return { items: [item], totalQuantity: 3, subTotal: 125 };
+};
+
+/**
+ * Mocked data: empty notification
+ */
+export const getEmptyNotification = (): NotificationState => {
+  return { message: "", isSuccess: false };
+};
+
+/**
+ * Mocked data: success notification
+ */
+export const getSuccessNotification = (): NotificationState => {
+  return { message: "Item added to cart", isSuccess: true };
 };

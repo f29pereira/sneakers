@@ -11,6 +11,7 @@ import { defineConfig, devices } from "@playwright/test";
 const desktopOnly = "desktop/**/*.spec.ts";
 const mobileOnly = "mobile/**/*.spec.ts";
 const shared = "shared/**/*.spec.ts";
+const helpers = "helpers/**/*.ts";
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -106,6 +107,9 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+
+  /*Files matching one of these patterns are not executed as test files.*/
+  testIgnore: helpers,
 
   /* Run your local dev server before starting the tests */
   webServer: {
