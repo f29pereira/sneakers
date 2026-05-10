@@ -241,6 +241,10 @@ After adding an item to the shopping cart, a toast notification will appear. Aft
 
   ![Shopping cart checkout button hover state](public/images/readme/hover/shoppingCart/lightTheme/checkout_btn.png)
 
+5. Notification - Close button
+
+   ![Close notification button hover state](public/images/readme/hover/notification/notification.png)
+
 ### Tests
 
 #### **Unit and Integration Tests**
